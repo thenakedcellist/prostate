@@ -9,7 +9,8 @@ import shutil
 # %% define random file creator and random file sampler
 
 # function to create sequential dummy files
-def file_create(files_list):
+def file_create(files_list, source):
+    os.chdir(source)  # set directory
     for item in files_list:
         with open("{}.csv".format(item), "w", newline='') as f:
             writer = csv.writer(f)
@@ -52,10 +53,8 @@ root_path = r'H:\MSc\project\random_file_sampler'
 # %% run programme
 
 # create dummy files in specified directories
-os.chdir(source_a)  # set directory
-file_create(files_list_a)  # create dummy files in directory
-os.chdir(source_b)  # set directory
-file_create(files_list_b)  # create dummy files in directory
+file_create(files_list_a, source_a)
+file_create(files_list_b, source_b)
 
 # randomly sample x files from each source folder for y iterations
 file_sample(5, 2)
