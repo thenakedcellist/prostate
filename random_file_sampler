@@ -22,8 +22,8 @@ def file_sample(sample_number, iterations):
     dir_list = list(range(1, iterations+1))  # exclusive range
     dir_list=list( map(str, dir_list))
     for i in dir_list:
-        os.mkdir(os.path.join(root_path, 'test_target_' + i))  # make new directory for iteration
-        dest = os.path.join(root_path, 'test_target_' + i)
+        os.mkdir(os.path.join(root_path, str(sample_number) + ' sample_test_target_' + i))  # make new directory for iteration
+        dest = os.path.join(root_path, str(sample_number) + ' sample_test_target_' + i)
         # select x random files from source A
         random_file=random.sample(os.listdir(source_a), sample_number)
         for k in random_file:
@@ -51,10 +51,11 @@ root_path = r'H:\MSc\project\random_file_sampler'
 
 
 # %% run programme
-
+"""
 # create dummy files in specified directories
 file_create(files_list_a, source_a)
 file_create(files_list_b, source_b)
-
+"""
 # randomly sample x files from each source folder for y iterations
 file_sample(5, 2)
+print('sampling complete')
