@@ -9,8 +9,8 @@ from sklearn import preprocessing
 # %% read files
 
 # read data in csv format
-xdata = np.genfromtxt(r'H:\MSc\project\yvette_data_02-09-20\xwavehw.csv', delimiter=',')
-ydata = np.genfromtxt(r'H:\MSc\project\yvette_data_02-09-20\High Wavenumbers for Dan.csv', delimiter=',', usecols=np.arange(1, 1057))
+xdata = np.genfromtxt(r'H:\MSc\project\data\yvette_02-09-20\xwavehw.csv', delimiter=',')
+ydata = np.genfromtxt(r'H:\MSc\project\data\yvette_02-09-20\High Wavenumbers for Dan.csv', delimiter=',', usecols=np.arange(1, 1057))
 
 # normalise data to unity - numpy method
 nydata = np.apply_along_axis(lambda x: x/np.linalg.norm(x), 1, ydata)
@@ -68,7 +68,7 @@ print('Training complete')
 
 # TODO edit this so that appended zero array is correct
 # load colour labels
-target = np.genfromtxt(r'H:\MSc\project\yvette_data_02-09-20\High Wavenumbers for Dan.csv', delimiter=',', usecols=(0), dtype=str)
+target = np.genfromtxt(r'H:\MSc\project\data\yvette_02-09-20\High Wavenumbers for Dan.csv', delimiter=',', usecols=(0), dtype=str)
 """
 t = np.zeros(len(target), dtype=int)
 t[target == 'R'] = 0
