@@ -67,7 +67,7 @@ print('Training complete')
 # %% setup colour and labels
 
 # TODO edit this so that appended zero array is correct
-# load colour labels
+# load colour labels - this is a hack - try changing np array to list to allow editing by lookup in source data file
 target = np.genfromtxt(r'H:\MSc\project\data\yvette_02-09-20\High Wavenumbers for Dan.csv', delimiter=',', usecols=(0), dtype=str)
 """
 t = np.zeros(len(target), dtype=int)
