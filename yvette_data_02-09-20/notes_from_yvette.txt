@@ -1,0 +1,11 @@
+Dear Dan
+
+My apologies for the delay in sending these to you.
+
+Please find attached the spreadsheet, which contains the pre-processed and interpolated Raman data (intensities in arbitrary units) for two standard live cell-lines (PNT2-C2 : normal, and LNCaP : cancer). Also, attached is a spreadsheet with the corresponding x-values... these being the wavenumbers.
+
+Please let me know if you have any questions, and hope all is going well.
+
+Best wishes
+
+Yvette
