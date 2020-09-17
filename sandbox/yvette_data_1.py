@@ -9,8 +9,8 @@ from sklearn import preprocessing
 # %% read files
 
 # read data in csv format
-xdata = np.genfromtxt(r'H:\MSc\project\data\yvette_02-09-20\xwavehw.csv', delimiter=',')
-ydata = np.genfromtxt(r'H:\MSc\project\data\yvette_02-09-20\High Wavenumbers for Dan.csv', delimiter=',', usecols=np.arange(1, 1057))
+xdata = np.genfromtxt("data/yvette_02_09_20/xwavehw.csv", delimiter=',')
+ydata = np.genfromtxt("data/yvette_02_09_20/High Wavenumbers for Dan.csv", delimiter=',', usecols=np.arange(1, 1057))
 
 # normalise data to unity - numpy method
 nydata = np.apply_along_axis(lambda x: x/np.linalg.norm(x), 1, ydata)
@@ -58,7 +58,7 @@ som.random_weights_init(nydata)
 
 # train SOM and tell console that training is in progress
 print('Training...')
-som.train_random(nydata, 1000)  # number of iterations
+som.train_random(nydata, 10000)  # number of iterations
 
 # tell console training is complete
 print('Training complete')
@@ -66,15 +66,25 @@ print('Training complete')
 
 # %% setup colour and labels
 
-# TODO edit this so that appended zero array is correct
 # load colour labels - this is a hack - try changing np array to list to allow editing by lookup in source data file
-target = np.genfromtxt(r'H:\MSc\project\data\yvette_02-09-20\High Wavenumbers for Dan.csv', delimiter=',', usecols=(0), dtype=str)
+target = np.genfromtxt(r"data/yvette_02_09_20/High Wavenumbers for Dan.csv", delimiter=',', usecols=(0), dtype=str)
+# TODO make list comprehension here
+# assign values to t given labels in input data with subdivisions (red1, red2, red3 etc.)
+t = []
+
+for i in target:
+    if "PNT2" in i:
+        t.append(0)
+    elif "LNCaP" in i:
+        t.append(1)
+
+np.array(t)
 """
+# assign values to t given explicit labels in input data
 t = np.zeros(len(target), dtype=int)
 t[target == 'R'] = 0
 t[target == 'G'] = 1
 """
-t = np.array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
 
 # assign colours and markers to each label
 markers = ['o', 'o']  # add markers to data
@@ -114,5 +124,47 @@ plt.grid()  # print grid in bold over background
 for c in np.unique(t):
     idx_t = t==c
     plt.scatter(w_x[idx_t]+.5+(np.random.rand(np.sum(idx_t))-.5)*.8, w_y[idx_t]+.5+(np.random.rand(np.sum(idx_t))-.5)*.8, s=50, c=colors[c])
+
+plt.show()
+
+
+# %% plot map showing frequency of neuron activation
+
+# initialise figure canvas
+plt.figure()
+frequencies = som.activation_response(nydata)  # generate frequency of neuron activation
+plt.pcolor(frequencies.T, cmap='Blues')  # plot SOM frequencies in one matrix, transpose distances using .T, and set colourmap
+plt.colorbar()  # add legend of normalised values
+
+plt.show()
+
+
+# %% plot quantisation and topographic error of SOM at each step
+# this helps to understand training and to estimate number of iterations to run
+
+# define iteration bounds and declare errors
+max_iter= 10000
+q_error = []
+t_error = []
+
+# tell console training is in progress
+print('error calculation...')
+
+# calculate errors for each iteration of SOM
+for i in range(max_iter):
+    rand_i = np.random.randint(len(nydata))
+    som.update(nydata[rand_i], som.winner(nydata[rand_i]), i, max_iter)
+    q_error.append(som.quantization_error(nydata))
+    t_error.append(som.topographic_error(nydata))
+
+# tell console error calculation is complete
+print('error calculation complete')
+
+# initialise figure canvas
+plt.plot(np.arange(max_iter), q_error, label='quantisation error')
+plt.plot(np.arange(max_iter), t_error, label='topographic error')
+plt.ylabel('quantisation error')
+plt.xlabel('iteration index')
+plt.legend()
 
 plt.show()
