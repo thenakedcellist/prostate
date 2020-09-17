@@ -16,7 +16,7 @@ ydata = np.genfromtxt("data/yvette_02_09_20/High Wavenumbers for Dan.csv", delim
 nydata = np.apply_along_axis(lambda x: x/np.linalg.norm(x), 1, ydata)
 
 # normalise data to unity - sklearn method
-sydata = preprocessing.scale(ydata)
+sydata = preprocessing.scale(ydata.T)
 
 
 # %% plot spectra
@@ -42,10 +42,10 @@ plt.show()
 # data normalised using sklearn
 fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2,2)
 fig.suptitle('skearn normalised cleaned data')
-ax1.plot(xdata, sydata[0])
-ax2.plot(xdata, sydata[1])
-ax3.plot(xdata, sydata[28])
-ax4.plot(xdata, sydata[29])
+ax1.plot(xdata, sydata.T[0])
+ax2.plot(xdata, sydata.T[1])
+ax3.plot(xdata, sydata.T[28])
+ax4.plot(xdata, sydata.T[29])
 plt.show()
 
 
@@ -68,16 +68,8 @@ print('Training complete')
 
 # load colour labels - this is a hack - try changing np array to list to allow editing by lookup in source data file
 target = np.genfromtxt(r"data/yvette_02_09_20/High Wavenumbers for Dan.csv", delimiter=',', usecols=(0), dtype=str)
-# TODO make list comprehension here
 # assign values to t given labels in input data with subdivisions (red1, red2, red3 etc.)
-t = []
-
-for i in target:
-    if "PNT2" in i:
-        t.append(0)
-    elif "LNCaP" in i:
-        t.append(1)
-
+t = [0 if "PNT2" in i else 1 if "LNCaP" in i else i for i in target]
 np.array(t)
 """
 # assign values to t given explicit labels in input data
@@ -143,7 +135,7 @@ plt.show()
 # this helps to understand training and to estimate number of iterations to run
 
 # define iteration bounds and declare errors
-max_iter= 10000
+max_iter= 100000
 q_error = []
 t_error = []
 
