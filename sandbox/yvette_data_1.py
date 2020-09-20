@@ -53,12 +53,14 @@ plt.show()
 # %% SOM train#
 
 # initialise SOM with random weights and normalised data
-som = MiniSom(5, 5, 1056, sigma=1.0, learning_rate=0.1, random_seed=1)  # 5*sqrt30 - 26
+som = MiniSom(6, 6, ydata.shape[1], sigma=1.0, learning_rate=0.1,
+              neighborhood_function='gaussian', topology='hexagonal',
+              activation_distance='euclidean', random_seed=1)  # 5*sqrt(30) - 26
 som.random_weights_init(nydata)
 
 # train SOM and tell console that training is in progress
 print('Training...')
-som.train_random(nydata, 10000)  # number of iterations
+som.train_random(nydata, 1000)  # number of iterations
 
 # tell console training is complete
 print('Training complete')
@@ -66,7 +68,7 @@ print('Training complete')
 
 # %% setup colour and labels
 
-# load colour labels - this is a hack - try changing np array to list to allow editing by lookup in source data file
+# load colour labels from source data file
 target = np.genfromtxt(r"data/yvette_02_09_20/High Wavenumbers for Dan.csv", delimiter=',', usecols=(0), dtype=str)
 # assign values to t given labels in input data with subdivisions (red1, red2, red3 etc.)
 t = [0 if "PNT2" in i else 1 if "LNCaP" in i else i for i in target]
@@ -135,7 +137,7 @@ plt.show()
 # this helps to understand training and to estimate number of iterations to run
 
 # define iteration bounds and declare errors
-max_iter= 100000
+max_iter= 10000
 q_error = []
 t_error = []
 
@@ -158,5 +160,64 @@ plt.plot(np.arange(max_iter), t_error, label='topographic error')
 plt.ylabel('quantisation error')
 plt.xlabel('iteration index')
 plt.legend()
+
+plt.show()
+
+
+# %% plot hexagonal SOM
+
+from matplotlib.patches import RegularPolygon, Ellipse
+from mpl_toolkits.axes_grid1 import make_axes_locatable
+from matplotlib import cm, colorbar
+from matplotlib.lines import Line2D
+
+f = plt.figure(figsize=(10,10))
+ax = f.add_subplot(111)
+
+ax.set_aspect('equal')
+
+xx, yy = som.get_euclidean_coordinates()
+umatrix = som.distance_map()
+weights = som.get_weights()
+
+for i in range(weights.shape[0]):
+    for j in range(weights.shape[1]):
+        wy = yy[(i, j)]*2/np.sqrt(3)*3/4
+        hex = RegularPolygon((xx[(i, j)], wy), numVertices=6, radius=.95/np.sqrt(3),
+                      facecolor=cm.Blues(umatrix[i, j]), alpha=.4, edgecolor='gray')
+        ax.add_patch(hex)
+
+markers = ['o', '+', 'x']
+colors = ['C0', 'C1', 'C2']
+for cnt, x in enumerate(nydata):
+    w = som.winner(x)  # getting the winner
+    # palce a marker on the winning position for the sample xx
+    wx, wy = som.convert_map_to_euclidean(w)
+    wy = wy*2/np.sqrt(3)*3/4
+    plt.plot(wx, wy, markers[t[cnt]-1], markerfacecolor='None',
+             markeredgecolor=colors[t[cnt]-1], markersize=12, markeredgewidth=2)
+
+xrange = np.arange(weights.shape[0])
+yrange = np.arange(weights.shape[1])
+plt.xticks(xrange-.5, xrange)
+plt.yticks(yrange*2/np.sqrt(3)*3/4, yrange)
+
+divider = make_axes_locatable(plt.gca())
+ax_cb = divider.new_horizontal(size="5%", pad=0.05)
+cb1 = colorbar.ColorbarBase(ax_cb, cmap=cm.Blues,
+                            orientation='vertical', alpha=.4)
+cb1.ax.get_yaxis().labelpad = 16
+cb1.ax.set_ylabel('distance from neurons in the neighbourhood',
+                  rotation=270, fontsize=16)
+plt.gcf().add_axes(ax_cb)
+
+legend_elements = [Line2D([0], [0], marker='o', color='C0', label='Kama',
+                   markerfacecolor='w', markersize=14, linestyle='None', markeredgewidth=2),
+                   Line2D([0], [0], marker='+', color='C1', label='Rosa',
+                   markerfacecolor='w', markersize=14, linestyle='None', markeredgewidth=2),
+                   Line2D([0], [0], marker='x', color='C2', label='Canadian',
+                   markerfacecolor='w', markersize=14, linestyle='None', markeredgewidth=2)]
+ax.legend(handles=legend_elements, bbox_to_anchor=(0.1, 1.08), loc='upper left',
+          borderaxespad=0., ncol=3, fontsize=14)
 
 plt.show()

@@ -18,7 +18,7 @@ ndata = np.apply_along_axis(lambda x: x/np.linalg.norm(x), 1, data)
 # %% SOM training
 
 # initialise SOM with random weights and normalised data
-som = MiniSom(7, 7, 3, sigma=1.0, learning_rate=0.1, random_seed=1)
+som = MiniSom(7, 7, 3, sigma=1.0, learning_rate=0.1, topology='rectangular', random_seed=1)  # topology can be hexagonal for hex plot
 som.random_weights_init(ndata)
 
 # train SOM and tell console that training is in progress
