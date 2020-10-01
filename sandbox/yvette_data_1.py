@@ -12,10 +12,10 @@ from sklearn import preprocessing
 xdata = np.genfromtxt("data/yvette_02_09_20/xwavehw.csv", delimiter=',')
 ydata = np.genfromtxt("data/yvette_02_09_20/High Wavenumbers for Dan.csv", delimiter=',', usecols=np.arange(1, 1057))
 
-# normalise data to unity - numpy method
+# normalise data - MiniSom method dividing each column by Frobenius norm
 nydata = np.apply_along_axis(lambda x: x/np.linalg.norm(x), 1, ydata)
 
-# normalise data to unity - sklearn method
+# normalise data - sklearn method scaling to 0 mean and unit variance
 sydata = preprocessing.scale(ydata.T)
 
 
@@ -67,7 +67,7 @@ print('Training complete')
 
 # %% setup colour and labels
 
-# load colour labels from source data file
+# generate np array of colour labels from source data file
 target = np.genfromtxt(r"data/yvette_02_09_20/High Wavenumbers for Dan.csv", delimiter=',', usecols=(0), dtype=str)
 # assign values to t given labels in input data with subdivisions (red1, red2, red3 etc.)
 t = [0 if "PNT2" in i else 1 if "LNCaP" in i else i for i in target]
@@ -79,7 +79,7 @@ t[target == 'R'] = 0
 t[target == 'G'] = 1
 """
 
-# assign colours and markers to each label
+# generate lists with assigned colours and markers for each label in t
 markers = ['o', 'o']  # add markers to data
 colors = ['r', 'g']  # edit marker colours
 
@@ -104,10 +104,11 @@ plt.show()
 # %% plot scatter plot of dots representing co-ordinates of winning neuron across map
 # with random offset to avoid overlaps between points within same cell
 
-# generate scatter plot data
+# generate np arrays containing scatter plot data
 w_x, w_y = zip(*[som.winner(d) for d in nydata])  # get x an y variables
 w_x = np.array(w_x)  # convert x variables into np array
 w_y = np.array(w_y)  # convert y variables into np array
+
 # initialise figure canvas with SOM
 plt.figure()
 plt.pcolor(som.distance_map().T, cmap='Blues', alpha=.2)  # plot SOM distances in one matrix, transpose distances using .T, and set colourmap with reduced opacity
@@ -137,7 +138,7 @@ plt.show()
 # %% plot quantisation and topographic error of SOM at each step
 # this helps to understand training and to estimate number of iterations to run
 
-# define iteration bounds and declare errors
+# define iteration bounds and declare error lists
 max_iter= 10000
 q_error = []
 t_error = []
@@ -145,7 +146,7 @@ t_error = []
 # tell console training is in progress
 print('error calculation...')
 
-# calculate errors for each iteration of SOM
+# calculate errors for each iteration of SOM and append to error lists
 for i in range(max_iter):
     rand_i = np.random.randint(len(nydata))
     som.update(nydata[rand_i], som.winner(nydata[rand_i]), i, max_iter)
