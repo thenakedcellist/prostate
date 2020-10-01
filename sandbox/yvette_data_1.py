@@ -19,36 +19,6 @@ nydata = np.apply_along_axis(lambda x: x/np.linalg.norm(x), 1, ydata)
 sydata = preprocessing.scale(ydata.T)
 
 
-# %% plot spectra
-
-# data from yvette as they came
-fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2,2)
-fig.suptitle('cleaned data')
-ax1.plot(xdata, ydata[0])
-ax2.plot(xdata, ydata[1])
-ax3.plot(xdata, ydata[28])
-ax4.plot(xdata, ydata[29])
-plt.show()
-
-# data normalised using numpy
-fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2,2)
-fig.suptitle('numpy normalised cleaned data')
-ax1.plot(xdata, nydata[0])
-ax2.plot(xdata, nydata[1])
-ax3.plot(xdata, nydata[28])
-ax4.plot(xdata, nydata[29])
-plt.show()
-
-# data normalised using sklearn
-fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2,2)
-fig.suptitle('skearn normalised cleaned data')
-ax1.plot(xdata, sydata.T[0])
-ax2.plot(xdata, sydata.T[1])
-ax3.plot(xdata, sydata.T[28])
-ax4.plot(xdata, sydata.T[29])
-plt.show()
-
-
 # %% SOM train with rectangular topology
 
 # initialise SOM with random weights and normalised data
@@ -87,18 +57,21 @@ colors = ['r', 'g']  # edit marker colours
 # %% plot distance map (u-matrix) and overlay mapped sample
 
 # initialise figure canvas with SOM
-plt.figure()
-plt.pcolor(som.distance_map().T, cmap='Blues')  # plot SOM distances in one matrix, transpose distances using .T, and set colourmap
-plt.colorbar()  # add legend of normalised values
+fig1, ax1 = plt.subplots()
+ax1.pcolor(som.distance_map().T, cmap='Blues')  # plot SOM distances in one matrix, transpose distances using .T, and set colourmap
+cax = ax1.imshow(som.distance_map().T, cmap='Blues')  # create mappable of colourmap to define colorbar
+fig1.colorbar(cax, ax=ax1)  # add legend of normalised values
+fig1.suptitle("Self Organising Map of PNT2 and LNaCP Cell Lines", fontsize=16)
+
 
 # calculate and plot BMU for sample
 for cnt, xx in enumerate(nydata):
     bmu = som.winner(xx)  # calculate BMU
     plt.plot(bmu[0] + .5, bmu[1] + .5, markers[t[cnt]], markerfacecolor=colors[t[cnt]], markeredgecolor=colors[t[cnt]],
          markersize=6, markeredgewidth=2)  # place marker on winning position for sample xx
-plt.axis([0, som._weights.shape[0], 0, som._weights.shape[1]])
+ax1.axis([0, som._weights.shape[0], 0, som._weights.shape[1]])
 
-plt.show()
+fig1.show()
 
 
 # %% plot scatter plot of dots representing co-ordinates of winning neuron across map
@@ -164,3 +137,10 @@ plt.xlabel('iteration index')
 plt.legend()
 
 plt.show()
+
+
+# TODO define explicit fig, ax and then utilise ax.fn() to ensure I know exactly what is being manipulated
+# TODO give each plot a title and axes legends
+# TODO make SOM u-matrix marker size proportional to number of vectors activating that neuron
+# TODO refine separate steps into functions to help with structure and modularisation
+# TODO form script into module

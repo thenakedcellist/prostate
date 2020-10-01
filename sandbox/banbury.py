@@ -49,17 +49,9 @@ plt.figure(4, figsize=(16, 8))
 plt.plot(scaledData[:, 2])
 
 
-# %% TODO list
-'''
-TODO
-concatenate file strings to animal and acquisition number
-create array with:
-    column 0: wavenumber
-    column 1-n: measured value for wavenumber
-create array with:
-    column 0 from above
-    average of cloumns 1-n fom above
-plot this average array
-do this for each eye, 11 in total
-see from source code how the Banbury group got their average spectra
-'''
+# TODO concatenate file strings to animal and acquisition number
+# TODO create array with column 0 wavenumber, subsequent columns measured value for wavenumber
+# TODO create array with column 0 from above, cplumn 1 average of subsequent columns from above
+# TODO plot the subsequent average array
+# TODO plot these average arrays for each eye, 11 in total
+# TODO review Banbury source code to see how they got their average spectra

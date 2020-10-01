@@ -52,11 +52,4 @@ plt.show()  # display plot
 
 
 
-# %% TODO
-"""
-
-add hex code to output plot points - unsure how to acheive this
-Do we need a random seed defined for learning - almost definitely
-Add pickling to save and load SOM
-
-"""
+# TODO add hex code to output plot points - unsure how to acheive this
