@@ -1,0 +1,95 @@
+Index: sandbox/test_capitalise.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- sandbox/test_capitalise.py	(date 1601547808792)
++++ sandbox/test_capitalise.py	(date 1601547808792)
+@@ -0,0 +1,13 @@
++import pytest
++
++def capital_case(x):
++    if not isinstance(x, str):
++        raise TypeError('Please provide a string argument')
++    return x.capitalize()
++
++def test_capital_case():
++    assert capital_case('semaphore') == 'Semaphore'
++
++def test_raises_exception_on_non_string_arguments():
++    with pytest.raises(TypeError):
++        capital_case(9)
+\ No newline at end of file
+Index: sandbox/test_wallet.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- sandbox/test_wallet.py	(date 1601559376159)
++++ sandbox/test_wallet.py	(date 1601559376159)
+@@ -0,0 +1,36 @@
++import pytest
++from wallet import Wallet, InsufficientAmount
++
++@pytest.fixture
++def my_wallet():
++    '''Returns a Wallet instance with a zero balance'''
++    return Wallet()
++
++@pytest.mark.parametrize("earned,spent,expected", [
++    (30, 10, 20),
++    (20, 2, 18),
++])
++
++def test_transactions(my_wallet, earned, spent, expected):
++    my_wallet.add_cash(earned)
++    my_wallet.spend_cash(spent)
++    assert my_wallet.balance == expected
++
++def test_default_initial_amount(my_wallet):
++    assert my_wallet.balance == 0
++
++def test_setting_initial_amount(my_wallet):
++    assert my_wallet.balance == 0
++
++def test_wallet_add_cash(my_wallet):
++    my_wallet.add_cash(80)
++    assert my_wallet.balance == 80
++
++def test_wallet_spend_cash(my_wallet):
++    my_wallet.spend_cash(10)
++    assert my_wallet.balance == 10
++
++def test_wallet_spend_cash_raises_exception_on_insufficient_amount(my_wallet):
++    with pytest.raises(InsufficientAmount):
++        my_wallet.spend_cash(100)
++
+Index: sandbox/wallet.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- sandbox/wallet.py	(date 1601549284279)
++++ sandbox/wallet.py	(date 1601549284279)
+@@ -0,0 +1,16 @@
++class InsufficientAmount(Exception):
++    pass
++
++
++class Wallet(object):
++
++    def __init__(self, initial_amount=0):
++        self.balance = initial_amount
++
++    def spend_cash(self, amount):
++        if self.balance < amount:
++            raise InsufficientAmount('Not enough available to spend {}'.format(amount))
++        self.balance -= amount
++
++    def add_cash(self, amount):
++        self.balance += amount
+\ No newline at end of file
+diff --git sandbox/mysom.py sandbox/mysom.py
+new file mode 100644
+diff --git sandbox/test_mysom.py sandbox/test_mysom.py
+new file mode 100644
