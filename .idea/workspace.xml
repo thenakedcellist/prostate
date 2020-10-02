@@ -28,14 +28,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4b2b62c-ecfe-4e08-902f-0d7926078532" name="Default Changelist" comment="rectangular topology">
-      <change afterPath="$PROJECT_DIR$/sandbox/mysom.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/test_capitalise.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/test_mysom.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/test_wallet.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/wallet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/banbury.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/colours_hex.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/colours_hex.py" afterDir="false" />
+    <list default="true" id="c4b2b62c-ecfe-4e08-902f-0d7926078532" name="Default Changelist" comment="clarified figure initiation notes">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sandbox/yvette_data_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/yvette_data_1.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -198,6 +192,8 @@
       <workItem from="1601544491984" duration="5429000" />
       <workItem from="1601558828245" duration="4326000" />
       <workItem from="1601565967347" duration="432000" />
+      <workItem from="1601567134164" duration="28000" />
+      <workItem from="1601624885038" duration="4868000" />
     </task>
     <task id="LOCAL-00001" summary="Markers now find label from input data for colour without manual input. Added plot to show quantisation errors and frequency of neuron activation">
       <created>1600343898422</created>

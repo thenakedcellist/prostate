@@ -3,6 +3,7 @@
 from minisom import MiniSom
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.lines import Line2D
 from sklearn import preprocessing
 
 
@@ -57,11 +58,11 @@ colors = ['r', 'g']  # edit marker colours
 # %% plot distance map (u-matrix) and overlay mapped sample
 
 # initialise figure canvas with SOM
-fig1, ax1 = plt.subplots()
+fig1, ax1 = plt.subplots(1,1,figsize=(9,6))
 ax1.pcolor(som.distance_map().T, cmap='Blues')  # plot SOM distances in one matrix, transpose distances using .T, and set colourmap
 cax = ax1.imshow(som.distance_map().T, cmap='Blues')  # create mappable of colourmap to define colorbar
 fig1.colorbar(cax, ax=ax1)  # add legend of normalised values
-fig1.suptitle("Self Organising Map of PNT2 and LNaCP Cell Lines", fontsize=16)
+fig1.suptitle("Self Organising Map of PNT2 and LNCaP Cell Lines", fontsize=16)
 
 
 # calculate and plot BMU for sample
@@ -71,7 +72,29 @@ for cnt, xx in enumerate(nydata):
          markersize=6, markeredgewidth=2)  # place marker on winning position for sample xx
 ax1.axis([0, som._weights.shape[0], 0, som._weights.shape[1]])
 
+# define legend using proxy artists
+legend_elements = [Line2D([], [], marker='o', color=colors[0], label='PNT2',
+                       markerfacecolor=colors[0], markersize=12, markeredgewidth=2,
+                       linewidth=0, linestyle='None'),
+                   Line2D([], [], marker='o', color=colors[1], label='LNCaP',
+                       markerfacecolor=colors[1], markersize=12, markeredgewidth=2,
+                       linewidth=0, linestyle='None')]
+ax1.legend(handles=legend_elements, loc='upper left', bbox_to_anchor=(0.05, 1.1),
+           borderaxespad=0, ncol=len(legend_elements), fontsize=10)
+
+
 fig1.show()
+''' from hex-plot legend
+# add colorbar to side of plot
+divider = make_axes_locatable(plt.gca())
+ax_cb = divider.new_horizontal(size="5%", pad=0.05)
+cb1 = colorbar.ColorbarBase(ax_cb, cmap=cm.Greys,
+                            orientation='vertical', alpha=.4)
+cb1.ax.get_yaxis().labelpad = 16
+cb1.ax.set_ylabel('distance from neurons in the neighbourhood',
+                  rotation=270, fontsize=16)
+plt.gcf().add_axes(ax_cb)
+'''
 
 
 # %% plot scatter plot of dots representing co-ordinates of winning neuron across map
@@ -138,8 +161,9 @@ plt.legend()
 
 plt.show()
 
-
+# %% todo list
 # TODO define explicit fig, ax and then utilise ax.fn() to ensure I know exactly what is being manipulated
+# TODO figsize to fit everyhting neatly
 # TODO give each plot a title and axes legends
 # TODO make SOM u-matrix marker size proportional to number of vectors activating that neuron
 # TODO refine separate steps into functions to help with structure and modularisation
