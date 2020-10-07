@@ -29,7 +29,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4b2b62c-ecfe-4e08-902f-0d7926078532" name="Default Changelist" comment="figure legends and titles">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/prostate.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/prostate.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_10_2020__14_39__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_10_2020__14_39__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/banbury.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sandbox/yvette_data_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/yvette_data_1.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +56,7 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="JupyterTrust" id="788d319f-e41d-4f89-83fc-608a3f2c5e20" />
+  <component name="JupyterTrust" id="b5a3169f-980c-4a0c-b41a-df82bc5dad19" />
   <component name="ProjectId" id="1hYVabm5jgOgHE8NkH0OzRzg5oH" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -62,7 +66,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -88,6 +92,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="banbury" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="prostate" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sandbox" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sandbox/banbury.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -122,6 +148,9 @@
       <module name="prostate" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/.." />
       <option name="IS_MODULE_SDK" value="true" />
@@ -157,10 +186,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.yvette_data_1" />
+        <item itemvalue="Python.banbury" />
         <item itemvalue="Python tests.pytest for test_wallet.test_default_initial_amount" />
         <item itemvalue="Python.hex_map_sandbox" />
         <item itemvalue="Python tests.pytest for test_wallet.test_default_initial_amount" />
-        <item itemvalue="Python.yvette_data_1" />
       </list>
     </recent_temporary>
   </component>
@@ -197,6 +226,9 @@
       <workItem from="1601802298366" duration="3882000" />
       <workItem from="1601816303374" duration="2874000" />
       <workItem from="1601995479414" duration="7767000" />
+      <workItem from="1602077671370" duration="409000" />
+      <workItem from="1602078094688" duration="66000" />
+      <workItem from="1602078188734" duration="8860000" />
     </task>
     <task id="LOCAL-00001" summary="Markers now find label from input data for colour without manual input. Added plot to show quantisation errors and frequency of neuron activation">
       <created>1600343898422</created>
@@ -314,6 +346,14 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="744" y="382" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1600343671997" />
+    <state x="960" y="436" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1602078142207">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="960" y="436" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/393.1440.1536.832/0.0.2560.1400@0.0.2560.1400" timestamp="1602078142207" />
+    <state x="538" y="453" key="#xdebugger.XInspectDialog" timestamp="1602080540545">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="538" y="453" key="#xdebugger.XInspectDialog/393.1440.1536.832/0.0.2560.1400@0.0.2560.1400" timestamp="1602080540545" />
     <state x="100" y="100" width="2360" height="1240" key="DiffContextDialog" timestamp="1600345795042">
       <screen x="0" y="23" width="2560" height="1337" />
     </state>
@@ -366,10 +406,11 @@
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state width="2518" height="520" key="GridCell.Tab.1.right/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616991" />
-    <state x="789" y="359" key="SettingsEditor" timestamp="1600343449502">
-      <screen x="0" y="0" width="2560" height="1440" />
+    <state x="789" y="349" key="SettingsEditor" timestamp="1602078051234">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="789" y="359" key="SettingsEditor/0.0.2560.1440@0.0.2560.1440" timestamp="1600343449502" />
+    <state x="789" y="349" key="SettingsEditor/393.1440.1536.832/0.0.2560.1400@0.0.2560.1400" timestamp="1602078051234" />
     <state x="880" y="460" key="Vcs.Push.Dialog.v2" timestamp="1601630583426">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
@@ -387,10 +428,11 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="1049" y="440" key="git4idea.branch.GitSmartOperationDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1601566523095" />
-    <state x="930" y="455" width="700" height="530" key="recent.locations.popup" timestamp="1600188640166">
-      <screen x="0" y="0" width="2560" height="1440" />
+    <state x="930" y="442" width="700" height="516" key="recent.locations.popup" timestamp="1602081843995">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="930" y="455" width="700" height="530" key="recent.locations.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1600188640166" />
+    <state x="930" y="442" width="700" height="516" key="recent.locations.popup/393.1440.1536.832/0.0.2560.1400@0.0.2560.1400" timestamp="1602081843995" />
     <state x="945" y="331" width="670" height="676" key="search.everywhere.popup" timestamp="1600853069744">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>

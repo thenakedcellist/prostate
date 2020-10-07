@@ -13,8 +13,8 @@ from minisom import MiniSom
 # %% read files
 
 # read data in csv format
-xdata = np.genfromtxt("data/yvette_02_09_20/xwavehw.csv", delimiter=',')
-ydata = np.genfromtxt("data/yvette_02_09_20/High Wavenumbers for Dan.csv", delimiter=',', usecols=np.arange(1, 1057))
+xdata = np.genfromtxt(r"data\yvette_02_09_20\xwavehw.csv", delimiter=',')
+ydata = np.genfromtxt(r"data\yvette_02_09_20\High Wavenumbers for Dan.csv", delimiter=',', usecols=np.arange(1, 1057))
 
 # normalise data - MiniSom method dividing each column by Frobenius norm
 nydata = np.apply_along_axis(lambda x: x/np.linalg.norm(x), 1, ydata)
@@ -146,7 +146,7 @@ fig3.suptitle("Frequency of Self organising Map Neuron Activation", fontsize=16)
 
 # fill in axes with frequency of SOM neuron activation
 frequencies = som.activation_response(nydata)  # generate frequency of neuron activation
-ax3.pcolor(frequencies.T, cmap='Blues', alpha=1.0)# plot tramsposed SOM frequencies in one matrix and set colourmap
+ax3.pcolor(frequencies.T, cmap='Blues', alpha=1.0)  # plot tramsposed SOM frequencies in one matrix and set colourmap
 
 # add colorbar to figure
 divider3 = make_axes_locatable(ax3)
@@ -163,7 +163,7 @@ plt.show()
 
 # %% plot quantisation and topographic error of SOM at each step
 # this helps to understand training and to estimate number of iterations to run
-'''
+
 # define iteration bounds and declare error lists
 max_iter= 10000
 q_error = []
@@ -202,7 +202,7 @@ ax5.legend(handles=legend_elements_5, loc='upper right', bbox_to_anchor=(0.99, 0
            borderaxespad=0, ncol=len(legend_elements_5), fontsize=10)
 
 plt.show()
-'''
+
 
 # %% plot distance map (u-matrix) and overlay mapped sample with marker size proportional to neuron activation frequency
 
@@ -211,20 +211,20 @@ fig5, ax6 = plt.subplots(1,1)
 fig5.subplots_adjust(left=0.125, right=0.9, top=0.9, bottom=0.2, wspace=0.2, hspace=0.2)  # set whitespace around figure edges and space between subplots
 fig5.suptitle("Self Organising Map of PNT2 and LNCaP Cell Lines \n"
               "Marker Size Proportional to Neuron Activation Frequency", fontsize=16)
-
+'''
 # generate extra parameters for marker size manipulation
 k = som.activation_response(nydata).T  # generate array of integers representing count of input data which map to SOM neuron [i,j]
 h = list(som.activation_response(nydata).T)  # convert k into list of lists
 flat_l = [item for sublist in l for item in sublist]  # convert h into flattened list
 labs = MiniSom.labels_map(som, nydata, t)  # returns dictionary containing number of samples of labels from t which map to SOM neuron [i,j]
-
+'''
 # fill in axes with SOM and overlaid data
 ax6.pcolor(som.distance_map().T, cmap='Blues', alpha=1.0)  # plot transposed SOM distances in one matrix and set colormap
 for cnt, xx in enumerate(nydata):
     bmu = som.winner(xx)  # calculate BMU for sample
     ax6.plot(bmu[0] + 0.5, bmu[1] + 0.5, markers[t[cnt]],
              markerfacecolor=colors[t[cnt]], markeredgecolor=colors[t[cnt]],
-             markersize=14, markeredgewidth=2)  # place marker on winning SOM node for sample xx
+             markersize=6, markeredgewidth=2)  # place marker on winning SOM node for sample xx
 ax6.axis([0, som._weights.shape[0], 0, som._weights.shape[1]])
 
 # add colorbar to figure
