@@ -13,24 +13,23 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
     </expand>
     <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:mysom_module" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4b2b62c-ecfe-4e08-902f-0d7926078532" name="Default Changelist" comment="figure legends and titles">
+    <list default="true" id="c4b2b62c-ecfe-4e08-902f-0d7926078532" name="Default Changelist" comment="Completed changes.&#10;Outstanding plot of SOM with u-matrix marker size proportional to neuronal activation - I will attempt this with TDD.&#10;Ready for conversion to functions and modularisation - this will be completed from direct copy of this code in mysom.py">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_10_2020,_14_39_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_10_2020__14_39__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/yvette_data_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/yvette_data_1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/banbury.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/mysom.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/mysom.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/test_mysom.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/test_mysom.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +61,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -73,7 +72,7 @@
       </console-settings>
     </option>
   </component>
-  <component name="RunManager" selected="Python.yvette_data_1">
+  <component name="RunManager" selected="Python tests.pytest in test_banbury.py">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="prostate" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -122,6 +121,9 @@
       <module name="prostate" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/.." />
       <option name="IS_MODULE_SDK" value="true" />
@@ -154,13 +156,30 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="pytest in test_banbury.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="prostate" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sandbox" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/sandbox/test_banbury.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.pytest in test_banbury.py" />
         <item itemvalue="Python.yvette_data_1" />
         <item itemvalue="Python tests.pytest for test_wallet.test_default_initial_amount" />
         <item itemvalue="Python.hex_map_sandbox" />
         <item itemvalue="Python tests.pytest for test_wallet.test_default_initial_amount" />
-        <item itemvalue="Python.yvette_data_1" />
       </list>
     </recent_temporary>
   </component>
@@ -196,7 +215,11 @@
       <workItem from="1601802027492" duration="265000" />
       <workItem from="1601802298366" duration="3882000" />
       <workItem from="1601816303374" duration="2874000" />
-      <workItem from="1601995479414" duration="7767000" />
+      <workItem from="1601995479414" duration="10753000" />
+      <workItem from="1602076902033" duration="228000" />
+      <workItem from="1602155655018" duration="3857000" />
+      <workItem from="1602231771527" duration="875000" />
+      <workItem from="1602232824601" duration="5613000" />
     </task>
     <task id="LOCAL-00001" summary="Markers now find label from input data for colour without manual input. Added plot to show quantisation errors and frequency of neuron activation">
       <created>1600343898422</created>
@@ -254,7 +277,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601630571427</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Completed changes.&#10;Outstanding plot of SOM with u-matrix marker size proportional to neuronal activation - I will attempt this with TDD.&#10;Ready for conversion to functions and modularisation - this will be completed from direct copy of this code in mysom.py">
+      <created>1602008527565</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1602008527565</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,7 +301,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="mysom_module" />
                       </list>
                     </value>
                   </entry>
@@ -307,13 +337,18 @@
     <MESSAGE value="naming convention" />
     <MESSAGE value="rectangular topology" />
     <MESSAGE value="figure legends and titles" />
-    <option name="LAST_COMMIT_MESSAGE" value="figure legends and titles" />
+    <MESSAGE value="Completed changes.&#10;Outstanding plot of SOM with u-matrix marker size proportional to neuronal activation - I will attempt this with TDD.&#10;Ready for conversion to functions and modularisation - this will be completed from direct copy of this code in mysom.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed changes.&#10;Outstanding plot of SOM with u-matrix marker size proportional to neuronal activation - I will attempt this with TDD.&#10;Ready for conversion to functions and modularisation - this will be completed from direct copy of this code in mysom.py" />
   </component>
   <component name="WindowStateProjectService">
     <state x="744" y="382" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600343671997">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="744" y="382" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1600343671997" />
+    <state x="1013" y="529" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602166709239">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="1013" y="529" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1440@0.0.2560.1440" timestamp="1602166709239" />
     <state x="100" y="100" width="2360" height="1240" key="DiffContextDialog" timestamp="1600345795042">
       <screen x="0" y="23" width="2560" height="1337" />
     </state>
@@ -322,58 +357,63 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="1145" y="452" key="EnvironmentVariablesDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1600343424853" />
-    <state width="2518" height="520" key="GridCell.Tab.0.bottom" timestamp="1601630616990">
-      <screen x="0" y="23" width="2560" height="1417" />
+    <state width="1640" height="424" key="GridCell.Tab.0.bottom" timestamp="1602252346028">
+      <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state width="842" height="424" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1601551656234" />
+    <state width="1640" height="424" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1602252346028" />
     <state width="842" height="424" key="GridCell.Tab.0.bottom/0.23.2560.1337@0.23.2560.1337" timestamp="1601555075377" />
-    <state width="2518" height="520" key="GridCell.Tab.0.bottom/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1601630597691" />
+    <state width="1640" height="424" key="GridCell.Tab.0.bottom/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602248404106" />
     <state width="2518" height="520" key="GridCell.Tab.0.bottom/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616990" />
-    <state width="2518" height="520" key="GridCell.Tab.0.center" timestamp="1601630616988">
-      <screen x="0" y="23" width="2560" height="1417" />
+    <state width="1640" height="424" key="GridCell.Tab.0.center" timestamp="1602252346026">
+      <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state width="842" height="424" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1601551656232" />
+    <state width="1640" height="424" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1602252346026" />
     <state width="842" height="424" key="GridCell.Tab.0.center/0.23.2560.1337@0.23.2560.1337" timestamp="1601555075376" />
-    <state width="2518" height="520" key="GridCell.Tab.0.center/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1601630597687" />
+    <state width="1640" height="424" key="GridCell.Tab.0.center/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602248404104" />
     <state width="2518" height="520" key="GridCell.Tab.0.center/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616988" />
-    <state width="2518" height="520" key="GridCell.Tab.0.left" timestamp="1601630616987">
-      <screen x="0" y="23" width="2560" height="1417" />
+    <state width="1640" height="424" key="GridCell.Tab.0.left" timestamp="1602252346025">
+      <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state width="842" height="424" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1601551656231" />
+    <state width="1640" height="424" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1602252346025" />
     <state width="842" height="424" key="GridCell.Tab.0.left/0.23.2560.1337@0.23.2560.1337" timestamp="1601555075375" />
-    <state width="2518" height="520" key="GridCell.Tab.0.left/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1601630597686" />
+    <state width="1640" height="424" key="GridCell.Tab.0.left/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602248404102" />
     <state width="2518" height="520" key="GridCell.Tab.0.left/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616987" />
-    <state width="2518" height="520" key="GridCell.Tab.0.right" timestamp="1601630616989">
-      <screen x="0" y="23" width="2560" height="1417" />
+    <state width="1640" height="424" key="GridCell.Tab.0.right" timestamp="1602252346027">
+      <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state width="842" height="424" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1601551656233" />
+    <state width="1640" height="424" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1602252346027" />
     <state width="842" height="424" key="GridCell.Tab.0.right/0.23.2560.1337@0.23.2560.1337" timestamp="1601555075377" />
-    <state width="2518" height="520" key="GridCell.Tab.0.right/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1601630597689" />
+    <state width="1640" height="424" key="GridCell.Tab.0.right/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602248404105" />
     <state width="2518" height="520" key="GridCell.Tab.0.right/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616989" />
-    <state width="2518" height="520" key="GridCell.Tab.1.bottom" timestamp="1601630616992">
-      <screen x="0" y="23" width="2560" height="1417" />
+    <state width="2518" height="520" key="GridCell.Tab.1.bottom" timestamp="1602235469097">
+      <screen x="0" y="0" width="2560" height="1440" />
     </state>
+    <state width="2518" height="520" key="GridCell.Tab.1.bottom/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602235469097" />
     <state width="2518" height="520" key="GridCell.Tab.1.bottom/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616992" />
-    <state width="2518" height="520" key="GridCell.Tab.1.center" timestamp="1601630616991">
-      <screen x="0" y="23" width="2560" height="1417" />
+    <state width="2518" height="520" key="GridCell.Tab.1.center" timestamp="1602235469094">
+      <screen x="0" y="0" width="2560" height="1440" />
     </state>
+    <state width="2518" height="520" key="GridCell.Tab.1.center/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602235469094" />
     <state width="2518" height="520" key="GridCell.Tab.1.center/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616991" />
-    <state width="2518" height="520" key="GridCell.Tab.1.left" timestamp="1601630616990">
-      <screen x="0" y="23" width="2560" height="1417" />
+    <state width="2518" height="520" key="GridCell.Tab.1.left" timestamp="1602235469093">
+      <screen x="0" y="0" width="2560" height="1440" />
     </state>
+    <state width="2518" height="520" key="GridCell.Tab.1.left/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602235469093" />
     <state width="2518" height="520" key="GridCell.Tab.1.left/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616990" />
-    <state width="2518" height="520" key="GridCell.Tab.1.right" timestamp="1601630616991">
-      <screen x="0" y="23" width="2560" height="1417" />
+    <state width="2518" height="520" key="GridCell.Tab.1.right" timestamp="1602235469096">
+      <screen x="0" y="0" width="2560" height="1440" />
     </state>
+    <state width="2518" height="520" key="GridCell.Tab.1.right/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602235469096" />
     <state width="2518" height="520" key="GridCell.Tab.1.right/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616991" />
-    <state x="789" y="359" key="SettingsEditor" timestamp="1600343449502">
+    <state x="789" y="359" key="SettingsEditor" timestamp="1602155715945">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="789" y="359" key="SettingsEditor/0.0.2560.1440@0.0.2560.1440" timestamp="1600343449502" />
-    <state x="880" y="460" key="Vcs.Push.Dialog.v2" timestamp="1601630583426">
+    <state x="789" y="359" key="SettingsEditor/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602155715945" />
+    <state x="880" y="460" key="Vcs.Push.Dialog.v2" timestamp="1602008534257">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="880" y="460" key="Vcs.Push.Dialog.v2/0.0.2560.1440@0.0.2560.1440" timestamp="1601545020959" />
+    <state x="880" y="460" key="Vcs.Push.Dialog.v2/0.0.2560.1440@0.0.2560.1440" timestamp="1602008534257" />
     <state x="880" y="460" key="Vcs.Push.Dialog.v2/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1601630583426" />
     <state width="840" height="525" key="XDebugger.FullValuePopup" timestamp="1601999810357">
       <screen x="0" y="0" width="1680" height="1050" />
@@ -391,12 +431,23 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="930" y="455" width="700" height="530" key="recent.locations.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1600188640166" />
-    <state x="945" y="331" width="670" height="676" key="search.everywhere.popup" timestamp="1600853069744">
+    <state x="945" y="331" width="670" height="676" key="search.everywhere.popup" timestamp="1602247916950">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="945" y="331" width="670" height="676" key="search.everywhere.popup/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1600853069744" />
+    <state x="945" y="331" width="670" height="676" key="search.everywhere.popup/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602247916950" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/sandbox/test_wallet.py</url>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/prostate$pytest_in_test_banbury_py.coverage" NAME="pytest in test_banbury.py Coverage Results" MODIFIED="1602252346014" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sandbox" />
     <SUITE FILE_PATH="coverage/prostate$yvette_data_1.coverage" NAME="yvette_data_1 Coverage Results" MODIFIED="1601630596891" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.." />
     <SUITE FILE_PATH="coverage/prostate$pytest_for_test_wallet_test_default_initial_amount.coverage" NAME="pytest for test_wallet.test_default_initial_amount Coverage Results" MODIFIED="1601551585390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sandbox" />
   </component>
