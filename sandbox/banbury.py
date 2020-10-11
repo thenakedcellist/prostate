@@ -66,6 +66,7 @@ define functions to plot spectra and average spectra
 
 '''
 
+import os
 from pathlib import Path
 import numpy as np
 import matplotlib.pyplot as plt
@@ -73,13 +74,17 @@ import matplotlib.pyplot as plt
 root_dir = Path('/Users/dan/Documents/UoY/MSc/project')
 
 def change_cwd(tissue):
-   cwd = Path(root_dir / 'data' / 'banbury' / tissue)
-   print(cwd)
+   '''change working directory to tissue directory'''
+   if tissue not in ("cornea", "lens", "optic_nerve", "retina", "vitreous"):
+      raise Exception("invalid tissue type")
+   else:
+      tissue_dir = Path(root_dir / 'data' / 'banbury' / tissue)
+      os.chdir(tissue_dir)
+      print(Path.cwd())
 
-
-
-
-
+def cwd_to_root():
+   os.chdir(root_dir)
+   print(Path.cwd())
 
 
 '''
@@ -96,7 +101,7 @@ xdata1 = data1[0:1, :]  # this forms the x data for pyplot and the data to check
 data2 = np.genfromtxt('cornea_eye_1_fp_sub_1__X_20923.1__Y_-1142.71__Time_5__Zdata_4273.41__Zactual_4273.57__Zdifference_0.159993__LTSignalUsed_3.txt', delimiter='\t', usecols=(0, 1)).T
 
 # %% merge data into single array
-'''
+
 check that the first row matches wavenuber given in first file
 IF TRUE
     append return array with second row (y data)
@@ -107,7 +112,6 @@ return k x n array where:
     k = number of samples
     n = number of y values
 
-'''
 mergedData = np.array(data1[1:2, :])  # np array where first row  contains y values of first sample
 
 if xdata1[0:1, :].all() == data2[0:1, :].all():
@@ -127,7 +131,6 @@ scaledData = preprocessing.scale(avMergedData)
 
 # %% plot spectra
 
-<<<<<<< HEAD
 plt.figure(1, figsize=(16, 8))
 # axes = plt.gca()
 # axes.set_xlim(min, max)
@@ -140,18 +143,3 @@ plt.plot(scaledData[:, 1])
 plt.figure(4, figsize=(16, 8))
 plt.plot(scaledData[:, 2])
 '''
-=======
-fig,ax = plt.subplots(1,1)
-fig.subplots_adjust(left=0.125, right=0.9, top=0.9, bottom=0.2, wspace=0.2, hspace=0.2)  # set whitespace around figure edges and space between subplots
-fig.suptitle("Averaged Raman spectra for ", fontsize=16)
-
-xdata = xdata1
-ydata = scaledData
-
-ax.plot(xdata, avMergedData)
-plt.show()
-
-# TODO create single array with all y values concatenated from the multiple input files
-# TODO plot spectra and average spectra for each group (location, animal eye)
-# TODO review Banbury source code to see how they got their average spectra
->>>>>>> origin/master
