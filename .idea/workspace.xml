@@ -28,10 +28,15 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0695007-41bb-43dc-86fe-46bb0472db71" name="Default Changelist" comment="Started TDD for banbury data extraction and file processing">
+    <list default="true" id="c0695007-41bb-43dc-86fe-46bb0472db71" name="Default Changelist" comment="testing cwd manipulations">
+      <change beforePath="$PROJECT_DIR$/.idea/prostate.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/prostate.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sandbox/banbury.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sandbox/test_banbury.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/test_banbury.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/test_capitalise.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/test_mysom.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/test_mysom.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/test_wallet.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/wallet.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,14 +68,14 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
-      <console-settings module-name="prostate" is-module-sdk="true" working-directory="$PROJECT_DIR$/..">
+      <console-settings module-name="prostate" is-module-sdk="true" working-directory="$PROJECT_DIR$">
         <option name="myUseModuleSdk" value="true" />
         <option name="myModuleName" value="prostate" />
-        <option name="myWorkingDirectory" value="$PROJECT_DIR$/.." />
+        <option name="myWorkingDirectory" value="$PROJECT_DIR$" />
       </console-settings>
     </option>
   </component>
@@ -101,11 +106,8 @@
       <module name="prostate" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sandbox" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
@@ -119,29 +121,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="yvette_data_1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="prostate" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/.." />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sandbox/yvette_data_1.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pytest for test_banbury.test_change_cwd" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for test_banbury.test_file_list" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="prostate" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -154,25 +134,42 @@
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_banbury.test_change_cwd&quot;" />
+      <option name="_new_target" value="&quot;test_banbury.test_file_list&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for test_banbury.test_fail_change_cwd" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest in /" type="tests" factoryName="py.test" nameIsGenerated="true">
       <module name="prostate" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sandbox" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="SDK_HOME" value="/usr/local/bin/python3.8" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_banbury.test_fail_change_cwd&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest in test_banbury.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="prostate" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="/usr/local/bin/python3.8" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/sandbox/test_banbury.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
     <configuration name="pytest in test_banbury.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
@@ -192,20 +189,24 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.banbury" />
+      <item itemvalue="Python tests.pytest in /" />
+      <item itemvalue="Python tests.pytest in test_banbury.py" />
+      <item itemvalue="Python tests.pytest for test_banbury.test_file_list" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python tests.pytest in test_banbury.py" />
-        <item itemvalue="Python tests.pytest for test_banbury.test_fail_change_cwd" />
-        <item itemvalue="Python tests.pytest for test_banbury.test_change_cwd" />
-        <item itemvalue="Python.yvette_data_1" />
         <item itemvalue="Python.banbury" />
+        <item itemvalue="Python tests.pytest for test_banbury.test_file_list" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c4b2b62c-ecfe-4e08-902f-0d7926078532" name="Default Changelist" comment="" />
+      <changelist id="c0695007-41bb-43dc-86fe-46bb0472db71" name="Default Changelist" comment="testing cwd manipulations" />
       <created>1600188080236</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -238,6 +239,13 @@
       <workItem from="1602077671370" duration="409000" />
       <workItem from="1602078094688" duration="66000" />
       <workItem from="1602078188734" duration="8860000" />
+      <workItem from="1602520560398" duration="3045000" />
+      <workItem from="1602601295614" duration="1646000" />
+      <workItem from="1602603532854" duration="4477000" />
+      <workItem from="1602617566132" duration="4000" />
+      <workItem from="1602617613842" duration="1219000" />
+      <workItem from="1602670332705" duration="25325000" />
+      <workItem from="1602831556344" duration="12310000" />
     </task>
     <task id="LOCAL-00001" summary="Markers now find label from input data for colour without manual input. Added plot to show quantisation errors and frequency of neuron activation">
       <created>1600343898422</created>
@@ -302,7 +310,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602253233482</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="testing cwd manipulations">
+      <created>1602429765528</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1602429765528</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,7 +334,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="mysom_module" />
                       </list>
                     </value>
                   </entry>
@@ -356,13 +371,15 @@
     <MESSAGE value="rectangular topology" />
     <MESSAGE value="figure legends and titles" />
     <MESSAGE value="Started TDD for banbury data extraction and file processing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Started TDD for banbury data extraction and file processing" />
+    <MESSAGE value="testing cwd manipulations" />
+    <option name="LAST_COMMIT_MESSAGE" value="testing cwd manipulations" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="744" y="382" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600343671997">
+    <state x="744" y="382" width="1071" height="796" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602843634044">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="744" y="382" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1600343671997" />
+    <state x="744" y="382" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1602843634044" />
+    <state x="744" y="382" width="1071" height="796" key="#com.intellij.execution.impl.EditConfigurationsDialog/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602758719426" />
     <state x="960" y="436" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1602078142207">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -375,77 +392,102 @@
       <screen x="0" y="23" width="2560" height="1337" />
     </state>
     <state x="100" y="100" width="2360" height="1240" key="DiffContextDialog/0.23.2560.1337@0.23.2560.1337" timestamp="1600345795042" />
-    <state x="1145" y="452" key="EnvironmentVariablesDialog" timestamp="1600343424853">
-      <screen x="0" y="0" width="2560" height="1440" />
-    </state>
-    <state x="1145" y="452" key="EnvironmentVariablesDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1600343424853" />
-    <state width="1746" height="436" key="GridCell.Tab.0.bottom" timestamp="1602382168206">
-      <screen x="0" y="0" width="2560" height="1440" />
-    </state>
-    <state width="1746" height="436" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1602382168206" />
-    <state width="842" height="424" key="GridCell.Tab.0.bottom/0.23.2560.1337@0.23.2560.1337" timestamp="1601555075377" />
-    <state width="1757" height="422" key="GridCell.Tab.0.bottom/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602324595472" />
-    <state width="2518" height="520" key="GridCell.Tab.0.bottom/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616990" />
-    <state width="1746" height="436" key="GridCell.Tab.0.center" timestamp="1602382168205">
-      <screen x="0" y="0" width="2560" height="1440" />
-    </state>
-    <state width="1746" height="436" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1602382168205" />
-    <state width="842" height="424" key="GridCell.Tab.0.center/0.23.2560.1337@0.23.2560.1337" timestamp="1601555075376" />
-    <state width="1757" height="422" key="GridCell.Tab.0.center/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602324595470" />
-    <state width="2518" height="520" key="GridCell.Tab.0.center/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616988" />
-    <state width="1746" height="436" key="GridCell.Tab.0.left" timestamp="1602382168204">
-      <screen x="0" y="0" width="2560" height="1440" />
-    </state>
-    <state width="1746" height="436" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1602382168204" />
-    <state width="842" height="424" key="GridCell.Tab.0.left/0.23.2560.1337@0.23.2560.1337" timestamp="1601555075375" />
-    <state width="1757" height="422" key="GridCell.Tab.0.left/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602324595468" />
-    <state width="2518" height="520" key="GridCell.Tab.0.left/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616987" />
-    <state width="1746" height="436" key="GridCell.Tab.0.right" timestamp="1602382168205">
-      <screen x="0" y="0" width="2560" height="1440" />
-    </state>
-    <state width="1746" height="436" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1602382168205" />
-    <state width="842" height="424" key="GridCell.Tab.0.right/0.23.2560.1337@0.23.2560.1337" timestamp="1601555075377" />
-    <state width="1757" height="422" key="GridCell.Tab.0.right/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602324595471" />
-    <state width="2518" height="520" key="GridCell.Tab.0.right/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616989" />
-    <state width="1746" height="520" key="GridCell.Tab.1.bottom" timestamp="1602377941168">
-      <screen x="0" y="0" width="2560" height="1440" />
-    </state>
-    <state width="1746" height="520" key="GridCell.Tab.1.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1602377941168" />
-    <state width="2518" height="520" key="GridCell.Tab.1.bottom/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616992" />
-    <state width="1746" height="520" key="GridCell.Tab.1.center" timestamp="1602377941166">
-      <screen x="0" y="0" width="2560" height="1440" />
-    </state>
-    <state width="1746" height="520" key="GridCell.Tab.1.center/0.0.2560.1440@0.0.2560.1440" timestamp="1602377941166" />
-    <state width="2518" height="520" key="GridCell.Tab.1.center/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616991" />
-    <state width="1746" height="520" key="GridCell.Tab.1.left" timestamp="1602377941166">
-      <screen x="0" y="0" width="2560" height="1440" />
-    </state>
-    <state width="1746" height="520" key="GridCell.Tab.1.left/0.0.2560.1440@0.0.2560.1440" timestamp="1602377941166" />
-    <state width="2518" height="520" key="GridCell.Tab.1.left/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616990" />
-    <state width="1746" height="520" key="GridCell.Tab.1.right" timestamp="1602377941167">
-      <screen x="0" y="0" width="2560" height="1440" />
-    </state>
-    <state width="1746" height="520" key="GridCell.Tab.1.right/0.0.2560.1440@0.0.2560.1440" timestamp="1602377941167" />
-    <state width="2518" height="520" key="GridCell.Tab.1.right/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616991" />
-    <state x="789" y="349" key="SettingsEditor" timestamp="1602078051234">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="789" y="359" key="SettingsEditor/0.0.2560.1440@0.0.2560.1440" timestamp="1600343449502" />
-    <state x="789" y="349" key="SettingsEditor/393.1440.1536.832/0.0.2560.1400@0.0.2560.1400" timestamp="1602078051234" />
-    <state x="578" y="335" key="Vcs.Push.Dialog.v2" timestamp="1602429745371">
+    <state x="751" y="330" key="EnvironmentVariablesDialog" timestamp="1602430011783">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="578" y="335" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1602429745371" />
+    <state x="751" y="330" key="EnvironmentVariablesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1602430011783" />
+    <state x="1145" y="452" key="EnvironmentVariablesDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1600343424853" />
+    <state width="2518" height="420" key="GridCell.Tab.0.bottom" timestamp="1602849703375">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1638" height="293" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1602673816478" />
+    <state width="1052" height="436" key="GridCell.Tab.0.bottom/0.0.1680.970@0.0.1680.970" timestamp="1602431600994" />
+    <state width="2518" height="420" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1602849703375" />
+    <state width="2518" height="422" key="GridCell.Tab.0.bottom/0.23.2560.1337@0.23.2560.1337" timestamp="1602603045830" />
+    <state width="2518" height="420" key="GridCell.Tab.0.bottom/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602759379515" />
+    <state width="2518" height="520" key="GridCell.Tab.0.bottom/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616990" />
+    <state width="2518" height="420" key="GridCell.Tab.0.center" timestamp="1602849703372">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1638" height="293" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1602673816476" />
+    <state width="1052" height="436" key="GridCell.Tab.0.center/0.0.1680.970@0.0.1680.970" timestamp="1602431600993" />
+    <state width="2518" height="420" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1602849703372" />
+    <state width="2518" height="422" key="GridCell.Tab.0.center/0.23.2560.1337@0.23.2560.1337" timestamp="1602603045828" />
+    <state width="2518" height="420" key="GridCell.Tab.0.center/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602759379512" />
+    <state width="2518" height="520" key="GridCell.Tab.0.center/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616988" />
+    <state width="2518" height="420" key="GridCell.Tab.0.left" timestamp="1602849703371">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1638" height="293" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1602673816475" />
+    <state width="1052" height="436" key="GridCell.Tab.0.left/0.0.1680.970@0.0.1680.970" timestamp="1602431600992" />
+    <state width="2518" height="420" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1602849703371" />
+    <state width="2518" height="422" key="GridCell.Tab.0.left/0.23.2560.1337@0.23.2560.1337" timestamp="1602603045827" />
+    <state width="2518" height="420" key="GridCell.Tab.0.left/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602759379509" />
+    <state width="2518" height="520" key="GridCell.Tab.0.left/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616987" />
+    <state width="2518" height="420" key="GridCell.Tab.0.right" timestamp="1602849703374">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1638" height="293" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1602673816477" />
+    <state width="1052" height="436" key="GridCell.Tab.0.right/0.0.1680.970@0.0.1680.970" timestamp="1602431600993" />
+    <state width="2518" height="420" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1602849703374" />
+    <state width="2518" height="422" key="GridCell.Tab.0.right/0.23.2560.1337@0.23.2560.1337" timestamp="1602603045829" />
+    <state width="2518" height="420" key="GridCell.Tab.0.right/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602759379513" />
+    <state width="2518" height="520" key="GridCell.Tab.0.right/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616989" />
+    <state width="1748" height="520" key="GridCell.Tab.1.bottom" timestamp="1602683442788">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1746" height="520" key="GridCell.Tab.1.bottom/0.0.1680.970@0.0.1680.970" timestamp="1602431600989" />
+    <state width="1748" height="520" key="GridCell.Tab.1.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1602683442788" />
+    <state width="1744" height="520" key="GridCell.Tab.1.bottom/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602617556308" />
+    <state width="2518" height="520" key="GridCell.Tab.1.bottom/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616992" />
+    <state width="1748" height="520" key="GridCell.Tab.1.center" timestamp="1602683442787">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1746" height="520" key="GridCell.Tab.1.center/0.0.1680.970@0.0.1680.970" timestamp="1602431600988" />
+    <state width="1748" height="520" key="GridCell.Tab.1.center/0.0.2560.1440@0.0.2560.1440" timestamp="1602683442787" />
+    <state width="1744" height="520" key="GridCell.Tab.1.center/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602617556306" />
+    <state width="2518" height="520" key="GridCell.Tab.1.center/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616991" />
+    <state width="1748" height="520" key="GridCell.Tab.1.left" timestamp="1602683442786">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1746" height="520" key="GridCell.Tab.1.left/0.0.1680.970@0.0.1680.970" timestamp="1602431600987" />
+    <state width="1748" height="520" key="GridCell.Tab.1.left/0.0.2560.1440@0.0.2560.1440" timestamp="1602683442786" />
+    <state width="1744" height="520" key="GridCell.Tab.1.left/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602617556305" />
+    <state width="2518" height="520" key="GridCell.Tab.1.left/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616990" />
+    <state width="1748" height="520" key="GridCell.Tab.1.right" timestamp="1602683442788">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1746" height="520" key="GridCell.Tab.1.right/0.0.1680.970@0.0.1680.970" timestamp="1602431600988" />
+    <state width="1748" height="520" key="GridCell.Tab.1.right/0.0.2560.1440@0.0.2560.1440" timestamp="1602683442787" />
+    <state width="1744" height="520" key="GridCell.Tab.1.right/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602617556307" />
+    <state width="2518" height="520" key="GridCell.Tab.1.right/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616991" />
+    <state x="1196" y="681" key="SettingsEditor" timestamp="1602688850983">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="518" y="262" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1602430071602" />
+    <state x="1196" y="681" key="SettingsEditor/0.0.2560.1440@0.0.2560.1440" timestamp="1602688850983" />
+    <state x="789" y="349" key="SettingsEditor/393.1440.1536.832/0.0.2560.1400@0.0.2560.1400" timestamp="1602078051234" />
+    <state x="789" y="359" key="SettingsEditor/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602618460272" />
+    <state x="578" y="335" key="Vcs.Push.Dialog.v2" timestamp="1602429773848">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="578" y="335" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1602429773848" />
     <state x="880" y="460" key="Vcs.Push.Dialog.v2/0.0.2560.1440@0.0.2560.1440" timestamp="1602253239320" />
     <state x="880" y="460" key="Vcs.Push.Dialog.v2/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1601630583426" />
-    <state width="840" height="525" key="XDebugger.FullValuePopup" timestamp="1601999810357">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="840" height="525" key="XDebugger.FullValuePopup/0.0.1680.1050@0.0.1680.1050" timestamp="1601999810357" />
-    <state x="1093" y="641" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1601559553417">
+    <state width="1280" height="720" key="XDebugger.FullValuePopup" timestamp="1602836272381">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="1093" y="641" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1440@0.0.2560.1440" timestamp="1601559553417" />
+    <state width="840" height="525" key="XDebugger.FullValuePopup/0.0.1680.1050@0.0.1680.1050" timestamp="1601999810357" />
+    <state width="1280" height="720" key="XDebugger.FullValuePopup/0.0.2560.1440@0.0.2560.1440" timestamp="1602836272381" />
+    <state width="1280" height="720" key="XDebugger.FullValuePopup/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602758539767" />
+    <state x="1093" y="641" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602686408729">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="1093" y="641" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1440@0.0.2560.1440" timestamp="1602686408729" />
+    <state x="1214" y="456" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1602683384477">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="1214" y="456" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.2560.1440@0.0.2560.1440" timestamp="1602683384477" />
     <state x="1049" y="440" key="git4idea.branch.GitSmartOperationDialog" timestamp="1601566523095">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
@@ -455,16 +497,21 @@
     </state>
     <state x="930" y="455" width="700" height="530" key="recent.locations.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1600188640166" />
     <state x="930" y="442" width="700" height="516" key="recent.locations.popup/393.1440.1536.832/0.0.2560.1400@0.0.2560.1400" timestamp="1602081843995" />
-    <state x="945" y="331" width="670" height="676" key="search.everywhere.popup" timestamp="1600853069744">
+    <state x="945" y="331" width="670" height="676" key="search.everywhere.popup" timestamp="1602844518437">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
+    <state x="945" y="331" width="670" height="676" key="search.everywhere.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1602844518437" />
     <state x="945" y="331" width="670" height="676" key="search.everywhere.popup/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1600853069744" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/prostate$pytest_for_test_banbury_test_fail_change_cwd.coverage" NAME="pytest for test_banbury.test_fail_change_cwd Coverage Results" MODIFIED="1602381711202" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sandbox" />
-    <SUITE FILE_PATH="coverage/prostate$pytest_in_test_banbury_py.coverage" NAME="pytest in test_banbury.py Coverage Results" MODIFIED="1602382168187" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sandbox" />
+    <SUITE FILE_PATH="coverage/prostate$banbury.coverage" NAME="banbury Coverage Results" MODIFIED="1602683442745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sandbox" />
+    <SUITE FILE_PATH="coverage/prostate$pytest_for_test_banbury_test_file_search.coverage" NAME="pytest for test_banbury.test_file_search Coverage Results" MODIFIED="1602618790736" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sandbox" />
+    <SUITE FILE_PATH="coverage/prostate$pytest_in__.coverage" NAME="pytest in / Coverage Results" MODIFIED="1602675451305" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/prostate$pytest_for_test_banbury_test_file_list.coverage" NAME="pytest for test_banbury.test_file_list Coverage Results" MODIFIED="1602833772878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sandbox" />
+    <SUITE FILE_PATH="coverage/prostate$pytest_in_test_banbury_py.coverage" NAME="pytest in test_banbury.py Coverage Results" MODIFIED="1602849656242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/prostate$yvette_data_1.coverage" NAME="yvette_data_1 Coverage Results" MODIFIED="1601630596891" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.." />
     <SUITE FILE_PATH="coverage/prostate$pytest_for_test_wallet_test_default_initial_amount.coverage" NAME="pytest for test_wallet.test_default_initial_amount Coverage Results" MODIFIED="1601551585390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sandbox" />
-    <SUITE FILE_PATH="coverage/prostate$pytest_for_test_banbury_test_change_cwd.coverage" NAME="pytest for test_banbury.test_change_cwd Coverage Results" MODIFIED="1602381661457" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sandbox" />
+    <SUITE FILE_PATH="coverage/prostate$pytest_for_test_banbury_test_change_cwd.coverage" NAME="pytest for test_banbury.test_change_cwd Coverage Results" MODIFIED="1602602977937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sandbox" />
   </component>
 </project>
