@@ -28,15 +28,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0695007-41bb-43dc-86fe-46bb0472db71" name="Default Changelist" comment="testing cwd manipulations">
-      <change beforePath="$PROJECT_DIR$/.idea/prostate.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/prostate.iml" afterDir="false" />
+    <list default="true" id="c0695007-41bb-43dc-86fe-46bb0472db71" name="Default Changelist" comment="revamped banbury.py and test_banbury.py with classes and full TDD">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sandbox/banbury.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sandbox/test_banbury.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/test_banbury.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/test_capitalise.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/test_mysom.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/test_mysom.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/test_wallet.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/wallet.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,7 +240,11 @@
       <workItem from="1602617566132" duration="4000" />
       <workItem from="1602617613842" duration="1219000" />
       <workItem from="1602670332705" duration="25325000" />
-      <workItem from="1602831556344" duration="12310000" />
+      <workItem from="1602831556344" duration="12403000" />
+      <workItem from="1602940192657" duration="137000" />
+      <workItem from="1602968503158" duration="3245000" />
+      <workItem from="1603016398639" duration="8732000" />
+      <workItem from="1603097988676" duration="32544000" />
     </task>
     <task id="LOCAL-00001" summary="Markers now find label from input data for colour without manual input. Added plot to show quantisation errors and frequency of neuron activation">
       <created>1600343898422</created>
@@ -317,7 +316,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602429765528</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="revamped banbury.py and test_banbury.py with classes and full TDD">
+      <created>1602853038420</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1602853038420</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,7 +378,8 @@
     <MESSAGE value="figure legends and titles" />
     <MESSAGE value="Started TDD for banbury data extraction and file processing" />
     <MESSAGE value="testing cwd manipulations" />
-    <option name="LAST_COMMIT_MESSAGE" value="testing cwd manipulations" />
+    <MESSAGE value="revamped banbury.py and test_banbury.py with classes and full TDD" />
+    <option name="LAST_COMMIT_MESSAGE" value="revamped banbury.py and test_banbury.py with classes and full TDD" />
   </component>
   <component name="WindowStateProjectService">
     <state x="744" y="382" width="1071" height="796" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602843634044">
@@ -397,68 +404,68 @@
     </state>
     <state x="751" y="330" key="EnvironmentVariablesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1602430011783" />
     <state x="1145" y="452" key="EnvironmentVariablesDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1600343424853" />
-    <state width="2518" height="420" key="GridCell.Tab.0.bottom" timestamp="1602849703375">
+    <state width="2518" height="436" key="GridCell.Tab.0.bottom" timestamp="1603199920741">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state width="1638" height="293" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1602673816478" />
+    <state width="1638" height="292" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1603177290746" />
     <state width="1052" height="436" key="GridCell.Tab.0.bottom/0.0.1680.970@0.0.1680.970" timestamp="1602431600994" />
-    <state width="2518" height="420" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1602849703375" />
+    <state width="2518" height="436" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1603199920741" />
     <state width="2518" height="422" key="GridCell.Tab.0.bottom/0.23.2560.1337@0.23.2560.1337" timestamp="1602603045830" />
-    <state width="2518" height="420" key="GridCell.Tab.0.bottom/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602759379515" />
+    <state width="2518" height="420" key="GridCell.Tab.0.bottom/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1603020375478" />
     <state width="2518" height="520" key="GridCell.Tab.0.bottom/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616990" />
-    <state width="2518" height="420" key="GridCell.Tab.0.center" timestamp="1602849703372">
+    <state width="2518" height="436" key="GridCell.Tab.0.center" timestamp="1603199920740">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state width="1638" height="293" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1602673816476" />
+    <state width="1638" height="292" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1603177290744" />
     <state width="1052" height="436" key="GridCell.Tab.0.center/0.0.1680.970@0.0.1680.970" timestamp="1602431600993" />
-    <state width="2518" height="420" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1602849703372" />
+    <state width="2518" height="436" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1603199920740" />
     <state width="2518" height="422" key="GridCell.Tab.0.center/0.23.2560.1337@0.23.2560.1337" timestamp="1602603045828" />
-    <state width="2518" height="420" key="GridCell.Tab.0.center/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602759379512" />
+    <state width="2518" height="420" key="GridCell.Tab.0.center/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1603020375477" />
     <state width="2518" height="520" key="GridCell.Tab.0.center/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616988" />
-    <state width="2518" height="420" key="GridCell.Tab.0.left" timestamp="1602849703371">
+    <state width="2518" height="436" key="GridCell.Tab.0.left" timestamp="1603199920739">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state width="1638" height="293" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1602673816475" />
+    <state width="1638" height="292" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1603177290744" />
     <state width="1052" height="436" key="GridCell.Tab.0.left/0.0.1680.970@0.0.1680.970" timestamp="1602431600992" />
-    <state width="2518" height="420" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1602849703371" />
+    <state width="2518" height="436" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1603199920739" />
     <state width="2518" height="422" key="GridCell.Tab.0.left/0.23.2560.1337@0.23.2560.1337" timestamp="1602603045827" />
-    <state width="2518" height="420" key="GridCell.Tab.0.left/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602759379509" />
+    <state width="2518" height="420" key="GridCell.Tab.0.left/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1603020375476" />
     <state width="2518" height="520" key="GridCell.Tab.0.left/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616987" />
-    <state width="2518" height="420" key="GridCell.Tab.0.right" timestamp="1602849703374">
+    <state width="2518" height="436" key="GridCell.Tab.0.right" timestamp="1603199920740">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state width="1638" height="293" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1602673816477" />
+    <state width="1638" height="292" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1603177290745" />
     <state width="1052" height="436" key="GridCell.Tab.0.right/0.0.1680.970@0.0.1680.970" timestamp="1602431600993" />
-    <state width="2518" height="420" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1602849703374" />
+    <state width="2518" height="436" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1603199920740" />
     <state width="2518" height="422" key="GridCell.Tab.0.right/0.23.2560.1337@0.23.2560.1337" timestamp="1602603045829" />
-    <state width="2518" height="420" key="GridCell.Tab.0.right/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602759379513" />
+    <state width="2518" height="420" key="GridCell.Tab.0.right/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1603020375478" />
     <state width="2518" height="520" key="GridCell.Tab.0.right/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616989" />
-    <state width="1748" height="520" key="GridCell.Tab.1.bottom" timestamp="1602683442788">
+    <state width="2518" height="520" key="GridCell.Tab.1.bottom" timestamp="1603183870718">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1746" height="520" key="GridCell.Tab.1.bottom/0.0.1680.970@0.0.1680.970" timestamp="1602431600989" />
-    <state width="1748" height="520" key="GridCell.Tab.1.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1602683442788" />
+    <state width="2518" height="520" key="GridCell.Tab.1.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1603183870718" />
     <state width="1744" height="520" key="GridCell.Tab.1.bottom/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602617556308" />
     <state width="2518" height="520" key="GridCell.Tab.1.bottom/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616992" />
-    <state width="1748" height="520" key="GridCell.Tab.1.center" timestamp="1602683442787">
+    <state width="2518" height="520" key="GridCell.Tab.1.center" timestamp="1603183870717">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1746" height="520" key="GridCell.Tab.1.center/0.0.1680.970@0.0.1680.970" timestamp="1602431600988" />
-    <state width="1748" height="520" key="GridCell.Tab.1.center/0.0.2560.1440@0.0.2560.1440" timestamp="1602683442787" />
+    <state width="2518" height="520" key="GridCell.Tab.1.center/0.0.2560.1440@0.0.2560.1440" timestamp="1603183870717" />
     <state width="1744" height="520" key="GridCell.Tab.1.center/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602617556306" />
     <state width="2518" height="520" key="GridCell.Tab.1.center/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616991" />
-    <state width="1748" height="520" key="GridCell.Tab.1.left" timestamp="1602683442786">
+    <state width="2518" height="520" key="GridCell.Tab.1.left" timestamp="1603183870716">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1746" height="520" key="GridCell.Tab.1.left/0.0.1680.970@0.0.1680.970" timestamp="1602431600987" />
-    <state width="1748" height="520" key="GridCell.Tab.1.left/0.0.2560.1440@0.0.2560.1440" timestamp="1602683442786" />
+    <state width="2518" height="520" key="GridCell.Tab.1.left/0.0.2560.1440@0.0.2560.1440" timestamp="1603183870716" />
     <state width="1744" height="520" key="GridCell.Tab.1.left/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602617556305" />
     <state width="2518" height="520" key="GridCell.Tab.1.left/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616990" />
-    <state width="1748" height="520" key="GridCell.Tab.1.right" timestamp="1602683442788">
+    <state width="2518" height="520" key="GridCell.Tab.1.right" timestamp="1603183870718">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1746" height="520" key="GridCell.Tab.1.right/0.0.1680.970@0.0.1680.970" timestamp="1602431600988" />
-    <state width="1748" height="520" key="GridCell.Tab.1.right/0.0.2560.1440@0.0.2560.1440" timestamp="1602683442787" />
+    <state width="2518" height="520" key="GridCell.Tab.1.right/0.0.2560.1440@0.0.2560.1440" timestamp="1603183870718" />
     <state width="1744" height="520" key="GridCell.Tab.1.right/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602617556307" />
     <state width="2518" height="520" key="GridCell.Tab.1.right/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616991" />
     <state x="1196" y="681" key="SettingsEditor" timestamp="1602688850983">
@@ -468,22 +475,23 @@
     <state x="1196" y="681" key="SettingsEditor/0.0.2560.1440@0.0.2560.1440" timestamp="1602688850983" />
     <state x="789" y="349" key="SettingsEditor/393.1440.1536.832/0.0.2560.1400@0.0.2560.1400" timestamp="1602078051234" />
     <state x="789" y="359" key="SettingsEditor/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602618460272" />
-    <state x="578" y="335" key="Vcs.Push.Dialog.v2" timestamp="1602429773848">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="880" y="460" key="Vcs.Push.Dialog.v2" timestamp="1602853044892">
+      <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="578" y="335" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1602429773848" />
-    <state x="880" y="460" key="Vcs.Push.Dialog.v2/0.0.2560.1440@0.0.2560.1440" timestamp="1602253239320" />
+    <state x="880" y="460" key="Vcs.Push.Dialog.v2/0.0.2560.1440@0.0.2560.1440" timestamp="1602853044892" />
     <state x="880" y="460" key="Vcs.Push.Dialog.v2/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1601630583426" />
-    <state width="1280" height="720" key="XDebugger.FullValuePopup" timestamp="1602836272381">
+    <state width="1280" height="720" key="XDebugger.FullValuePopup" timestamp="1603197348450">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="840" height="525" key="XDebugger.FullValuePopup/0.0.1680.1050@0.0.1680.1050" timestamp="1601999810357" />
-    <state width="1280" height="720" key="XDebugger.FullValuePopup/0.0.2560.1440@0.0.2560.1440" timestamp="1602836272381" />
+    <state width="1280" height="720" key="XDebugger.FullValuePopup/0.0.2560.1440@0.0.2560.1440" timestamp="1603197348450" />
     <state width="1280" height="720" key="XDebugger.FullValuePopup/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602758539767" />
-    <state x="1093" y="641" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602686408729">
+    <state x="1093" y="641" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603128706816">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="1093" y="641" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1440@0.0.2560.1440" timestamp="1602686408729" />
+    <state x="1093" y="641" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1440@0.0.2560.1440" timestamp="1603128706816" />
+    <state x="1093" y="641" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602940209775" />
     <state x="1214" y="456" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1602683384477">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
@@ -505,11 +513,11 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/prostate$pytest_for_test_banbury_test_fail_change_cwd.coverage" NAME="pytest for test_banbury.test_fail_change_cwd Coverage Results" MODIFIED="1602381711202" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sandbox" />
-    <SUITE FILE_PATH="coverage/prostate$banbury.coverage" NAME="banbury Coverage Results" MODIFIED="1602683442745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sandbox" />
+    <SUITE FILE_PATH="coverage/prostate$banbury.coverage" NAME="banbury Coverage Results" MODIFIED="1603050765152" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/prostate$pytest_for_test_banbury_test_file_search.coverage" NAME="pytest for test_banbury.test_file_search Coverage Results" MODIFIED="1602618790736" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sandbox" />
     <SUITE FILE_PATH="coverage/prostate$pytest_in__.coverage" NAME="pytest in / Coverage Results" MODIFIED="1602675451305" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/prostate$pytest_for_test_banbury_test_file_list.coverage" NAME="pytest for test_banbury.test_file_list Coverage Results" MODIFIED="1602833772878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sandbox" />
-    <SUITE FILE_PATH="coverage/prostate$pytest_in_test_banbury_py.coverage" NAME="pytest in test_banbury.py Coverage Results" MODIFIED="1602849656242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/prostate$pytest_in_test_banbury_py.coverage" NAME="pytest in test_banbury.py Coverage Results" MODIFIED="1603199920722" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/prostate$yvette_data_1.coverage" NAME="yvette_data_1 Coverage Results" MODIFIED="1601630596891" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.." />
     <SUITE FILE_PATH="coverage/prostate$pytest_for_test_wallet_test_default_initial_amount.coverage" NAME="pytest for test_wallet.test_default_initial_amount Coverage Results" MODIFIED="1601551585390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sandbox" />
     <SUITE FILE_PATH="coverage/prostate$pytest_for_test_banbury_test_change_cwd.coverage" NAME="pytest for test_banbury.test_change_cwd Coverage Results" MODIFIED="1602602977937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sandbox" />

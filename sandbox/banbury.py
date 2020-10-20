@@ -65,9 +65,36 @@ define functions to plot spectra and average spectra
 """
 
 from pathlib import Path
-import glob
 import numpy as np
-import matplotlib.pyplot as plt
+import csv
+
+# load wavenumbers for use as x data for each sample
+# wavenumbers should be the same for each sample, so data arbitrarily gathered from animal_1_cornea_0
+# wavenumbers for each sample are later checked against this array
+# generate a 1 x 1 2d array containing labels for x data [wavenumber]
+wave_lab = np.array(["wavenumber"])[None, :]  # converts 1d array to 1 x n 2d array
+# generate a 1 x n 2d array containing wavenumbers to be used as x data for all samples
+wavenumbers = np.genfromtxt(
+    Path('../data/banbury/cornea/cornea_eye_1_fp_sub_0__X_20912.1__Y_-1142.71__Time_0__Zdata_4264.95__'
+         'Zactual_4264.89__Zdifference_-0.0527536__LTSignalUsed_3.txt'),
+    dtype='float', delimiter='\t', usecols=(0)).T[None, :]
+
+
+def save_x_data():
+    """index x data in column 0 with [wavenumber] and save to data directory and three subdirectories"""
+    p = Path('../data/banbury/_data/by_tissue_by_animal/_wavenumbers.csv')
+    q = Path('../data/banbury/_data/all_tissues_by_animal/_wavenumbers.csv')
+    r = Path('../data/banbury/_data/by_tissue_all_animals/_wavenumbers.csv')
+    s = Path('../data/banbury/_data/_wavenumbers.csv')
+    with p.open('w') as f:
+        np.savetxt(f, np.hstack((wave_lab, wavenumbers)), delimiter=',', fmt="%s")
+    with q.open('w') as f:
+        np.savetxt(f, np.hstack((wave_lab, wavenumbers)), delimiter=',', fmt="%s")
+    with r.open('w') as f:
+        np.savetxt(f, np.hstack((wave_lab, wavenumbers)), delimiter=',', fmt="%s")
+    with s.open('w') as f:
+        np.savetxt(f, np.hstack((wave_lab, wavenumbers)), delimiter=',', fmt="%s")
+    return wave_lab, wavenumbers
 
 
 class ByTissueByAnimal(object):
@@ -76,81 +103,104 @@ class ByTissueByAnimal(object):
         self.tissue = tissue_type
         self.animal = animal_number
         self.file_dir = None
+        self.data_dir = Path('../data/banbury/_data/by_tissue_by_animal')
         self.file_dict = {}
-        self.x_data = None
+        self.x_labels = wave_lab
+        self.y_labels = None
+        self.x_data = wavenumbers
         self.y_data = None
 
     def file_search(self):
-        """search tissue directory for all files relating to input tissue and animal number
+        """search input tissue subdirectory for all files relating to input animal number
         and return dictionary of {animal_[animal_number]_[tissue]_[iteration_number] : file}"""
         self.file_dir = Path('../data/banbury/' + self.tissue)
-        search_term = '*eye_{}_*'.format(self.animal)  # data exist as eye_[animal_number]_[tissue] and [tissue]_eye_[animal_number]_
-        i = 1
-        for file in Path(self.file_dir).glob(search_term):
+        search_term = f"*eye_{self.animal}_*"  # data exist as eye_[animal_number]_[tissue] and [tissue]_eye_[animal_number]
+        for i, file in enumerate(sorted(Path(self.file_dir).glob(search_term))):
             self.file_dict.update({f"animal_{self.animal}_{self.tissue}_{i}": f"{file}"})
-            i = i + 1
         return self.file_dir, self.file_dict
 
-    def x_data_extraction(self):
-        """search file corresponding to first key in dictionary and extract first column,
-        return this data as the first row of a np array"""
-        self.x_data = np.genfromtxt(self.file_dict[f"animal_{self.animal}_{self.tissue}_1"], dtype='float', delimiter='\t', usecols=(0)).T  # generates first row of data from first column of the file pointed to in the first dictionary key
-        return self.x_data
+    def generate_y_labels(self):
+        """create 1 x n 2d array containing labels for y values [animal_[animal_number]_[tissue]_[iteration_number]]"""
+        self.y_labels = np.array(list(self.file_dict.keys()))[:, None]  # converts 1d array to 2d array with 1 row
+        return self.y_labels
 
-"""check input banbury data are in expected column[0] wavenumber column[1] value format,
-        transpose to row[0] wavenumber row[1] value format,
-        check that row[0] is same for each file
-        create ouput dictionary with row[0] wavenumber row[1-k] value format
-        and labels animal_[animal_number]_[tissue]_[iteration_number]"""
+    def extract_y_data(self):
+        """create a k x n 2d array of intensity values
+        if the x data of each file k match the global x data stored in wavenumbers
+        else an error is thrown"""
+        # initialise empty k x n 2d array where k = number of keys in dictionary
+        self.y_data = np.empty((len(self.file_dict), self.x_data.shape[1]))
+        # for each filepath in file_dict check x data against wavenumbers
+        # if True insert y data into row[iteration] of array
+        # else throw error that x values do not match
+        for i, v in enumerate(self.file_dict.values()):
+            xdata = np.genfromtxt(v, dtype='float', delimiter='\t', usecols=0).T
+            xdata = xdata[None, :]  # convert 1d array to 2d array with 1 row
+            if np.array_equal(wavenumbers, xdata):
+                ydata = np.genfromtxt(v, dtype='float', delimiter='\t', usecols=1).T
+                ydata = ydata[None, :]  # convert 1d array to 2d array with 1 row
+                self.y_data[i, :] = ydata[0, :]  # replace iteration number row of yy with first row of ydata
+            else:
+                assert "x values do not match"
+        return self.y_data
 
+    def save_y_data(self):
+        """index y data in column 0 with animal_[animal_number]_[tissue]_[iteration_number]
+        and save to by_tissue_by_animal subdirectory"""
+        p = Path(self.data_dir / f"animal_{self.animal}_{self.tissue}.csv")
+        with p.open('w') as f:
+            np.savetxt(f, np.hstack((self.y_labels, self.y_data)), delimiter=',', fmt="%s")
 
-'''
-test script
-cornea1 = ByTissueByAnimal("cornea", 1)
-cornea1.file_search()
-cornea1.x_data_extraction()
-'''
-
-
-
-#    h = input_x.keys()
- #   x = np.genfromtxt(key, delimiter='\t').T
-  #  for key in h:
-   #     x = np.genfromtxt(key, delimiter='\t').T
-   #     y = np.array()
-    #    if x == x_data:
-
-
-
-'''
-x data to be first row of first item.T (data needs to be transposed) with wavenumber in first cell
-then for every entry in dictionary, take file.T, check row 0 = x data
-then append row 1 to y data
-assign key to column 1 of row
-can list keys in a dictionary to call every element
-'''
-
+    def do_all_the_things(self):
+        self.file_search()
+        self.generate_y_labels()
+        self.extract_y_data()
+        self.save_y_data()
 
 
-
-
-
-
-
-
-
-
-class AllTissuesByAnimal:
+def all_tissues_by_animal(animal_number):
     """creates separate csv files containing all spectral data obtained from all tissues from a single animal"""
-    pass
+    btba_path = Path('../data/banbury/_data/by_tissue_by_animal/')
+    atba_search = f"animal_{animal_number}_*"  # files are named [animal_i_tissue]
+    atba_dict = {}
+    for i, file in enumerate(sorted(Path(btba_path).glob(atba_search))):
+        atba_dict.update({f"animal_{animal_number}_{i}": f"{file}"})
+    p = Path('../data/banbury/_data/all_tissues_by_animal/' + f"animal_{animal_number}.csv")
+    with p.open('w') as f:
+        writer = csv.writer(f)
+        for v in atba_dict.values():
+            reader = csv.reader(open(v))
+            for row in reader:
+                writer.writerow(row)
 
 
-class ByTissueAllAnimals:
+def by_tissue_all_animals(tissue_type):
     """creates separate csv files containing all spectral data obtained from a single tissue from all animals"""
-    pass
+    btba_path = Path('../data/banbury/_data/by_tissue_by_animal/')
+    btaa_search = f"*_{tissue_type}*"  # files are named [animal_i_tissue]
+    btaa_dict = {}
+    for i, file in enumerate(sorted(Path(btba_path).glob(btaa_search))):
+        btaa_dict.update({f"animal_{i}_{tissue_type}": f"{file}"})
+    p = Path('../data/banbury/_data/by_tissue_all_animals/' + f"{tissue_type}.csv")
+    with p.open('w') as f:
+        writer = csv.writer(f)
+        for v in btaa_dict.values():
+            reader = csv.reader(open(v))
+            for row in reader:
+                writer.writerow(row)
 
 
-class AllData:
+def all_data():
     """creates a single csv file containing all spectral data obtained from all tissues from all animals"""
-    pass
-
+    btba_path = Path('../data/banbury/_data/by_tissue_by_animal/')
+    ad_search = f"animal*.csv"  # files are named [animal_i_tissue]
+    ad_dict = {}
+    for i, file in enumerate(sorted(Path(btba_path).glob(ad_search))):
+        ad_dict.update({f"sample_{i}": f"{file}"})
+    p = Path('../data/banbury/_data/' "all_data.csv")
+    with p.open('w') as f:
+        writer = csv.writer(f)
+        for v in ad_dict.values():
+            reader = csv.reader(open(v))
+            for row in reader:
+                writer.writerow(row)
