@@ -94,7 +94,6 @@ def save_x_data():
         np.savetxt(f, np.hstack((wave_lab, wavenumbers)), delimiter=',', fmt="%s")
     with s.open('w') as f:
         np.savetxt(f, np.hstack((wave_lab, wavenumbers)), delimiter=',', fmt="%s")
-    return wave_lab, wavenumbers
 
 
 class ByTissueByAnimal(object):
@@ -204,3 +203,40 @@ def all_data():
             reader = csv.reader(open(v))
             for row in reader:
                 writer.writerow(row)
+
+"""
+# script for running data extraction
+
+# save wavnumbers as a base file in _data directory and each subdirectory
+
+# create dictionary of instance names mapped to possible tissue type and animal number
+tissue = ["cornea", "lens", "optic_nerve", "retina", "vitreous"]
+run_dict = {}
+for i in range(1, 12):
+    for t in tissue:
+        run_dict.update({f"{t}{i}": [f"{t}", f"{i}"]})
+
+# print list of commands to initialise class instances
+for k, v in run_dict.items():
+    print(f"{k} = ByTissueByAnimal(\"{v[0]}\", {v[1]})")
+# the resultant printed list can be copied into the console to initialise the 55 instances of ByTissueByAnimal
+
+# print list of commands to execute functions of class instances
+for key in run_dict.keys():
+    print(f"{key}.do_all_the_things()")
+# the resultant printed list can be copied into the console to execute the do_all_the_things() function
+# of the 55 instances of ByTissueByAnimal
+
+# now all single animal_tissue files are in the by_tissue_by_animal subdirectory
+
+# fill all_tissues_by_animal subdirectory
+for x in range(1, 12):
+    all_tissues_by_animal(x)
+
+# fill by_tissue_all_animals subdirectory
+for tis in tissue:
+    by_tissue_all_animals(tis)
+
+# fill all_data file
+all_data()
+"""
