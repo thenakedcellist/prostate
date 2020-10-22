@@ -8,6 +8,7 @@ from matplotlib.lines import Line2D
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 from sklearn import preprocessing
 from minisom import MiniSom
+from collections import Counter
 
 
 # %% read files
@@ -52,8 +53,9 @@ t[target == 'G'] = 1
 
 # generate lists with assigned colours and markers for each label in t
 markers = ['o', 'o', 'o', 'o', 'o']  # add markers to data
-colors = ['r', 'g', 'b', 'c', 'm']  # edit marker colours
-#colors = ['r', 'r', 'r', 'r', 'r']  # blinded marker uniform colours
+#colors = ['r', 'g', 'b', 'c', 'm']  # edit marker colours
+colors = ['r', 'r', 'r', 'r', 'r']  # edit marker colours
+
 
 # %% plot distance map (u-matrix) and overlay mapped sample with uniform markers
 
@@ -110,16 +112,25 @@ fig2, ax2 = plt.subplots(1,1, figsize=(19.2, 14.4))
 fig2.subplots_adjust(left=0.125, right=0.9, top=0.9, bottom=0.2, wspace=0.2, hspace=0.2)  # set whitespace around figure edges and space between subplots
 fig2.suptitle("Scatter Plot of Self Organising Map", fontsize=16)
 
+# dan's extra code for setting scatter plot som neuron activation threshold
+w = [som.winner(d) for d in sydata]  # list of som neuron co-ordinates activated for each sample input
+cnt_w = [[x, w.count(x)] for x in set(w)]  # list of som neuron co-ordinates and how many times they are activated for unique values in w [set(w)]
+threshold = {val for val, i in Counter(w).items() if i >=3}  # set containing list of som neuron co-ordinates that appear in w more times than threshold value
+resultant = [val for val in w if val in threshold]  # list of som co-ordinates activated more times than threshold value
+tw_x, tw_y = zip(*resultant)  # get x an y co-ordinates of BMU
+# replace t list of marker values for colouring for subset of data above threshold
+# as this method will only be used for blinded data, this can be a list of zeros giving one label colour
+t_t = list(np.zeros(len(resultant), dtype='int'))
+
 # fill in axes with SOM and overlaid scatter data
 ax2.pcolor(som.distance_map().T, cmap='Blues', alpha=1.0)  # plot transposed SOM distances in one matrix and set colormap with reduced opacity
 ax2.grid()  # print grid in bold over background
-w_x, w_y = zip(*[som.winner(d) for d in sydata])  # get x an y co-ordinates of BMU
-w_x = np.array(w_x)  # convert x variables into np array
-w_y = np.array(w_y)  # convert y variables into np array
-for c in np.unique(t):  # plot scatter plot for sample
-    idx_t = t==c
-    ax2.scatter(w_x[idx_t] + .5 + (np.random.rand(np.sum(idx_t)) - .5) * .5,
-                w_y[idx_t] + .5 + (np.random.rand(np.sum(idx_t)) - .5) * .5, s=30, c=colors[c])
+tw_x = np.array(tw_x)  # convert x variables into np array
+tw_y = np.array(tw_y)  # convert y variables into np array
+for c in np.unique(t_t):  # plot scatter plot for sample
+    idx_t = t_t==c
+    ax2.scatter(tw_x[idx_t] + .5 + (np.random.rand(np.sum(idx_t)) - .5) * .5,
+                tw_y[idx_t] + .5 + (np.random.rand(np.sum(idx_t)) - .5) * .5, s=30, c=colors[c])
 
 # add colorbar to figure
 divider2 = make_axes_locatable(ax2)

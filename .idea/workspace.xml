@@ -28,13 +28,23 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0695007-41bb-43dc-86fe-46bb0472db71" name="Default Changelist" comment="finished banbury.py to convert all banbury data into format i can use with mysom module. this production was performed using TDD, and so is robust.">
-      <change afterPath="$PROJECT_DIR$/sandbox/img/2020-10-21-fig1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/img/2020-10-21-fig2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/mysom_banbury.py" afterDir="false" />
+    <list default="true" id="c0695007-41bb-43dc-86fe-46bb0472db71" name="Default Changelist" comment="Now that the Banbury data are usable, I am running my som code on them to investigate how changing SOM parameters affects the results. This code still needs to be refactored into an importable module.">
+      <change afterPath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma 2 dimension change/25x25_blind.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma 2 dimension change/25x25_unblind.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma 2 dimension change/30x30_blind.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma 2 dimension change/30x30_unblind.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma 2 dimension change/largescale_scatter_30x30_unblind.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma 2 dimension change/largescale_scatter_alpha1_30x30_blind.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma 2 dimension change/largescale_scatter_alpha1_30x30_unblind.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma 2 dimension change/largescale_scatter_alpha1_k3_30x30_blind.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma 2 dimension change/largescale_scatter_alpha1_k4_30x30_blind..png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma 2 dimension change/largescale_scatter_alpha1_k5_30x30_blind..png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sandbox/mysom_banbury_hex.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sandbox/mysom_banbury_scatter_threshold.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/banbury.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/mysom.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/mysom.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/img/2020-10-21-fig1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/img/2020-10-21-fig2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/mysom_banbury.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/mysom_banbury.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +68,9 @@
   </component>
   <component name="JupyterTrust" id="788d319f-e41d-4f89-83fc-608a3f2c5e20" />
   <component name="ProjectId" id="1hYVabm5jgOgHE8NkH0OzRzg5oH" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -66,7 +78,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/sandbox/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma 2 dimension change" />
     <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -80,13 +92,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma 2 dimension change" />
       <recent name="$PROJECT_DIR$/sandbox/img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/sandbox/img" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.banbury">
+  <component name="RunManager" selected="Python.mysom_banbury">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="prostate" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -123,6 +136,44 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sandbox/banbury.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="mysom_banbury" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="prostate" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sandbox" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sandbox/mysom_banbury.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="mysom_banbury_hex" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="prostate" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sandbox" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sandbox/mysom_banbury_hex.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -204,9 +255,13 @@
       <item itemvalue="Python tests.pytest in /" />
       <item itemvalue="Python tests.pytest in test_banbury.py" />
       <item itemvalue="Python tests.pytest for test_banbury.test_file_list" />
+      <item itemvalue="Python.mysom_banbury_hex" />
+      <item itemvalue="Python.mysom_banbury" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.mysom_banbury" />
+        <item itemvalue="Python.mysom_banbury_hex" />
         <item itemvalue="Python.banbury" />
         <item itemvalue="Python tests.pytest in test_banbury.py" />
         <item itemvalue="Python tests.pytest for test_banbury.test_file_list" />
@@ -263,7 +318,7 @@
       <workItem from="1603208226386" duration="2050000" />
       <workItem from="1603225368409" duration="1313000" />
       <workItem from="1603226891718" duration="81000" />
-      <workItem from="1603262112577" duration="7322000" />
+      <workItem from="1603262112577" duration="27565000" />
     </task>
     <task id="LOCAL-00001" summary="Markers now find label from input data for colour without manual input. Added plot to show quantisation errors and frequency of neuron activation">
       <created>1600343898422</created>
@@ -349,7 +404,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603200031304</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Now that the Banbury data are usable, I am running my som code on them to investigate how changing SOM parameters affects the results. This code still needs to be refactored into an importable module.">
+      <created>1603274621821</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1603274621821</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,7 +468,8 @@
     <MESSAGE value="testing cwd manipulations" />
     <MESSAGE value="revamped banbury.py and test_banbury.py with classes and full TDD" />
     <MESSAGE value="finished banbury.py to convert all banbury data into format i can use with mysom module. this production was performed using TDD, and so is robust." />
-    <option name="LAST_COMMIT_MESSAGE" value="finished banbury.py to convert all banbury data into format i can use with mysom module. this production was performed using TDD, and so is robust." />
+    <MESSAGE value="Now that the Banbury data are usable, I am running my som code on them to investigate how changing SOM parameters affects the results. This code still needs to be refactored into an importable module." />
+    <option name="LAST_COMMIT_MESSAGE" value="Now that the Banbury data are usable, I am running my som code on them to investigate how changing SOM parameters affects the results. This code still needs to be refactored into an importable module." />
   </component>
   <component name="WindowStateProjectService">
     <state x="744" y="382" width="1071" height="796" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602843634044">
@@ -502,17 +565,18 @@
     <state x="1196" y="681" key="SettingsEditor/0.0.2560.1440@0.0.2560.1440" timestamp="1602688850983" />
     <state x="789" y="349" key="SettingsEditor/393.1440.1536.832/0.0.2560.1400@0.0.2560.1400" timestamp="1602078051234" />
     <state x="789" y="359" key="SettingsEditor/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602618460272" />
-    <state x="880" y="460" key="Vcs.Push.Dialog.v2" timestamp="1603200043158">
+    <state x="880" y="460" key="Vcs.Push.Dialog.v2" timestamp="1603274631442">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="578" y="335" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1602429773848" />
-    <state x="880" y="460" key="Vcs.Push.Dialog.v2/0.0.2560.1440@0.0.2560.1440" timestamp="1603200043158" />
+    <state x="880" y="460" key="Vcs.Push.Dialog.v2/0.0.2560.1440@0.0.2560.1440" timestamp="1603274631442" />
     <state x="880" y="460" key="Vcs.Push.Dialog.v2/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1601630583426" />
-    <state width="1280" height="720" key="XDebugger.FullValuePopup" timestamp="1603204273446">
+    <state width="1448" height="720" key="XDebugger.FullValuePopup" timestamp="1603376277305">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="840" height="525" key="XDebugger.FullValuePopup/0.0.1680.1050@0.0.1680.1050" timestamp="1601999810357" />
-    <state width="1280" height="720" key="XDebugger.FullValuePopup/0.0.2560.1440@0.0.2560.1440" timestamp="1603197348450" />
+    <state width="1448" height="720" key="XDebugger.FullValuePopup/0.0.2560.1440@0.0.2560.1440" timestamp="1603376277305" />
+    <state width="1448" height="720" key="XDebugger.FullValuePopup/0.23.2560.1337@0.23.2560.1337" timestamp="1603375915836" />
     <state width="1280" height="720" key="XDebugger.FullValuePopup/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1603204273446" />
     <state x="1093" y="641" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603268556532">
       <screen x="0" y="0" width="2560" height="1440" />
@@ -523,19 +587,20 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="1214" y="456" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.2560.1440@0.0.2560.1440" timestamp="1602683384477" />
-    <state x="1049" y="440" key="git4idea.branch.GitSmartOperationDialog" timestamp="1601566523095">
+    <state x="1049" y="440" key="git4idea.branch.GitSmartOperationDialog" timestamp="1603290196234">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="1049" y="440" key="git4idea.branch.GitSmartOperationDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1601566523095" />
+    <state x="1049" y="440" key="git4idea.branch.GitSmartOperationDialog/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1603290196234" />
     <state x="930" y="442" width="700" height="516" key="recent.locations.popup" timestamp="1602081843995">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="930" y="455" width="700" height="530" key="recent.locations.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1600188640166" />
     <state x="930" y="442" width="700" height="516" key="recent.locations.popup/393.1440.1536.832/0.0.2560.1400@0.0.2560.1400" timestamp="1602081843995" />
-    <state x="945" y="331" width="670" height="676" key="search.everywhere.popup" timestamp="1603266538975">
+    <state x="945" y="331" width="670" height="676" key="search.everywhere.popup" timestamp="1603375074557">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="945" y="331" width="670" height="676" key="search.everywhere.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1602844518437" />
+    <state x="945" y="331" width="670" height="676" key="search.everywhere.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1603375074557" />
     <state x="945" y="331" width="670" height="676" key="search.everywhere.popup/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1603266538975" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
