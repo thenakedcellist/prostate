@@ -23,13 +23,34 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:mysom_module" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0695007-41bb-43dc-86fe-46bb0472db71" name="Default Changelist" comment="initiated the idea of a scatter plot threshold, k, such that points are only plotted overlaying SOM neurons which were activated at least k times">
+      <change afterPath="$PROJECT_DIR$/sandbox/img/Banbury Animals 7-11 SOM 16x16 k change/scatter_k0_blinf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sandbox/img/Banbury Animals 7-11 SOM 16x16 k change/scatter_k0_unblind.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sandbox/img/Banbury Animals 7-11 SOM 16x16 k change/scatter_k10_blind.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sandbox/img/Banbury Animals 7-11 SOM 16x16 k change/scatter_k3_blind.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sandbox/img/Banbury Animals 7-11 SOM 16x16 k change/scatter_k5_blind.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sandbox/img/Banbury Animals 7-11 SOM 16x16 k change/som_blind.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sandbox/img/yvette SOM sigma 1 k change/5x5_SOM_blind.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sandbox/img/yvette SOM sigma 1 k change/5x5_SOM_unblind.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sandbox/img/yvette SOM sigma 1 k change/5x5_scatter_k0_blind.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sandbox/img/yvette SOM sigma 1 k change/5x5_scatter_k0_unblind.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sandbox/img/yvette SOM sigma 1 k change/5x5_scatter_k2_blind.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sandbox/img/yvette SOM sigma 1 k change/6x5_SOM_blind.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sandbox/img/yvette SOM sigma 1 k change/6x5_SOM_unblind.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sandbox/img/yvette SOM sigma 1 k change/6x5_scatter_k0_unblind.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sandbox/img/yvette SOM sigma 1 k change/6x5_scatter_k2_blind.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sandbox/yvette_data_1_scatter_threshold.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/prostate.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/prostate.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/banbury.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/mysom_banbury_scatter_threshold.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/mysom_banbury_scatter_threshold.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/test_banbury.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/test_banbury.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,30 +82,34 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma 2 dimension change" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/sandbox/img/yvette SOM sigma 1 k change" />
+    <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
-      <console-settings module-name="prostate" is-module-sdk="true" working-directory="$PROJECT_DIR$">
+      <console-settings module-name="prostate" is-module-sdk="true" working-directory="$PROJECT_DIR$/sandbox">
         <option name="myUseModuleSdk" value="true" />
         <option name="myModuleName" value="prostate" />
-        <option name="myWorkingDirectory" value="$PROJECT_DIR$" />
+        <option name="myWorkingDirectory" value="$PROJECT_DIR$/sandbox" />
       </console-settings>
     </option>
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/sandbox/img/yvette SOM sigma 1 k change" />
+      <recent name="$PROJECT_DIR$/sandbox/img/yvette SOM k change" />
+      <recent name="$PROJECT_DIR$/sandbox/img/Banbury Animals 7-11 SOM 16x16 k change" />
+      <recent name="$PROJECT_DIR$/sandbox/img/Banbury SOM 16x16 k change" />
       <recent name="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma 2 dimension change" />
-      <recent name="$PROJECT_DIR$/sandbox/img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/sandbox/img" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.mysom_banbury_scatter_threshold">
+  <component name="RunManager" selected="Python.yvette_data_1_scatter_threshold">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="prostate" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -177,9 +202,6 @@
       <module name="prostate" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sandbox" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -187,6 +209,25 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sandbox/mysom_banbury_scatter_threshold.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="yvette_data_1_scatter_threshold" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="prostate" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sandbox" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sandbox/yvette_data_1_scatter_threshold.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -216,23 +257,6 @@
       <module name="prostate" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="/usr/local/bin/python3.8" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/sandbox/test_banbury.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pytest in test_banbury.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="prostate" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sandbox" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -252,15 +276,15 @@
       <item itemvalue="Python.mysom_banbury" />
       <item itemvalue="Python.mysom_banbury_scatter_threshold" />
       <item itemvalue="Python tests.pytest in /" />
-      <item itemvalue="Python tests.pytest in test_banbury.py" />
+      <item itemvalue="Python.yvette_data_1_scatter_threshold" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.yvette_data_1_scatter_threshold" />
         <item itemvalue="Python.mysom_banbury_scatter_threshold" />
         <item itemvalue="Python.mysom_banbury" />
         <item itemvalue="Python.mysom_banbury_hex" />
         <item itemvalue="Python.banbury" />
-        <item itemvalue="Python tests.pytest in test_banbury.py" />
       </list>
     </recent_temporary>
   </component>
@@ -315,6 +339,9 @@
       <workItem from="1603225368409" duration="1313000" />
       <workItem from="1603226891718" duration="81000" />
       <workItem from="1603262112577" duration="27834000" />
+      <workItem from="1603382915910" duration="3320000" />
+      <workItem from="1603388254816" duration="5000" />
+      <workItem from="1603705694706" duration="2715000" />
     </task>
     <task id="LOCAL-00001" summary="Markers now find label from input data for colour without manual input. Added plot to show quantisation errors and frequency of neuron activation">
       <created>1600343898422</created>
@@ -431,7 +458,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="mysom_module" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -562,11 +589,11 @@
     <state width="2518" height="520" key="GridCell.Tab.1.right/0.0.2560.1440@0.0.2560.1440" timestamp="1603183870718" />
     <state width="2518" height="520" key="GridCell.Tab.1.right/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1603206601569" />
     <state width="2518" height="520" key="GridCell.Tab.1.right/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616991" />
-    <state x="1196" y="681" key="SettingsEditor" timestamp="1603382446622">
+    <state x="1404" y="652" key="SettingsEditor" timestamp="1603383463128">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="518" y="262" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1602430071602" />
-    <state x="1196" y="681" key="SettingsEditor/0.0.2560.1440@0.0.2560.1440" timestamp="1603382446622" />
+    <state x="1404" y="652" key="SettingsEditor/0.0.2560.1440@0.0.2560.1440" timestamp="1603383463128" />
     <state x="789" y="349" key="SettingsEditor/393.1440.1536.832/0.0.2560.1400@0.0.2560.1400" timestamp="1602078051234" />
     <state x="789" y="359" key="SettingsEditor/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602618460272" />
     <state x="880" y="460" key="Vcs.Push.Dialog.v2" timestamp="1603382307890">

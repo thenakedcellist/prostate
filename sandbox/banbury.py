@@ -75,17 +75,17 @@ import csv
 wave_lab = np.array(["wavenumber"])[None, :]  # converts 1d array to 1 x n 2d array
 # generate a 1 x n 2d array containing wavenumbers to be used as x data for all samples
 wavenumbers = np.genfromtxt(
-    Path('../data/banbury/cornea/cornea_eye_1_fp_sub_0__X_20912.1__Y_-1142.71__Time_0__Zdata_4264.95__'
+    Path('../../data/banbury/cornea/cornea_eye_1_fp_sub_0__X_20912.1__Y_-1142.71__Time_0__Zdata_4264.95__'
          'Zactual_4264.89__Zdifference_-0.0527536__LTSignalUsed_3.txt'),
     dtype='float', delimiter='\t', usecols=(0)).T[None, :]
 
 
 def save_x_data():
     """index x data in column 0 with [wavenumber] and save to data directory and three subdirectories"""
-    p = Path('../data/banbury/_data/by_tissue_by_animal/_wavenumbers.csv')
-    q = Path('../data/banbury/_data/all_tissues_by_animal/_wavenumbers.csv')
-    r = Path('../data/banbury/_data/by_tissue_all_animals/_wavenumbers.csv')
-    s = Path('../data/banbury/_data/_wavenumbers.csv')
+    p = Path('../../data/banbury/_data/by_tissue_by_animal/_wavenumbers.csv')
+    q = Path('../../data/banbury/_data/all_tissues_by_animal/_wavenumbers.csv')
+    r = Path('../../data/banbury/_data/by_tissue_all_animals/_wavenumbers.csv')
+    s = Path('../../data/banbury/_data/_wavenumbers.csv')
     with p.open('w') as f:
         np.savetxt(f, np.hstack((wave_lab, wavenumbers)), delimiter=',', fmt="%s")
     with q.open('w') as f:
@@ -102,7 +102,7 @@ class ByTissueByAnimal(object):
         self.tissue = tissue_type
         self.animal = animal_number
         self.file_dir = None
-        self.data_dir = Path('../data/banbury/_data/by_tissue_by_animal')
+        self.data_dir = Path('../../data/banbury/_data/by_tissue_by_animal')
         self.file_dict = {}
         self.x_labels = wave_lab
         self.y_labels = None
@@ -112,7 +112,7 @@ class ByTissueByAnimal(object):
     def file_search(self):
         """search input tissue subdirectory for all files relating to input animal number
         and return dictionary of {animal_[animal_number]_[tissue]_[iteration_number] : file}"""
-        self.file_dir = Path('../data/banbury/' + self.tissue)
+        self.file_dir = Path('../../data/banbury/' + self.tissue)
         search_term = f"*eye_{self.animal}_*"  # data exist as eye_[animal_number]_[tissue] and [tissue]_eye_[animal_number]
         for i, file in enumerate(sorted(Path(self.file_dir).glob(search_term))):
             self.file_dict.update({f"animal_{self.animal}_{self.tissue}_{i}": f"{file}"})
@@ -159,12 +159,12 @@ class ByTissueByAnimal(object):
 
 def all_tissues_by_animal(animal_number):
     """creates separate csv files containing all spectral data obtained from all tissues from a single animal"""
-    btba_path = Path('../data/banbury/_data/by_tissue_by_animal/')
+    btba_path = Path('../../data/banbury/_data/by_tissue_by_animal/')
     atba_search = f"animal_{animal_number}_*"  # files are named [animal_i_tissue]
     atba_dict = {}
     for i, file in enumerate(sorted(Path(btba_path).glob(atba_search))):
         atba_dict.update({f"animal_{animal_number}_{i}": f"{file}"})
-    p = Path('../data/banbury/_data/all_tissues_by_animal/' + f"animal_{animal_number}.csv")
+    p = Path('../../data/banbury/_data/all_tissues_by_animal/' + f"animal_{animal_number}.csv")
     with p.open('w') as f:
         writer = csv.writer(f)
         for v in atba_dict.values():
@@ -175,12 +175,12 @@ def all_tissues_by_animal(animal_number):
 
 def by_tissue_all_animals(tissue_type):
     """creates separate csv files containing all spectral data obtained from a single tissue from all animals"""
-    btba_path = Path('../data/banbury/_data/by_tissue_by_animal/')
+    btba_path = Path('../../data/banbury/_data/by_tissue_by_animal/')
     btaa_search = f"*_{tissue_type}*"  # files are named [animal_i_tissue]
     btaa_dict = {}
     for i, file in enumerate(sorted(Path(btba_path).glob(btaa_search))):
         btaa_dict.update({f"animal_{i}_{tissue_type}": f"{file}"})
-    p = Path('../data/banbury/_data/by_tissue_all_animals/' + f"{tissue_type}.csv")
+    p = Path('../../data/banbury/_data/by_tissue_all_animals/' + f"{tissue_type}.csv")
     with p.open('w') as f:
         writer = csv.writer(f)
         for v in btaa_dict.values():
@@ -191,12 +191,12 @@ def by_tissue_all_animals(tissue_type):
 
 def all_data():
     """creates a single csv file containing all spectral data obtained from all tissues from all animals"""
-    btba_path = Path('../data/banbury/_data/by_tissue_by_animal/')
+    btba_path = Path('../../data/banbury/_data/by_tissue_by_animal/')
     ad_search = f"animal*.csv"  # files are named [animal_i_tissue]
     ad_dict = {}
     for i, file in enumerate(sorted(Path(btba_path).glob(ad_search))):
         ad_dict.update({f"sample_{i}": f"{file}"})
-    p = Path('../data/banbury/_data/' "all_data.csv")
+    p = Path('../../data/banbury/_data/' "all_data.csv")
     with p.open('w') as f:
         writer = csv.writer(f)
         for v in ad_dict.values():

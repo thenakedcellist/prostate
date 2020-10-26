@@ -38,10 +38,10 @@ def test_generate_x_data():
 def test_save_x_data():
     """check that x data csv files are saved to _data directory and three subdirectories"""
     by.save_x_data()
-    assert Path('../data/banbury/_data/by_tissue_by_animal/_wavenumbers.csv').exists() == True
-    assert Path('../data/banbury/_data/all_tissues_by_animal/_wavenumbers.csv').exists() == True
-    assert Path('../data/banbury/_data/by_tissue_all_animals/_wavenumbers.csv').exists() == True
-    assert Path('../data/banbury/_data/_wavenumbers.csv').exists() == True
+    assert Path('../../data/banbury/_data/by_tissue_by_animal/_wavenumbers.csv').exists() == True
+    assert Path('../../data/banbury/_data/all_tissues_by_animal/_wavenumbers.csv').exists() == True
+    assert Path('../../data/banbury/_data/by_tissue_all_animals/_wavenumbers.csv').exists() == True
+    assert Path('../../data/banbury/_data/_wavenumbers.csv').exists() == True
 
 
 def test_file_search(lens2):
@@ -65,7 +65,7 @@ def test_extract_y_data(lens2):
     """check x data are extracted from first file in directory, and that an array with data in rows is created"""
     lens2.file_search()
     lens2.extract_y_data()
-    assert list(lens2.file_dict.values())[0] == '../data/banbury/lens/eye_2_lens_fp_sub_0__X_7116.25__Y_-3658.15__Time_0__Zdata_4719.13__Zactual_4718.68__Zdifference_-0.445551__LTSignalUsed_3.txt'
+    assert list(lens2.file_dict.values())[0] == '../../data/banbury/lens/eye_2_lens_fp_sub_0__X_7116.25__Y_-3658.15__Time_0__Zdata_4719.13__Zactual_4718.68__Zdifference_-0.445551__LTSignalUsed_3.txt'
     assert lens2.y_data.shape[0] == len(lens2.file_dict)  # check for as many rows as in file dictionary so none have been skipped
     assert lens2.y_data.shape[1] > lens2.y_data.shape[0]  # check for more columns than rows
 
@@ -84,7 +84,7 @@ def test_save_y_data(lens2):
     """check data are saved as csv within by_tissue_by_animal subdirectory"""
     lens2.do_all_the_things()
     lens2.save_y_data()
-    assert Path('../data/banbury/_data/by_tissue_by_animal/animal_2_lens.csv').exists() == True
+    assert Path('../../data/banbury/_data/by_tissue_by_animal/animal_2_lens.csv').exists() == True
 
 def test_all_tissues_by_animal(lens2, vitreous2):
     """check animal number csv file produced
@@ -93,7 +93,7 @@ def test_all_tissues_by_animal(lens2, vitreous2):
     lens2.do_all_the_things()
     vitreous2.do_all_the_things()
     by.all_tissues_by_animal(2)
-    path = Path('../data/banbury/_data/all_tissues_by_animal/animal_2.csv')
+    path = Path('../../data/banbury/_data/all_tissues_by_animal/animal_2.csv')
     assert Path(path).exists() == True
     query = np.genfromtxt(path, dtype='U', delimiter=',', usecols=0)
     assert query[0] == "animal_2_lens_0"
@@ -107,7 +107,7 @@ def test_by_tissue_all_animals(lens2, lens3):
     lens2.do_all_the_things()
     lens3.do_all_the_things()
     by.by_tissue_all_animals("lens")
-    path = Path('../data/banbury/_data/by_tissue_all_animals/lens.csv')
+    path = Path('../../data/banbury/_data/by_tissue_all_animals/lens.csv')
     assert Path(path).exists() == True
     query = np.genfromtxt(path, dtype='U', delimiter=',', usecols=0)
     assert query[0] == "animal_2_lens_0"
@@ -122,7 +122,7 @@ def test_all_data(lens2, lens3, vitreous2):
     lens3.do_all_the_things()
     vitreous2.do_all_the_things()
     by.all_data()
-    path = Path('../data/banbury/_data/all_data.csv')
+    path = Path('../../data/banbury/_data/all_data.csv')
     assert Path(path).exists() == True
     query = np.genfromtxt(path, dtype='U', delimiter=',', usecols=0)
     assert query[0] == "animal_2_lens_0"
