@@ -21,7 +21,7 @@ ydata = np.genfromtxt('../../data/yvette_02_09_20/High Wavenumbers for Dan.csv',
 # %% SOM train with rectangular topology
 
 # initialise SOM with random weights and normalised data
-som = MiniSom(5, 5, ydata.shape[1], sigma=1.0, learning_rate=0.1,
+som = MiniSom(9, 9, ydata.shape[1], sigma=1.0, learning_rate=0.1,
               neighborhood_function='gaussian', topology='rectangular',
               activation_distance='euclidean', random_seed=1)  # 5 * sqrt(30) = 27.39
 som.random_weights_init(ydata)

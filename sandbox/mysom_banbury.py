@@ -17,7 +17,7 @@ xdata = np.genfromtxt('../data/banbury/_data_1-6/_wavenumbers.csv', delimiter=',
 ydata = np.genfromtxt('../data/banbury/_data_1-6/all_data.csv', delimiter=',', usecols=np.arange(1, 1016))
 
 # normalise data - sklearn method scaling to 0 mean and unit variance
-sydata = preprocessing.scale(ydata)
+sydata = preprocessing.scale(ydata, axis=1)
 
 
 # %% SOM train with rectangular topology
