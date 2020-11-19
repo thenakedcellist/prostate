@@ -19,7 +19,7 @@ wave_lab = np.array(["wavenumber"])[None, :]  # converts 1d array to 1 x n 2d ar
 # generate a 1 x n 2d array containing wavenumbers to be used as x data for all samples
 wavenumbers = np.genfromtxt(
     Path(
-        '../../data/banbury/cornea/cornea_eye_1_fp_sub_0__X_20912.1__Y_-1142.71__Time_0__Zdata_4264.95__Zactual_4264.89__Zdifference_-0.0527536__LTSignalUsed_3.txt'),
+        '../../../../data/banbury/cornea/cornea_eye_1_fp_sub_0__X_20912.1__Y_-1142.71__Time_0__Zdata_4264.95__Zactual_4264.89__Zdifference_-0.0527536__LTSignalUsed_3.txt'),
     dtype='float', delimiter='\t', usecols=(0)).T[None, :]
 
 
@@ -55,7 +55,7 @@ class ByTissueByAnimal(object):
     def file_search(self):
         """search input tissue subdirectory for all files relating to input animal number
         and return dictionary of {animal_[animal_number]_[tissue]_[iteration_number] : file}"""
-        self.file_dir = Path('../../data/banbury/' + self.tissue)
+        self.file_dir = Path('../../data/banbury_data_extractor/' + self.tissue)
         search_term = f"*eye_{self.animal}_*"  # data exist as eye_[animal_number]_[tissue] and [tissue]_eye_[animal_number]
         for i, file in enumerate(sorted(Path(self.file_dir).glob(search_term))):
             self.file_dict.update({f"animal_{self.animal}_{self.tissue}_{i}": f"{file}"})
@@ -107,7 +107,7 @@ def all_tissues_by_animal(animal_number):
     atba_dict = {}
     for i, file in enumerate(sorted(Path(btba_path).glob(atba_search))):
         atba_dict.update({f"animal_{animal_number}_{i}": f"{file}"})
-    p = Path('../../data/banbury/_data/all_tissues_by_animal/' + f"animal_{animal_number}.csv")
+    p = Path('../../data/banbury_data_extractor/_data/all_tissues_by_animal/' + f"animal_{animal_number}.csv")
     with p.open('w') as f:
         writer = csv.writer(f)
         for v in atba_dict.values():
@@ -123,7 +123,7 @@ def by_tissue_all_animals(tissue_type):
     btaa_dict = {}
     for i, file in enumerate(sorted(Path(btba_path).glob(btaa_search))):
         btaa_dict.update({f"animal_{i}_{tissue_type}": f"{file}"})
-    p = Path('../../data/banbury/_data/by_tissue_all_animals/' + f"{tissue_type}.csv")
+    p = Path('../../data/banbury_data_extractor/_data/by_tissue_all_animals/' + f"{tissue_type}.csv")
     with p.open('w') as f:
         writer = csv.writer(f)
         for v in btaa_dict.values():

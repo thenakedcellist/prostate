@@ -14,8 +14,8 @@ from collections import Counter
 # %% read files
 
 # read data in csv format
-xdata = np.genfromtxt('../../data/banbury/_data_7-11/_wavenumbers.csv', delimiter=',', usecols=np.arange(1, 1016))
-ydata = np.genfromtxt('../../data/banbury/_data_7-11/all_data.csv', delimiter=',', usecols=np.arange(1, 1016))
+xdata = np.genfromtxt('../../../data/banbury/_data_7-11/_wavenumbers.csv', delimiter=',', usecols=np.arange(1, 1016))
+ydata = np.genfromtxt('../../../data/banbury/_data_7-11/all_data.csv', delimiter=',', usecols=np.arange(1, 1016))
 
 # normalise data - sklearn method scaling to 0 mean and unit variance
 sydata = preprocessing.scale(ydata)
@@ -40,7 +40,7 @@ print('Training complete')
 # %% setup label colours and markers
 
 # generate np array of colour labels from source data file
-target = np.genfromtxt('../../data/banbury/_data_7-11/all_data.csv', delimiter=',', usecols=(0), dtype=str)
+target = np.genfromtxt('../../../data/banbury/_data_7-11/all_data.csv', delimiter=',', usecols=(0), dtype=str)
 # assign values to t given labels in input data with subdivisions (red1, red2, red3 etc.)
 t = [0 if "cornea" in i else 1 if "lens" in i else 2 if "optic_nerve" in i else 3 if "retina" in i else 4 if "vitreous" in i else i for i in target]
 np.array(t)

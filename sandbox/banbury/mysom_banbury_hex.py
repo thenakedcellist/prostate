@@ -9,8 +9,8 @@ from sklearn import preprocessing
 # %% read files
 
 # read data in csv format
-xdata = np.genfromtxt('../data/banbury/_data_1-6/_wavenumbers.csv', delimiter=',', usecols=np.arange(1, 1016))
-ydata = np.genfromtxt('../data/banbury/_data_1-6/all_data.csv', delimiter=',', usecols=np.arange(1, 1016))
+xdata = np.genfromtxt('../data/banbury_data_extractor/_data_1-6/_wavenumbers.csv', delimiter=',', usecols=np.arange(1, 1016))
+ydata = np.genfromtxt('../data/banbury_data_extractor/_data_1-6/all_data.csv', delimiter=',', usecols=np.arange(1, 1016))
 
 # normalise data to unity - sklearn method
 sydata = preprocessing.scale(ydata)
@@ -56,7 +56,7 @@ print('Training complete')
 # %% setup colour and labels
 
 # generate np array of colour labels from source data file
-target = np.genfromtxt('../data/banbury/_data_1-6/all_data.csv', delimiter=',', usecols=(0), dtype=str)
+target = np.genfromtxt('../data/banbury_data_extractor/_data_1-6/all_data.csv', delimiter=',', usecols=(0), dtype=str)
 # assign values to t given labels in input data with subdivisions (red1, red2, red3 etc.)
 t = [0 if "cornea" in i else 1 if "lens" in i else 2 if "optic_nerve" in i else 3 if "retina" in i else 4 if "vitreous" in i else i for i in target]
 np.array(t)

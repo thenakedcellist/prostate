@@ -21,7 +21,7 @@ yvette_ydata = np.genfromtxt('../../data/yvette_02_09_20/High Wavenumbers for Da
 yvette_nydata = frob_norm(yvette_ydata)
 yvette_sydata = sklearn_norm(yvette_ydata.T).T
 
-# banbury data
+# banbury_data_extractor data
 banbury_xdata = np.genfromtxt('../../data/banbury/_data_1-6/_wavenumbers.csv', delimiter=',', usecols=np.arange(1, 1016))
 banbury_ydata = np.genfromtxt('../../data/banbury/_data_1-6/all_data.csv', delimiter=',', usecols=np.arange(1, 1016))
 banbury_nydata = frob_norm(banbury_ydata)

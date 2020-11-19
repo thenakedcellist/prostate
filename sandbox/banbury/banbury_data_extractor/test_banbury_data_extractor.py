@@ -1,6 +1,6 @@
 import pytest
-import banbury as by
-from banbury import ByTissueByAnimal
+import banbury_data_extractor as by
+from banbury_data_extractor import ByTissueByAnimal
 from pathlib import Path
 import numpy as np
 
@@ -45,7 +45,7 @@ def test_save_x_data():
 
 
 def test_file_search(lens2):
-    """check that banbury directory and tissue subdirectory for input tissue exist
+    """check that banbury_data_extractor directory and tissue subdirectory for input tissue exist
     and that a non-empty dictionary is created"""
     lens2.file_search()
     assert lens2.file_dir.exists() == True
@@ -65,7 +65,7 @@ def test_extract_y_data(lens2):
     """check x data are extracted from first file in directory, and that an array with data in rows is created"""
     lens2.file_search()
     lens2.extract_y_data()
-    assert list(lens2.file_dict.values())[0] == '../../data/banbury/lens/eye_2_lens_fp_sub_0__X_7116.25__Y_-3658.15__Time_0__Zdata_4719.13__Zactual_4718.68__Zdifference_-0.445551__LTSignalUsed_3.txt'
+    assert list(lens2.file_dict.values())[0] == '../../data/banbury_data_extractor/lens/eye_2_lens_fp_sub_0__X_7116.25__Y_-3658.15__Time_0__Zdata_4719.13__Zactual_4718.68__Zdifference_-0.445551__LTSignalUsed_3.txt'
     assert lens2.y_data.shape[0] == len(lens2.file_dict)  # check for as many rows as in file dictionary so none have been skipped
     assert lens2.y_data.shape[1] > lens2.y_data.shape[0]  # check for more columns than rows
 

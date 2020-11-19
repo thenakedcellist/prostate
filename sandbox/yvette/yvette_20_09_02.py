@@ -13,8 +13,8 @@ from minisom import MiniSom
 # %% read files
 
 # read data in csv format
-xdata = np.genfromtxt(r"data\yvette_02_09_20\xwavehw.csv", delimiter=',')
-ydata = np.genfromtxt(r"data\yvette_02_09_20\High Wavenumbers for Dan.csv", delimiter=',', usecols=np.arange(1, 1057))
+xdata = np.genfromtxt(r"data\yvette_20_09_02\xwavehw.csv", delimiter=',')
+ydata = np.genfromtxt(r"data\yvette_20_09_02\High Wavenumbers for Dan.csv", delimiter=',', usecols=np.arange(1, 1057))
 
 # normalise data - MiniSom method dividing each column by Frobenius norm
 nydata = np.apply_along_axis(lambda x: x/np.linalg.norm(x), 1, ydata)
