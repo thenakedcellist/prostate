@@ -5,7 +5,7 @@ from pathlib import Path
 x_path = Path('../../../../data/yvette_20_09_02/xwavehw.csv')
 y_path = Path('../../../../data/yvette_20_11_18/shuffled_data_unnamed.csv')
 figpath = Path('img/')
-datestr = '2020_11_18'
+datestr = '2020_11_30'
 
 x_data = np.genfromtxt(x_path, delimiter=',')
 y_data = np.genfromtxt(y_path, delimiter=',')
@@ -45,8 +45,13 @@ som5 = MySom(x=9, y=9, input_len=y_data.shape[1], sigma=1.0, learning_rate=0.1, 
 som6 = MySom(x=9, y=9, input_len=y_data.shape[1], sigma=1.0, learning_rate=0.3, topology='rectangular', random_seed=1)
 som7 = MySom(x=9, y=9, input_len=y_data.shape[1], sigma=1.0, learning_rate=0.75, topology='rectangular', random_seed=1)
 
+# changing sigma and learning rate
+som8 = MySom(x=9, y=9, input_len=y_data.shape[1], sigma=3.0, learning_rate=1.0, topology='rectangular', random_seed=1)
+som9 = MySom(x=9, y=9, input_len=y_data.shape[1], sigma=3.0, learning_rate=2.0, topology='rectangular', random_seed=1)
+
+
 # test parameter optimisation
-som_list = [som0, som1, som2, som3, som4, som5, som6, som7]
+som_list = [som0, som1, som2, som3, som4, som5, som6, som7, som8, som9]
 for som in som_list:
     som.frobenius_norm(y_data)
     som.make_som(10000)

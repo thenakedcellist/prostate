@@ -28,76 +28,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0695007-41bb-43dc-86fe-46bb0472db71" name="Default Changelist" comment="MySOM module now fully integratable, just needs work on density plot. I realised that there ws a transposition error in the skleran normalisation method, now resolved, which gives much better delineation of SOM groups.">
-      <change afterPath="$PROJECT_DIR$/thesis/yvette/Experiment 0/unblinded_cell_line_data.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/thesis/yvette/Experiment 1/blinded_cell_line_data.py" afterDir="false" />
+    <list default="true" id="c0695007-41bb-43dc-86fe-46bb0472db71" name="Default Changelist" comment="directory restructured">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banbury/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/banbury/banbury.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/banbury_data_extractor/banbury_data_extractor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banbury/test_banbury.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/banbury_data_extractor/test_banbury_data_extractor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/colours/2020-02-27-secondary_colours.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/colours/2020-02-27-secondary_colours.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/colours/2020-02-28-primary.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/colours/img/2020-02-28-primary.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/colours/2020-02-28-secondary.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/colours/img/2020-02-28-secondary.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/colours/colours_old.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/colours/colours_old.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/colours/colours_primary.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/colours/colours_primary.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/colours/colours_secondary.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/colours/colours_secondary.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/colours/som_pickles/2020-02-28-som.p" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/colours/som_pickles/2020-02-28-som.p" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iris/iris_minisom.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/iris/iris_minisom.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysom/mysom.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysom/mysom.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/random_file_sampler/random_file_sampler.py" beforeDir="false" afterPath="$PROJECT_DIR$/file_manipulation_scripts/random_file_sampler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/colours_hex.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/colours/colours_hex.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/colours_minisom.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/colours/colours_minisom.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/csv_shuffle.py" beforeDir="false" afterPath="$PROJECT_DIR$/file_manipulation_scripts/csv_shuffle.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury Animals 7-11 SOM 16x16 k change/scatter_k0_blinf.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury Animals 7-11 SOM 16x16 k change/scatter_k0_blinf.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury Animals 7-11 SOM 16x16 k change/scatter_k0_unblind.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury Animals 7-11 SOM 16x16 k change/scatter_k0_unblind.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury Animals 7-11 SOM 16x16 k change/scatter_k10_blind.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury Animals 7-11 SOM 16x16 k change/scatter_k10_blind.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury Animals 7-11 SOM 16x16 k change/scatter_k3_blind.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury Animals 7-11 SOM 16x16 k change/scatter_k3_blind.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury Animals 7-11 SOM 16x16 k change/scatter_k5_blind.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury Animals 7-11 SOM 16x16 k change/scatter_k5_blind.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury Animals 7-11 SOM 16x16 k change/som_blind.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury Animals 7-11 SOM 16x16 k change/som_blind.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma 2 dimension change/20x20_blind.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury SOM sigma 2 dimension change/20x20_blind.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma 2 dimension change/20x20_unblind.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury SOM sigma 2 dimension change/20x20_unblind.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma 2 dimension change/25x25_blind.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury SOM sigma 2 dimension change/25x25_blind.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma 2 dimension change/25x25_unblind.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury SOM sigma 2 dimension change/25x25_unblind.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma 2 dimension change/30x30_blind.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury SOM sigma 2 dimension change/30x30_blind.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma 2 dimension change/30x30_unblind.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury SOM sigma 2 dimension change/30x30_unblind.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma 2 dimension change/largescale_scatter_30x30_blind.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury SOM sigma 2 dimension change/largescale_scatter_30x30_blind.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma 2 dimension change/largescale_scatter_30x30_unblind.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury SOM sigma 2 dimension change/largescale_scatter_30x30_unblind.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma 2 dimension change/largescale_scatter_alpha1_30x30_blind.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury SOM sigma 2 dimension change/largescale_scatter_alpha1_30x30_blind.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma 2 dimension change/largescale_scatter_alpha1_30x30_unblind.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury SOM sigma 2 dimension change/largescale_scatter_alpha1_30x30_unblind.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma 2 dimension change/largescale_scatter_alpha1_k3_30x30_blind.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury SOM sigma 2 dimension change/largescale_scatter_alpha1_k3_30x30_blind.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma 2 dimension change/largescale_scatter_alpha1_k4_30x30_blind..png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury SOM sigma 2 dimension change/largescale_scatter_alpha1_k4_30x30_blind..png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma 2 dimension change/largescale_scatter_alpha1_k5_30x30_blind..png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury SOM sigma 2 dimension change/largescale_scatter_alpha1_k5_30x30_blind..png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma change/2020-10-21-fig1-sigma1.0.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury SOM sigma change/2020-10-21-fig1-sigma1.0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma change/2020-10-21-fig10-sigma0.1.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury SOM sigma change/2020-10-21-fig10-sigma0.1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma change/2020-10-21-fig11-sigma2.0.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury SOM sigma change/2020-10-21-fig11-sigma2.0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma change/2020-10-21-fig12-sigma2.0.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury SOM sigma change/2020-10-21-fig12-sigma2.0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma change/2020-10-21-fig13-sigma15.0.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury SOM sigma change/2020-10-21-fig13-sigma15.0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma change/2020-10-21-fig14-sigma15.0.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury SOM sigma change/2020-10-21-fig14-sigma15.0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma change/2020-10-21-fig2-sigma1.0.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury SOM sigma change/2020-10-21-fig2-sigma1.0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma change/2020-10-21-fig3-sigma8.0.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury SOM sigma change/2020-10-21-fig3-sigma8.0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma change/2020-10-21-fig4-sigma8.0.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury SOM sigma change/2020-10-21-fig4-sigma8.0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma change/2020-10-21-fig5-sigma4.0.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury SOM sigma change/2020-10-21-fig5-sigma4.0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma change/2020-10-21-fig6-sigma4.0.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury SOM sigma change/2020-10-21-fig6-sigma4.0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma change/2020-10-21-fig7-sigma0.5.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury SOM sigma change/2020-10-21-fig7-sigma0.5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma change/2020-10-21-fig8-sigma0.5.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury SOM sigma change/2020-10-21-fig8-sigma0.5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/Banbury SOM sigma change/2020-10-21-fig9-sigma0.1.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/img/Banbury SOM sigma change/2020-10-21-fig9-sigma0.1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/yvette SOM sigma 1 k change/5x5_SOM_blind.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/yvette/img/yvette SOM sigma 1 k change/5x5_SOM_blind.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/yvette SOM sigma 1 k change/5x5_SOM_unblind.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/yvette/img/yvette SOM sigma 1 k change/5x5_SOM_unblind.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/yvette SOM sigma 1 k change/5x5_scatter_k0_blind.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/yvette/img/yvette SOM sigma 1 k change/5x5_scatter_k0_blind.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/yvette SOM sigma 1 k change/5x5_scatter_k0_unblind.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/yvette/img/yvette SOM sigma 1 k change/5x5_scatter_k0_unblind.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/yvette SOM sigma 1 k change/5x5_scatter_k2_blind.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/yvette/img/yvette SOM sigma 1 k change/5x5_scatter_k2_blind.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/yvette SOM sigma 1 k change/6x5_SOM_blind.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/yvette/img/yvette SOM sigma 1 k change/6x5_SOM_blind.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/yvette SOM sigma 1 k change/6x5_SOM_unblind.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/yvette/img/yvette SOM sigma 1 k change/6x5_SOM_unblind.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/yvette SOM sigma 1 k change/6x5_scatter_k0_unblind.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/yvette/img/yvette SOM sigma 1 k change/6x5_scatter_k0_unblind.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/img/yvette SOM sigma 1 k change/6x5_scatter_k2_blind.png" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/yvette/img/yvette SOM sigma 1 k change/6x5_scatter_k2_blind.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/mysom_banbury.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/mysom_banbury.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/mysom_banbury_hex.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/mysom_banbury_hex.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/mysom_banbury_scatter_threshold.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/mysom_banbury_scatter_threshold.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/mysom_playground_banbury.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/banbury/mysom_playground_banbury.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/mysom_playground_yvette.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/yvette/mysom_playground_yvette.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/raman_spectra_plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/raman_spectra_plots.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/yvette_data_1_scatter_threshold.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/yvette/yvette_data_1_scatter_threshold.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yvette/Experiment 0/yvette_data_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/yvette/yvette_20_09_02.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thesis/yvette/Experiment 0/unblinded_cell_line_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/thesis/yvette/Experiment 0/unblinded_cell_line_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thesis/yvette/Experiment 1/blinded_cell_line_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/thesis/yvette/Experiment 1/blinded_cell_line_data.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +95,7 @@
       <recent name="$PROJECT_DIR$/sandbox/img/Banbury SOM 16x16 k change" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.blinded_cell_line_data (1)">
+  <component name="RunManager" selected="Python.unblinded_cell_line_data (1)">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="prostate" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -187,9 +122,6 @@
       <module name="prostate" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/thesis/yvette/Experiment 1" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -249,20 +181,17 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="mysom_playground_yvette" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="unblinded_cell_line_data (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="prostate" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sandbox" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/thesis/yvette/Experiment 0" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sandbox/yvette/mysom_playground_yvette.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/thesis/yvette/Experiment 0/unblinded_cell_line_data.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -311,20 +240,20 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.mysom_playground_yvette" />
       <item itemvalue="Python.mysom_playground_banbury" />
       <item itemvalue="Python.blinded_cell_line_data" />
       <item itemvalue="Python.unblinded_cell_line_data" />
       <item itemvalue="Python.blinded_cell_line_data (1)" />
+      <item itemvalue="Python.unblinded_cell_line_data (1)" />
       <item itemvalue="Python tests.pytest in /" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.unblinded_cell_line_data (1)" />
         <item itemvalue="Python.blinded_cell_line_data (1)" />
         <item itemvalue="Python.unblinded_cell_line_data" />
         <item itemvalue="Python.blinded_cell_line_data" />
         <item itemvalue="Python.mysom_playground_banbury" />
-        <item itemvalue="Python.mysom_playground_yvette" />
       </list>
     </recent_temporary>
   </component>
@@ -405,6 +334,12 @@
       <workItem from="1605710747499" duration="269000" />
       <workItem from="1605711053909" duration="2421000" />
       <workItem from="1605715470760" duration="4077000" />
+      <workItem from="1605779523819" duration="596000" />
+      <workItem from="1606411383691" duration="4747000" />
+      <workItem from="1606492099509" duration="952000" />
+      <workItem from="1606496986644" duration="2738000" />
+      <workItem from="1606744987394" duration="799000" />
+      <workItem from="1606834008324" duration="3540000" />
     </task>
     <task id="LOCAL-00001" summary="Markers now find label from input data for colour without manual input. Added plot to show quantisation errors and frequency of neuron activation">
       <created>1600343898422</created>
@@ -518,7 +453,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605169554388</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="directory restructured">
+      <created>1605779567437</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1605779567437</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -579,7 +521,8 @@
     <MESSAGE value="initiated the idea of a scatter plot threshold, k, such that points are only plotted overlaying SOM neurons which were activated at least k times" />
     <MESSAGE value="attempted k threshold for scatter diagram with prostate cell line data" />
     <MESSAGE value="MySOM module now fully integratable, just needs work on density plot. I realised that there ws a transposition error in the skleran normalisation method, now resolved, which gives much better delineation of SOM groups." />
-    <option name="LAST_COMMIT_MESSAGE" value="MySOM module now fully integratable, just needs work on density plot. I realised that there ws a transposition error in the skleran normalisation method, now resolved, which gives much better delineation of SOM groups." />
+    <MESSAGE value="directory restructured" />
+    <option name="LAST_COMMIT_MESSAGE" value="directory restructured" />
   </component>
   <component name="WindowStateProjectService">
     <state x="744" y="382" width="1071" height="796" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602843634044">
@@ -676,11 +619,11 @@
     <state x="789" y="349" key="SettingsEditor/393.1440.1536.832/0.0.2560.1400@0.0.2560.1400" timestamp="1602078051234" />
     <state x="789" y="359" key="SettingsEditor/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602618460272" />
     <state x="1404" y="652" key="SettingsEditor/487.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1605710760370" />
-    <state x="880" y="460" key="Vcs.Push.Dialog.v2" timestamp="1605169560986">
+    <state x="880" y="460" key="Vcs.Push.Dialog.v2" timestamp="1605779571624">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="578" y="335" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1602429773848" />
-    <state x="880" y="460" key="Vcs.Push.Dialog.v2/0.0.2560.1440@0.0.2560.1440" timestamp="1603717964340" />
+    <state x="880" y="460" key="Vcs.Push.Dialog.v2/0.0.2560.1440@0.0.2560.1440" timestamp="1605779571624" />
     <state x="880" y="460" key="Vcs.Push.Dialog.v2/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1601630583426" />
     <state x="880" y="460" key="Vcs.Push.Dialog.v2/487.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1605169560986" />
     <state width="1448" height="720" key="XDebugger.FullValuePopup" timestamp="1605710922170">
