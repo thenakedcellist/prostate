@@ -43,6 +43,9 @@ class MySom(MiniSom):
         self.labels = []
         self.unlabelled_values = []
 
+        # error calculation dummy SOM
+        self.err_som = None
+
 
     def frobenius_norm(self, ydata):
         """normalise data by dividing each column by the Frobenius norm"""
@@ -98,7 +101,7 @@ class MySom(MiniSom):
         # initialise figure canvas and single axes
         figumatrix, ax1 = plt.subplots(1, 1)
         figumatrix.subplots_adjust(left=0.125, right=0.9, top=0.9, bottom=0.2, wspace=0.2, hspace=0.2)  # set whitespace around figure edges and space between subplots
-        figumatrix.suptitle("Self Organising Map \n U-Matrix", fontsize=14)
+        figumatrix.suptitle("Self Organising Map U-Matrix", fontsize=14)
         ax1.set_aspect('equal')
 
         # fill in axes with SOM and overlaid input data
@@ -147,7 +150,7 @@ class MySom(MiniSom):
         # initialise figure canvas and single axes
         figscatter, ax1 = plt.subplots(1, 1)
         figscatter.subplots_adjust(left=0.125, right=0.9, top=0.9, bottom=0.2, wspace=0.2, hspace=0.2)  # set whitespace around figure edges and space between subplots
-        figscatter.suptitle("Self Organising Map U-Matrix \n Overlaid Scatter Input Data", fontsize=14)
+        figscatter.suptitle("Self Organising Map U-Matrix with Overlaid Scatter Input Data", fontsize=14)
         ax1.set_aspect('equal')
 
         # fill in axes with SOM and overlaid scatter data
@@ -159,7 +162,8 @@ class MySom(MiniSom):
         for c in np.unique(self.t):  # plot scatter plot for sample
             idx_t = self.t == c
             ax1.scatter(w_x[idx_t] + .5 + (np.random.rand(np.sum(idx_t)) - .5) * .5,
-                        w_y[idx_t] + .5 + (np.random.rand(np.sum(idx_t)) - .5) * .5, s=50, c=self.colours[c])
+                        w_y[idx_t] + .5 + (np.random.rand(np.sum(idx_t)) - .5) * .5,
+                        s=22, c=self.colours[c], marker=self.markers[c])
 
         # add colorbar to figure
         divider1 = make_axes_locatable(ax1)
@@ -192,7 +196,7 @@ class MySom(MiniSom):
         """plot distance map (u-matrix) of SOM shaded to represnet frequency of neuron activation"""
         figneuract, ax1 = plt.subplots(1, 1)
         figneuract.subplots_adjust(left=0.125, right=0.9, top=0.9, bottom=0.2, wspace=0.2, hspace=0.2)  # set whitespace around figure edges and space between subplots
-        figneuract.suptitle("Self Organising Map \n Neuron Activation Frequency", fontsize=14)
+        figneuract.suptitle("Self Organising Map Neuron Activation Frequency", fontsize=14)
         ax1.set_aspect('equal')
 
         # fill in axes with frequency of SOM neuron activation
@@ -215,7 +219,7 @@ class MySom(MiniSom):
                                           markerfacecolor=None, markersize=None, markeredgewidth=None,
                                           linestyle='None', linewidth=None))
         ax1.legend(handles=legend_elements, loc='upper left', bbox_to_anchor=(0.0, 1.12),
-                   borderaxespad=0, ncol=None, fontsize=None, frameon=False)
+                   borderaxespad=0, ncol=len(legend_elements), fontsize=None, frameon=False)
 
         figneuract.show()
         figneuract.savefig(figpath / 'eps' / f'{datestr}_neuron-freq_{self.x}_y_{self.y}_sigma_{self.sigma}'
@@ -230,18 +234,13 @@ class MySom(MiniSom):
         """plot density of neuron activation across SOM"""
         figdensity, ax1 = plt.subplots(1, 1)
         figdensity.subplots_adjust(left=0.125, right=0.9, top=0.9, bottom=0.2, wspace=0.2, hspace=0.2)  # set whitespace around figure edges and space between subplots
-        figdensity.suptitle("Self Organising Map \n Density Plot", fontsize=14)
+        figdensity.suptitle("Self Organising Map Density Plot", fontsize=14)
         ax1.set_aspect('equal')
 
         # fill in axes with SOM and generate overlaid scatter data
         w_x, w_y = zip(*[self.som.winner(d) for d in self.nydata])  # get x an y variables
         w_x = (np.array(w_x) + 0.5)  # convert x variables into np array with 0.5 added to each value
         w_y = (np.array(w_y) + 0.5)  # convert y variables into np array with 0.5 added to each value
-        #TODO check this!!
-        '''
-        values for som are centred on cell centres, values for density plot are centred on cell axes
-        addition of 0.5 to each value in w_x and w_y frameshifts the values to the right positions
-        '''
 
         # generate density plot data
         nbins=200  # number of bins
@@ -269,7 +268,7 @@ class MySom(MiniSom):
                                           markerfacecolor=None, markersize=None, markeredgewidth=None,
                                           linestyle='None', linewidth=None))
         ax1.legend(handles=legend_elements, loc='upper left', bbox_to_anchor=(0.0, 1.12),
-                   borderaxespad=0, ncol=None, fontsize=None, frameon=False)
+                   borderaxespad=0, ncol=len(legend_elements), fontsize=None, frameon=False)
 
         figdensity.show()
         figdensity.savefig(figpath / 'eps' / f'{datestr}_density-est_x_{self.x}_y_{self.y}_sigma_{self.sigma}'
@@ -284,6 +283,10 @@ class MySom(MiniSom):
         """plot quantisation and topographic error of SOM at each iteration step
         this analysis can help to understand training and to estimate optimum number of iterations
         only available for rectangular topology"""
+
+        # copy som to err-som without altering som
+        self.err_som = self.som
+
         # tell console training is in progress
         print('Calculating errors...')
 
@@ -292,9 +295,9 @@ class MySom(MiniSom):
         t_error = []
         for i in range(max_iter):
             rand_i = np.random.randint(len(self.nydata))
-            self.som.update(self.nydata[rand_i], self.som.winner(self.nydata[rand_i]), i, max_iter)
-            q_error.append(self.som.quantization_error(self.nydata))
-            t_error.append(self.som.topographic_error(self.nydata))
+            self.err_som.update(self.nydata[rand_i], self.err_som.winner(self.nydata[rand_i]), i, max_iter)
+            q_error.append(self.err_som.quantization_error(self.nydata))
+            t_error.append(self.err_som.topographic_error(self.nydata))
 
         # tell console error calculation is complete
         print('Error calculation complete')

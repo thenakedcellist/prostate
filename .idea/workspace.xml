@@ -28,9 +28,19 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0695007-41bb-43dc-86fe-46bb0472db71" name="Default Changelist" comment="directory restructured">
+    <list default="true" id="c0695007-41bb-43dc-86fe-46bb0472db71" name="Default Changelist" comment="Plot refactoring so that all plots have a hidden or unhidden legend box - this makes constraints uniform across plots">
+      <change afterPath="$PROJECT_DIR$/sandbox/banbury/banbury_data_extractor/complete_animal_list.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thesis/banbury/all_animals.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thesis/banbury/animals_1-6.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thesis/banbury/animals_7-11.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thesis/colours/colours.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thesis/iris/iris.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thesis/mysom_data_input.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thesis/yvette/Experiment 0/raman_spectra.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thesis/yvette/Experiment 1/unblinded_cell_line_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysom/mysom.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysom/mysom.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/yvette/mysom_playground_yvette.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/yvette/mysom_playground_yvette.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/thesis/yvette/Experiment 0/unblinded_cell_line_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/thesis/yvette/Experiment 0/unblinded_cell_line_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/thesis/yvette/Experiment 1/blinded_cell_line_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/thesis/yvette/Experiment 1/blinded_cell_line_data.py" afterDir="false" />
     </list>
@@ -68,7 +78,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
-    <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -81,11 +91,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/thesis/yvette/Experiment 1" />
       <recent name="$PROJECT_DIR$/sandbox/yvette/img" />
       <recent name="$PROJECT_DIR$/sandbox/colours/img" />
       <recent name="$PROJECT_DIR$/thesis/yvette/Experiment 1/img" />
       <recent name="$PROJECT_DIR$/thesis/yvette/Experiment 0/img" />
-      <recent name="$PROJECT_DIR$/scripts" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$USER_HOME$/Desktop" />
@@ -118,17 +128,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="blinded_cell_line_data (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="all_animals" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="prostate" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/thesis/yvette/Experiment 1" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/thesis/banbury" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/thesis/yvette/Experiment 1/blinded_cell_line_data.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/thesis/banbury/all_animals.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -137,7 +150,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="blinded_cell_line_data" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="animals_1-6" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="prostate" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -145,12 +158,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/yvette/Experiment 1" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/thesis/banbury" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yvette/Experiment 1/blinded_cell_line_data.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/thesis/banbury/animals_1-6.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -159,7 +172,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="mysom_playground_banbury" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="iris" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="prostate" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -167,12 +180,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sandbox" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/thesis/iris" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sandbox/banbury/mysom_playground_banbury.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/thesis/iris/iris.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -185,13 +198,16 @@
       <module name="prostate" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/thesis/yvette/Experiment 0" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/thesis/yvette/Experiment 1" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/thesis/yvette/Experiment 0/unblinded_cell_line_data.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/thesis/yvette/Experiment 1/unblinded_cell_line_data.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -208,12 +224,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/yvette/Experiment 0" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/thesis/yvette/Experiment 0" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yvette/Experiment 0/unblinded_cell_line_data.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/thesis/yvette/Experiment 0/unblinded_cell_line_data.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -240,20 +256,20 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.mysom_playground_banbury" />
-      <item itemvalue="Python.blinded_cell_line_data" />
-      <item itemvalue="Python.unblinded_cell_line_data" />
-      <item itemvalue="Python.blinded_cell_line_data (1)" />
+      <item itemvalue="Python.all_animals" />
+      <item itemvalue="Python.animals_1-6" />
+      <item itemvalue="Python.iris" />
       <item itemvalue="Python.unblinded_cell_line_data (1)" />
+      <item itemvalue="Python.unblinded_cell_line_data" />
       <item itemvalue="Python tests.pytest in /" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.unblinded_cell_line_data (1)" />
-        <item itemvalue="Python.blinded_cell_line_data (1)" />
+        <item itemvalue="Python.iris" />
         <item itemvalue="Python.unblinded_cell_line_data" />
-        <item itemvalue="Python.blinded_cell_line_data" />
-        <item itemvalue="Python.mysom_playground_banbury" />
+        <item itemvalue="Python.animals_1-6" />
+        <item itemvalue="Python.all_animals" />
       </list>
     </recent_temporary>
   </component>
@@ -339,7 +355,14 @@
       <workItem from="1606492099509" duration="952000" />
       <workItem from="1606496986644" duration="2738000" />
       <workItem from="1606744987394" duration="799000" />
-      <workItem from="1606834008324" duration="3540000" />
+      <workItem from="1606834008324" duration="4829000" />
+      <workItem from="1606852574207" duration="4000" />
+      <workItem from="1606895429265" duration="661000" />
+      <workItem from="1606899005631" duration="2086000" />
+      <workItem from="1606904282655" duration="8329000" />
+      <workItem from="1606944331286" duration="3865000" />
+      <workItem from="1606977633907" duration="14659000" />
+      <workItem from="1607336912279" duration="1119000" />
     </task>
     <task id="LOCAL-00001" summary="Markers now find label from input data for colour without manual input. Added plot to show quantisation errors and frequency of neuron activation">
       <created>1600343898422</created>
@@ -460,7 +483,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605779567437</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Plot refactoring so that all plots have a hidden or unhidden legend box - this makes constraints uniform across plots">
+      <created>1606845689107</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1606845689107</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -522,7 +552,8 @@
     <MESSAGE value="attempted k threshold for scatter diagram with prostate cell line data" />
     <MESSAGE value="MySOM module now fully integratable, just needs work on density plot. I realised that there ws a transposition error in the skleran normalisation method, now resolved, which gives much better delineation of SOM groups." />
     <MESSAGE value="directory restructured" />
-    <option name="LAST_COMMIT_MESSAGE" value="directory restructured" />
+    <MESSAGE value="Plot refactoring so that all plots have a hidden or unhidden legend box - this makes constraints uniform across plots" />
+    <option name="LAST_COMMIT_MESSAGE" value="Plot refactoring so that all plots have a hidden or unhidden legend box - this makes constraints uniform across plots" />
   </component>
   <component name="WindowStateProjectService">
     <state x="744" y="382" width="1071" height="796" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602843634044">
@@ -530,6 +561,10 @@
     </state>
     <state x="744" y="382" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1602843634044" />
     <state x="744" y="382" width="1071" height="796" key="#com.intellij.execution.impl.EditConfigurationsDialog/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602758719426" />
+    <state x="1023" y="526" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606904179912">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="1023" y="526" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1440@0.0.2560.1440" timestamp="1606904179912" />
     <state x="960" y="436" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1602078142207">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -547,91 +582,96 @@
     </state>
     <state x="751" y="330" key="EnvironmentVariablesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1602430011783" />
     <state x="1145" y="452" key="EnvironmentVariablesDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1605530544743" />
-    <state width="1861" height="520" key="GridCell.Tab.0.bottom" timestamp="1605091188026">
+    <state width="2518" height="520" key="GridCell.Tab.0.bottom" timestamp="1606944225639">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1638" height="292" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1603177290746" />
     <state width="1052" height="436" key="GridCell.Tab.0.bottom/0.0.1680.970@0.0.1680.970" timestamp="1602431600994" />
-    <state width="1861" height="520" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1605091188026" />
+    <state width="2518" height="520" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1606944225639" />
     <state width="2518" height="422" key="GridCell.Tab.0.bottom/0.23.2560.1337@0.23.2560.1337" timestamp="1602603045830" />
     <state width="2518" height="436" key="GridCell.Tab.0.bottom/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1603206601579" />
     <state width="2518" height="520" key="GridCell.Tab.0.bottom/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616990" />
-    <state width="1861" height="520" key="GridCell.Tab.0.center" timestamp="1605091188025">
+    <state width="2518" height="520" key="GridCell.Tab.0.center" timestamp="1606944225635">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1638" height="292" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1603177290744" />
     <state width="1052" height="436" key="GridCell.Tab.0.center/0.0.1680.970@0.0.1680.970" timestamp="1602431600993" />
-    <state width="1861" height="520" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1605091188025" />
+    <state width="2518" height="520" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1606944225635" />
     <state width="2518" height="422" key="GridCell.Tab.0.center/0.23.2560.1337@0.23.2560.1337" timestamp="1602603045828" />
     <state width="2518" height="436" key="GridCell.Tab.0.center/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1603206601577" />
     <state width="2518" height="520" key="GridCell.Tab.0.center/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616988" />
-    <state width="1861" height="520" key="GridCell.Tab.0.left" timestamp="1605091188024">
+    <state width="2518" height="520" key="GridCell.Tab.0.left" timestamp="1606944225633">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1638" height="292" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1603177290744" />
     <state width="1052" height="436" key="GridCell.Tab.0.left/0.0.1680.970@0.0.1680.970" timestamp="1602431600992" />
-    <state width="1861" height="520" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1605091188024" />
+    <state width="2518" height="520" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1606944225633" />
     <state width="2518" height="422" key="GridCell.Tab.0.left/0.23.2560.1337@0.23.2560.1337" timestamp="1602603045827" />
     <state width="2518" height="436" key="GridCell.Tab.0.left/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1603206601576" />
     <state width="2518" height="520" key="GridCell.Tab.0.left/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616987" />
-    <state width="1861" height="520" key="GridCell.Tab.0.right" timestamp="1605091188026">
+    <state width="2518" height="520" key="GridCell.Tab.0.right" timestamp="1606944225638">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1638" height="292" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1603177290745" />
     <state width="1052" height="436" key="GridCell.Tab.0.right/0.0.1680.970@0.0.1680.970" timestamp="1602431600993" />
-    <state width="1861" height="520" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1605091188026" />
+    <state width="2518" height="520" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1606944225638" />
     <state width="2518" height="422" key="GridCell.Tab.0.right/0.23.2560.1337@0.23.2560.1337" timestamp="1602603045829" />
     <state width="2518" height="436" key="GridCell.Tab.0.right/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1603206601578" />
     <state width="2518" height="520" key="GridCell.Tab.0.right/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616989" />
-    <state width="1861" height="520" key="GridCell.Tab.1.bottom" timestamp="1605091188030">
+    <state width="2518" height="520" key="GridCell.Tab.1.bottom" timestamp="1606944225643">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1746" height="520" key="GridCell.Tab.1.bottom/0.0.1680.970@0.0.1680.970" timestamp="1602431600989" />
-    <state width="1861" height="520" key="GridCell.Tab.1.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1605091188030" />
+    <state width="2518" height="520" key="GridCell.Tab.1.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1606944225643" />
     <state width="2518" height="520" key="GridCell.Tab.1.bottom/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1603206601571" />
     <state width="2518" height="520" key="GridCell.Tab.1.bottom/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616992" />
-    <state width="1861" height="520" key="GridCell.Tab.1.center" timestamp="1605091188028">
+    <state width="2518" height="520" key="GridCell.Tab.1.center" timestamp="1606944225641">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1746" height="520" key="GridCell.Tab.1.center/0.0.1680.970@0.0.1680.970" timestamp="1602431600988" />
-    <state width="1861" height="520" key="GridCell.Tab.1.center/0.0.2560.1440@0.0.2560.1440" timestamp="1605091188028" />
+    <state width="2518" height="520" key="GridCell.Tab.1.center/0.0.2560.1440@0.0.2560.1440" timestamp="1606944225641" />
     <state width="2518" height="520" key="GridCell.Tab.1.center/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1603206601568" />
     <state width="2518" height="520" key="GridCell.Tab.1.center/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616991" />
-    <state width="1861" height="520" key="GridCell.Tab.1.left" timestamp="1605091188027">
+    <state width="2518" height="520" key="GridCell.Tab.1.left" timestamp="1606944225640">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1746" height="520" key="GridCell.Tab.1.left/0.0.1680.970@0.0.1680.970" timestamp="1602431600987" />
-    <state width="1861" height="520" key="GridCell.Tab.1.left/0.0.2560.1440@0.0.2560.1440" timestamp="1605091188027" />
+    <state width="2518" height="520" key="GridCell.Tab.1.left/0.0.2560.1440@0.0.2560.1440" timestamp="1606944225640" />
     <state width="2518" height="520" key="GridCell.Tab.1.left/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1603206601567" />
     <state width="2518" height="520" key="GridCell.Tab.1.left/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616990" />
-    <state width="1861" height="520" key="GridCell.Tab.1.right" timestamp="1605091188029">
+    <state width="2518" height="520" key="GridCell.Tab.1.right" timestamp="1606944225642">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1746" height="520" key="GridCell.Tab.1.right/0.0.1680.970@0.0.1680.970" timestamp="1602431600988" />
-    <state width="1861" height="520" key="GridCell.Tab.1.right/0.0.2560.1440@0.0.2560.1440" timestamp="1605091188029" />
+    <state width="2518" height="520" key="GridCell.Tab.1.right/0.0.2560.1440@0.0.2560.1440" timestamp="1606944225642" />
     <state width="2518" height="520" key="GridCell.Tab.1.right/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1603206601569" />
     <state width="2518" height="520" key="GridCell.Tab.1.right/450.1463.1680.947/0.23.2560.1417@0.23.2560.1417" timestamp="1601630616991" />
-    <state x="1404" y="652" key="SettingsEditor" timestamp="1605710760370">
+    <state x="1404" y="652" key="SettingsEditor" timestamp="1606989999979">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="518" y="262" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1602430071602" />
-    <state x="1404" y="652" key="SettingsEditor/0.0.2560.1440@0.0.2560.1440" timestamp="1605530557251" />
+    <state x="1404" y="652" key="SettingsEditor/0.0.2560.1440@0.0.2560.1440" timestamp="1606989999979" />
     <state x="789" y="349" key="SettingsEditor/393.1440.1536.832/0.0.2560.1400@0.0.2560.1400" timestamp="1602078051234" />
     <state x="789" y="359" key="SettingsEditor/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1602618460272" />
     <state x="1404" y="652" key="SettingsEditor/487.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1605710760370" />
-    <state x="880" y="460" key="Vcs.Push.Dialog.v2" timestamp="1605779571624">
+    <state width="648" height="445" key="SwitcherDM" timestamp="1606908386998">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="648" height="445" key="SwitcherDM/0.0.2560.1440@0.0.2560.1440" timestamp="1606908386998" />
+    <state x="880" y="460" key="Vcs.Push.Dialog.v2" timestamp="1606845746156">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="578" y="335" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1602429773848" />
-    <state x="880" y="460" key="Vcs.Push.Dialog.v2/0.0.2560.1440@0.0.2560.1440" timestamp="1605779571624" />
+    <state x="880" y="460" key="Vcs.Push.Dialog.v2/0.0.2560.1440@0.0.2560.1440" timestamp="1606845746156" />
     <state x="880" y="460" key="Vcs.Push.Dialog.v2/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1601630583426" />
     <state x="880" y="460" key="Vcs.Push.Dialog.v2/487.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1605169560986" />
-    <state width="1448" height="720" key="XDebugger.FullValuePopup" timestamp="1605710922170">
+    <state width="1448" height="720" key="XDebugger.FullValuePopup" timestamp="1606911295516">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state width="840" height="525" key="XDebugger.FullValuePopup/0.0.1680.1050@0.0.1680.1050" timestamp="1601999810357" />
-    <state width="1448" height="720" key="XDebugger.FullValuePopup/0.0.2560.1440@0.0.2560.1440" timestamp="1605096927549" />
+    <state width="840" height="525" key="XDebugger.FullValuePopup/0.0.1680.1050@0.0.1680.1050" timestamp="1606898707479" />
+    <state width="1448" height="720" key="XDebugger.FullValuePopup/0.0.2560.1440@0.0.2560.1440" timestamp="1606911295516" />
     <state width="1448" height="720" key="XDebugger.FullValuePopup/0.23.2560.1337@0.23.2560.1337" timestamp="1603375915836" />
+    <state width="1448" height="720" key="XDebugger.FullValuePopup/0.25.2560.1330@0.25.2560.1330" timestamp="1606902871747" />
     <state width="1280" height="720" key="XDebugger.FullValuePopup/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1603204273446" />
     <state width="1448" height="720" key="XDebugger.FullValuePopup/487.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1605710922170" />
     <state x="1093" y="641" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603268556532">
@@ -665,6 +705,7 @@
     <SUITE FILE_PATH="coverage/prostate$banbury.coverage" NAME="banbury Coverage Results" MODIFIED="1603050765152" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/prostate$pytest_for_test_banbury_test_file_search.coverage" NAME="pytest for test_banbury.test_file_search Coverage Results" MODIFIED="1602618790736" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sandbox" />
     <SUITE FILE_PATH="coverage/prostate$mysom_playground_yvette.coverage" NAME="mysom_playground_yvette Coverage Results" MODIFIED="1605091181217" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sandbox" />
+    <SUITE FILE_PATH="coverage/prostate$unblinded_cell_line_data__1_.coverage" NAME="unblinded_cell_line_data (1) Coverage Results" MODIFIED="1606912793814" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/thesis/yvette/Experiment 0" />
     <SUITE FILE_PATH="coverage/prostate$pytest_in__.coverage" NAME="pytest in / Coverage Results" MODIFIED="1602675451305" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/prostate$pytest_for_test_banbury_test_file_list.coverage" NAME="pytest for test_banbury.test_file_list Coverage Results" MODIFIED="1602833772878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sandbox" />
     <SUITE FILE_PATH="coverage/prostate$pytest_in_test_banbury_py.coverage" NAME="pytest in test_banbury.py Coverage Results" MODIFIED="1603206349812" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
