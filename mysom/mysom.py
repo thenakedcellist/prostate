@@ -96,7 +96,7 @@ class MySom(MiniSom):
         return self.target, self.t, self.markers, self.colours, self.labels
 
 
-    def plot_som_umatrix(self, figpath, datestr):
+    def plot_som_umatrix(self, figpath, datestr, onlyshow=False):
         """plot distance map (u-matrix) of SOM and overlay markers from mapped sample vectors"""
         # initialise figure canvas and single axes
         figumatrix, ax1 = plt.subplots(1, 1)
@@ -136,15 +136,18 @@ class MySom(MiniSom):
                    borderaxespad=0, ncol=len(legend_elements), fontsize=10)
 
         figumatrix.show()
-        figumatrix.savefig(figpath / 'eps' / f'{datestr}_som-umatrix_x_{self.x}_y_{self.y}_sigma_{self.sigma}'
-                                             f'_learning-rate_{self.learning_rate}'
-                                             f'_random-seed_{self.random_seed}.eps', format='eps')
-        figumatrix.savefig(figpath / 'png' / f'{datestr}_som-umatrix_x_{self.x}_y_{self.y}_sigma_{self.sigma}'
-                                             f'_learning-rate_{self.learning_rate}'
-                                             f'_random-seed_{self.random_seed}.png', format='png')
+        if onlyshow:
+            pass
+        else:
+            figumatrix.savefig(figpath / 'eps' / f'{datestr}_som-umatrix_x_{self.x}_y_{self.y}_sigma_{self.sigma}'
+                                                 f'_learning-rate_{self.learning_rate}'
+                                                 f'_random-seed_{self.random_seed}.eps', format='eps')
+            figumatrix.savefig(figpath / 'png' / f'{datestr}_som-umatrix_x_{self.x}_y_{self.y}_sigma_{self.sigma}'
+                                                 f'_learning-rate_{self.learning_rate}'
+                                                 f'_random-seed_{self.random_seed}.png', format='png')
 
 
-    def plot_som_scatter(self, figpath, datestr):
+    def plot_som_scatter(self, figpath, datestr, onlyshow=False):
         """plot distance map (u-matrix) of SOM and scatter chart of markers representing co-ordinates of
         winning neurons across map with jitter to avoid overlap within cells"""
         # initialise figure canvas and single axes
@@ -184,15 +187,18 @@ class MySom(MiniSom):
                    borderaxespad=0, ncol=len(legend_elements), fontsize=10)
 
         figscatter.show()
-        figscatter.savefig(figpath / 'eps' / f'{datestr}_scatter-plot_x_{self.x}_y_{self.y}_sigma_{self.sigma}'
-                                             f'_learning-rate_{self.learning_rate}'
-                                             f'_random-seed_{self.random_seed}.eps', format='eps')
-        figscatter.savefig(figpath / 'png' / f'{datestr}_scatter-plot_x_{self.x}_y_{self.y}_sigma_{self.sigma}'
-                                             f'_learning-rate_{self.learning_rate}'
-                                             f'_random-seed_{self.random_seed}.png', format='png')
+        if onlyshow:
+            pass
+        else:
+            figscatter.savefig(figpath / 'eps' / f'{datestr}_scatter-plot_x_{self.x}_y_{self.y}_sigma_{self.sigma}'
+                                                 f'_learning-rate_{self.learning_rate}'
+                                                 f'_random-seed_{self.random_seed}.eps', format='eps')
+            figscatter.savefig(figpath / 'png' / f'{datestr}_scatter-plot_x_{self.x}_y_{self.y}_sigma_{self.sigma}'
+                                                 f'_learning-rate_{self.learning_rate}'
+                                                 f'_random-seed_{self.random_seed}.png', format='png')
 
 
-    def plot_neuron_activation_frequency(self, figpath, datestr):
+    def plot_neuron_activation_frequency(self, figpath, datestr, onlyshow=False):
         """plot distance map (u-matrix) of SOM shaded to represnet frequency of neuron activation"""
         figneuract, ax1 = plt.subplots(1, 1)
         figneuract.subplots_adjust(left=0.125, right=0.9, top=0.9, bottom=0.2, wspace=0.2, hspace=0.2)  # set whitespace around figure edges and space between subplots
@@ -222,15 +228,18 @@ class MySom(MiniSom):
                    borderaxespad=0, ncol=len(legend_elements), fontsize=None, frameon=False)
 
         figneuract.show()
-        figneuract.savefig(figpath / 'eps' / f'{datestr}_neuron-freq_{self.x}_y_{self.y}_sigma_{self.sigma}'
-                                             f'_learning-rate_{self.learning_rate}'
-                                             f'_random-seed_{self.random_seed}.eps', format='eps')
-        figneuract.savefig(figpath / 'png' / f'{datestr}_neuron-freq_{self.x}_y_{self.y}_sigma_{self.sigma}'
-                                             f'_learning-rate_{self.learning_rate}'
-                                             f'_random-seed_{self.random_seed}.png', format='png')
+        if onlyshow:
+            pass
+        else:
+            figneuract.savefig(figpath / 'eps' / f'{datestr}_neuron-freq_{self.x}_y_{self.y}_sigma_{self.sigma}'
+                                                 f'_learning-rate_{self.learning_rate}'
+                                                 f'_random-seed_{self.random_seed}.eps', format='eps')
+            figneuract.savefig(figpath / 'png' / f'{datestr}_neuron-freq_{self.x}_y_{self.y}_sigma_{self.sigma}'
+                                                 f'_learning-rate_{self.learning_rate}'
+                                                 f'_random-seed_{self.random_seed}.png', format='png')
 
 
-    def plot_density_function(self, figpath, datestr):
+    def plot_density_function(self, figpath, datestr, onlyshow=False):
         """plot density of neuron activation across SOM"""
         figdensity, ax1 = plt.subplots(1, 1)
         figdensity.subplots_adjust(left=0.125, right=0.9, top=0.9, bottom=0.2, wspace=0.2, hspace=0.2)  # set whitespace around figure edges and space between subplots
@@ -271,15 +280,18 @@ class MySom(MiniSom):
                    borderaxespad=0, ncol=len(legend_elements), fontsize=None, frameon=False)
 
         figdensity.show()
-        figdensity.savefig(figpath / 'eps' / f'{datestr}_density-est_x_{self.x}_y_{self.y}_sigma_{self.sigma}'
-                                             f'_learning-rate_{self.learning_rate}'
-                                             f'_random-seed_{self.random_seed}.eps', format='eps')
-        figdensity.savefig(figpath / 'png' / f'{datestr}_density-est_x_{self.x}_y_{self.y}_sigma_{self.sigma}'
-                                             f'_learning-rate_{self.learning_rate}'
-                                             f'_random-seed_{self.random_seed}.png', format='png')
+        if onlyshow:
+            pass
+        else:
+            figdensity.savefig(figpath / 'eps' / f'{datestr}_density-est_x_{self.x}_y_{self.y}_sigma_{self.sigma}'
+                                                 f'_learning-rate_{self.learning_rate}'
+                                                 f'_random-seed_{self.random_seed}.eps', format='eps')
+            figdensity.savefig(figpath / 'png' / f'{datestr}_density-est_x_{self.x}_y_{self.y}_sigma_{self.sigma}'
+                                                 f'_learning-rate_{self.learning_rate}'
+                                                 f'_random-seed_{self.random_seed}.png', format='png')
 
 
-    def plot_errors(self, max_iter, figpath, datestr):
+    def plot_errors(self, max_iter, figpath, datestr, onlyshow=False):
         """plot quantisation and topographic error of SOM at each iteration step
         this analysis can help to understand training and to estimate optimum number of iterations
         only available for rectangular topology"""
@@ -322,12 +334,15 @@ class MySom(MiniSom):
                    borderaxespad=0, ncol=len(legend_elements_2), fontsize=10)
 
         figerrors.show()
-        figerrors.savefig(figpath / 'eps' / f'{datestr}_q-t-errors_x_{self.x}_y_{self.y}_sigma_{self.sigma}'
-                                            f'_learning-rate_{self.learning_rate}'
-                                            f'_random-seed_{self.random_seed}.eps', format='eps')
-        figerrors.savefig(figpath / 'png' / f'{datestr}_q-t-errors_x_{self.x}_y_{self.y}_sigma_{self.sigma}'
-                                            f'_learning-rate_{self.learning_rate}'
-                                            f'_random-seed_{self.random_seed}.png', format='png')
+        if onlyshow:
+            pass
+        else:
+            figerrors.savefig(figpath / 'eps' / f'{datestr}_q-t-errors_x_{self.x}_y_{self.y}_sigma_{self.sigma}'
+                                                f'_learning-rate_{self.learning_rate}'
+                                                f'_random-seed_{self.random_seed}.eps', format='eps')
+            figerrors.savefig(figpath / 'png' / f'{datestr}_q-t-errors_x_{self.x}_y_{self.y}_sigma_{self.sigma}'
+                                                f'_learning-rate_{self.learning_rate}'
+                                                f'_random-seed_{self.random_seed}.png', format='png')
 
 
     def plot_som_umatrix_hex(self, figpath, datestr):

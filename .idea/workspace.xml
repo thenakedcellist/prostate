@@ -28,21 +28,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0695007-41bb-43dc-86fe-46bb0472db71" name="Default Changelist" comment="Plot refactoring so that all plots have a hidden or unhidden legend box - this makes constraints uniform across plots">
-      <change afterPath="$PROJECT_DIR$/sandbox/banbury/banbury_data_extractor/complete_animal_list.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/thesis/banbury/all_animals.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/thesis/banbury/animals_1-6.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/thesis/banbury/animals_7-11.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/thesis/colours/colours.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/thesis/iris/iris.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/thesis/mysom_data_input.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/thesis/yvette/Experiment 0/raman_spectra.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/thesis/yvette/Experiment 1/unblinded_cell_line_data.py" afterDir="false" />
+    <list default="true" id="c0695007-41bb-43dc-86fe-46bb0472db71" name="Default Changelist" comment="Unblinding of data for experiment 1">
+      <change afterPath="$PROJECT_DIR$/thesis/yvette/Experiment 1/som8_raman_spectra.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysom/mysom.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysom/mysom.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/yvette/mysom_playground_yvette.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/yvette/mysom_playground_yvette.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thesis/yvette/Experiment 0/unblinded_cell_line_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/thesis/yvette/Experiment 0/unblinded_cell_line_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thesis/yvette/Experiment 1/blinded_cell_line_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/thesis/yvette/Experiment 1/blinded_cell_line_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thesis/yvette/Experiment 1/unblinded_cell_line_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/thesis/yvette/Experiment 1/unblinded_cell_line_data.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +95,7 @@
       <recent name="$PROJECT_DIR$/sandbox/img/Banbury SOM 16x16 k change" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.unblinded_cell_line_data (1)">
+  <component name="RunManager" selected="Python.som8_raman_spectra">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="prostate" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -120,28 +110,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="all_animals" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="prostate" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/thesis/banbury" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/thesis/banbury/all_animals.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -186,6 +154,25 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/thesis/iris/iris.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="som8_raman_spectra" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="prostate" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/thesis/yvette/Experiment 1" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/thesis/yvette/Experiment 1/som8_raman_spectra.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -256,20 +243,20 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.all_animals" />
       <item itemvalue="Python.animals_1-6" />
+      <item itemvalue="Python.unblinded_cell_line_data" />
       <item itemvalue="Python.iris" />
       <item itemvalue="Python.unblinded_cell_line_data (1)" />
-      <item itemvalue="Python.unblinded_cell_line_data" />
       <item itemvalue="Python tests.pytest in /" />
+      <item itemvalue="Python.som8_raman_spectra" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.som8_raman_spectra" />
         <item itemvalue="Python.unblinded_cell_line_data (1)" />
         <item itemvalue="Python.iris" />
         <item itemvalue="Python.unblinded_cell_line_data" />
         <item itemvalue="Python.animals_1-6" />
-        <item itemvalue="Python.all_animals" />
       </list>
     </recent_temporary>
   </component>
@@ -363,6 +350,9 @@
       <workItem from="1606944331286" duration="3865000" />
       <workItem from="1606977633907" duration="14659000" />
       <workItem from="1607336912279" duration="1119000" />
+      <workItem from="1607339058424" duration="1158000" />
+      <workItem from="1607363934502" duration="1272000" />
+      <workItem from="1607417484783" duration="8357000" />
     </task>
     <task id="LOCAL-00001" summary="Markers now find label from input data for colour without manual input. Added plot to show quantisation errors and frequency of neuron activation">
       <created>1600343898422</created>
@@ -490,7 +480,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606845689107</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Unblinding of data for experiment 1">
+      <created>1607339072791</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1607339072791</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -553,7 +550,8 @@
     <MESSAGE value="MySOM module now fully integratable, just needs work on density plot. I realised that there ws a transposition error in the skleran normalisation method, now resolved, which gives much better delineation of SOM groups." />
     <MESSAGE value="directory restructured" />
     <MESSAGE value="Plot refactoring so that all plots have a hidden or unhidden legend box - this makes constraints uniform across plots" />
-    <option name="LAST_COMMIT_MESSAGE" value="Plot refactoring so that all plots have a hidden or unhidden legend box - this makes constraints uniform across plots" />
+    <MESSAGE value="Unblinding of data for experiment 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Unblinding of data for experiment 1" />
   </component>
   <component name="WindowStateProjectService">
     <state x="744" y="382" width="1071" height="796" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602843634044">
@@ -658,18 +656,18 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="648" height="445" key="SwitcherDM/0.0.2560.1440@0.0.2560.1440" timestamp="1606908386998" />
-    <state x="880" y="460" key="Vcs.Push.Dialog.v2" timestamp="1606845746156">
+    <state x="880" y="460" key="Vcs.Push.Dialog.v2" timestamp="1607339077710">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="578" y="335" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1602429773848" />
-    <state x="880" y="460" key="Vcs.Push.Dialog.v2/0.0.2560.1440@0.0.2560.1440" timestamp="1606845746156" />
+    <state x="880" y="460" key="Vcs.Push.Dialog.v2/0.0.2560.1440@0.0.2560.1440" timestamp="1607339077710" />
     <state x="880" y="460" key="Vcs.Push.Dialog.v2/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1601630583426" />
     <state x="880" y="460" key="Vcs.Push.Dialog.v2/487.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1605169560986" />
-    <state width="1448" height="720" key="XDebugger.FullValuePopup" timestamp="1606911295516">
+    <state width="1448" height="720" key="XDebugger.FullValuePopup" timestamp="1607339570586">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="840" height="525" key="XDebugger.FullValuePopup/0.0.1680.1050@0.0.1680.1050" timestamp="1606898707479" />
-    <state width="1448" height="720" key="XDebugger.FullValuePopup/0.0.2560.1440@0.0.2560.1440" timestamp="1606911295516" />
+    <state width="1448" height="720" key="XDebugger.FullValuePopup/0.0.2560.1440@0.0.2560.1440" timestamp="1607339570586" />
     <state width="1448" height="720" key="XDebugger.FullValuePopup/0.23.2560.1337@0.23.2560.1337" timestamp="1603375915836" />
     <state width="1448" height="720" key="XDebugger.FullValuePopup/0.25.2560.1330@0.25.2560.1330" timestamp="1606902871747" />
     <state width="1280" height="720" key="XDebugger.FullValuePopup/450.1440.1680.1050/0.0.2560.1440@0.0.2560.1440" timestamp="1603204273446" />
