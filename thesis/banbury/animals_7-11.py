@@ -30,7 +30,7 @@ som0 = MySom(x=16, y=15, input_len=y_data.shape[1], sigma=4.0, learning_rate=1.0
 # initiate and plot each SOM
 som_list = [som0]
 for som in som_list:
-    som.scikit_norm(y_data)
+    som.scikit_normalisation(y_data)
     som.make_som(10000)
     som.make_labels(y_path, label_list, marker_list, colour_list)
     som.plot_som_umatrix(figpath, datestr)

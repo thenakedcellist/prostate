@@ -17,7 +17,7 @@ colour_list = ['#FFA500', '#FFA500']
 # 5 * sqrt(2640) = 256.90 so x = 16 y = 16 input_len = ydata.shape[1]
 
 som = MySom(x=6, y=5, input_len=y_data.shape[1], sigma=1.0, learning_rate=0.1, topology='rectangular', random_seed=1)
-som.frobenius_norm(y_data)
+som.frobenius_norm_normalisation(y_data)
 som.make_som(10000)
 som.make_labels(y_path, label_list, marker_list, colour_list)
 som.plot_som_umatrix(figpath, datestr)

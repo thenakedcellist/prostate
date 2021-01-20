@@ -36,7 +36,7 @@ som6 = MySom(x=8, y=8, input_len=y_data.shape[1], sigma=3.0, learning_rate=1.0, 
 # initiate and plot each SOM
 som_list = [som4, som5, som6]
 for som in som_list:
-    som.frobenius_norm(y_data)
+    som.frobenius_norm_normalisation(y_data)
     som.make_som(10000)
     som.make_labels(y_path, label_list, marker_list, colour_list)
     som.plot_som_umatrix(figpath, datestr)

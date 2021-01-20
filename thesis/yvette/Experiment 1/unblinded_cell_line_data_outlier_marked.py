@@ -4,15 +4,15 @@ from pathlib import Path
 
 x_path = Path('../../../../data/yvette_20_09_02/xwavehw.csv')
 y_path = Path('../../../../data/yvette_20_11_18/shuffled_data_named.csv')
-figpath = Path('img_unblinded_cell_line_data/')
+figpath = Path('img_unblinded_cell_line_data_outlier_marked/')
 datestr = '2020_12_17'
 
 x_data = np.genfromtxt(x_path, delimiter=',')
 y_data = np.genfromtxt(y_path, delimiter=',', usecols=np.arange(1, 1057))
 
-label_list = ['PNT2', 'LNCaP']
-marker_list = ['o', 'x']
-colour_list = ['#FFA500', 'g']
+label_list = ['(112)', 'PNT2', 'LNCaP']
+marker_list = ['d', 'o', 'x']
+colour_list = ['#00BFFF', '#FFA500', 'g']
 
 # 5 * sqrt(285) = 84.41 so x = 9 y = 9 input_len = y_data.shape[1]
 # or x=11 y=8
@@ -155,7 +155,7 @@ somJ10 = MySom(x=9, y=9, input_len=y_data.shape[1], sigma=3.0, learning_rate=2.0
 somJ = [somJ1, somJ2, somJ3, somJ4, somJ5, somJ6, somJ7, somJ8, somJ9, somJ10]
 
 # test parameter optimisation
-som_list = [somA, somB, somC, somD, somE, somF, somG, somH, somI, somJ]
+som_list = [somA] #, somB, somC, somD, somE, somF, somG, somH, somI, somJ]
 for soms in som_list:
     for som in soms:
         som.frobenius_norm_normalisation(y_data)

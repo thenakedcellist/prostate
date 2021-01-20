@@ -4,7 +4,7 @@ from pathlib import Path
 
 x_path = Path('')
 y_path = Path('')
-figpath = Path('img_blinded/')
+figpath = Path('img_blinded_cell_line_data/')
 datestr = 'YYYY_MM_DD'
 
 x_data = np.genfromtxt(x_path, delimiter=',')
@@ -28,7 +28,7 @@ som0 = MySom(x=, y=, input_len=y_data.shape[1], sigma=1.0, learning_rate=0.5, to
 # initiate and plot each SOM
 som_list = [som0]
 for som in som_list:
-    som.frobenius_norm(y_data)
+    som.frobenius_norm_normalisation(y_data)
     som.make_som(10000)
     som.make_labels(y_path, label_list, marker_list, colour_list)
     som.plot_som_umatrix(figpath, datestr)

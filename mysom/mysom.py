@@ -1,8 +1,6 @@
-"""
-
-don't forget to look at time complexity - scalene, scalene, scalene, scaleeeeeeeene
-
-"""
+# TODO don't forget to look at time complexity - scalene, scalene, scalene, scaleeeeeeeene
+# https://github.com/JustGlowing/minisom/blob/master/examples/FeatureSelection.ipynb
+# winner function in comments
 
 import warnings
 import numpy as np
@@ -46,76 +44,99 @@ class MySom(MiniSom):
         # error calculation dummy SOM
         self.err_som = None
 
-
-    def frobenius_norm(self, ydata):
+    def frobenius_norm_normalisation(self, ydata):
         """normalise data by dividing each column by the Frobenius norm"""
-        self.nydata = np.apply_along_axis(lambda x: x/np.linalg.norm(x), 1, ydata)
+        self.nydata = np.apply_along_axis(lambda x: x / np.linalg.norm(x), 1, ydata)
         return self.nydata
 
-
-    def scikit_norm(self, ydata):
+    def scikit_normalisation(self, ydata):
         """normalise data using scikit learn preprocessing.scale function"""
         self.nydata = preprocessing.scale(ydata.T).T
         return self.nydata
 
-
     def make_som(self, train_iter):
         """implement MiniSom via mysom and allow manipulation of key parameters"""
         self.som = MiniSom(self.x, self.y, self.input_len, self.sigma, self.learning_rate, self.decay_function,
-                      self.neighborhood_function, self.topology, self.activation_distance, self.random_seed)
+                           self.neighborhood_function, self.topology, self.activation_distance, self.random_seed)
         self.som.random_weights_init(self.nydata)
         print('Training SOM...')
         self.som.train_random(self.nydata, train_iter)
         print('Training complete!')
         return self.som
 
-
     def make_labels(self, y_path, label_list, marker_list, colour_list):
         """generate labels for SOM based on input data with subdivisions (x1, x2, x3 etc.)"""
         self.target = np.genfromtxt(y_path, delimiter=',', usecols=(0), dtype=str)
         self.t = []
-        if label_list == ['Blinded Data']:  # if data is known to be blinded this is default
+
+        # creates ndarray t of zeros for blinded data
+        if label_list == ['Blinded Data']:
             self.t = np.zeros(self.nydata.shape[0], dtype=int)  # all values set to 0
+            # print warning message to indicate data are blinded
+            warnings.warn("Data are blinded")
+
+        # creates list t of index values of labels in label_list corresponding to observations
         else:
             for v in self.target:  # iterate through values in self.target
                 if any(x in v for x in label_list):  # any substring in label_list matches self.target string
                     for i in label_list:  # for each matching item
                         if i in v:
-                            self.t.append(label_list.index(i))  # append item index
-                        elif i not in v:  # for each non-matching item
-                            pass  # do nothing
+                            self.t.append(label_list.index(i))
+                            break  # append item index
+        # appends [unlabelled] to list t in index of observation which does not match any label in label_list
                 else:  # if no substring in label_list matches self.target string
                     self.t.append('unlabelled')  # append unlabelled
-        np.array(self.t)
-        self.unlabelled_values = [i for i, v in enumerate(self.t) if v == 'unlabelled']  # returns list of indexes of values not in label_list
-        if self.unlabelled_values:
+        # generate list of indices of observations which are unlabelled
+        self.unlabelled_values = [i for i, v in enumerate(self.t) if v == 'unlabelled']
+
+        # print warning message indicating how many values are labelled
+        if not self.unlabelled_values and label_list != ['Blinded Data']:
+            warnings.warn("All values are labelled")
+        if len(self.unlabelled_values) == len(self.t):
+            warnings.warn("All values are unlabeled")
+        elif self.unlabelled_values:
             warnings.warn("Some values are unlabelled")
+
+        # convert t into ndarray
+        np.array(self.t)
+
+        # add attributes to mysom instance
         self.markers = [marker for marker in marker_list]
         self.colours = [colour for colour in colour_list]
         self.labels = [label for label in label_list]
         return self.target, self.t, self.markers, self.colours, self.labels
 
-
-    def plot_som_umatrix(self, figpath, datestr, onlyshow=False):
+    def plot_som_umatrix(self, figpath, datestr, showinput=False, showinactivenodes=False, onlyshow=False):
         """plot distance map (u-matrix) of SOM and overlay markers from mapped sample vectors"""
         # initialise figure canvas and single axes
         figumatrix, ax1 = plt.subplots(1, 1)
-        figumatrix.subplots_adjust(left=0.125, right=0.9, top=0.9, bottom=0.2, wspace=0.2, hspace=0.2)  # set whitespace around figure edges and space between subplots
+        # set whitespace around figure edges and space between subplots
+        figumatrix.subplots_adjust(left=0.125, right=0.9, top=0.8, bottom=0.1, wspace=0.2, hspace=0.2)
         figumatrix.suptitle("Self Organising Map U-Matrix", fontsize=14)
+        ax1.locator_params(axis='both', integer=True)
         ax1.set_aspect('equal')
 
         # fill in axes with SOM and overlaid input data
-        ax1.pcolor(self.som.distance_map().T, cmap='Blues_r', alpha=1.0)  # plot transposed SOM distances in on matrix and set colormap
-        # overlay input data
-        '''
-        for cnt, xx in enumerate(self.nydata):
-            bmu = self.som.winner(xx)  # calculate BMU for sample
-            ax1.plot(bmu[0] + 0.5, bmu[1] + 0.5, self.markers[self.t[cnt]],
-                     markerfacecolor=self.colours[self.t[cnt]], markeredgecolor=self.colours[self.t[cnt]],
-                     markersize=6, markeredgewidth=2)  # place marker on winning SOM node for sample xx
-        ax1.axis([0, self.som._weights.shape[0], 0, self.som._weights.shape[1]])
-        '''
-        #TODO cross to show which neurons not avtivated (set of all points, which not in som.winner(), plot these as above
+        # plot transposed SOM distances in on matrix and set colormap
+        ax1.pcolor(self.som.distance_map().T, cmap='Blues_r', alpha=1.0)
+
+        if showinput:
+            # overlay input data
+            for cnt, xx in enumerate(self.nydata):
+                bmu = self.som.winner(xx)  # calculate BMU for sample
+                ax1.plot(bmu[0] + 0.5, bmu[1] + 0.5, self.markers[self.t[cnt]],
+                         markerfacecolor=self.colours[self.t[cnt]], markeredgecolor=self.colours[self.t[cnt]],
+                         markersize=(30/self.x), markeredgewidth=2)  # place marker on winning SOM node for sample xx
+            ax1.axis([0, self.som._weights.shape[0], 0, self.som._weights.shape[1]])
+        else:
+            pass
+
+        if showinactivenodes:
+            pass
+        else:
+            pass
+        # TODO correct axes legend position for all plots
+        # TODO cross to show which neurons not activated (set of all points, which not in som.winner(), plot these as above
 
         # add colorbar to figure
         divider1 = make_axes_locatable(ax1)
@@ -130,9 +151,9 @@ class MySom(MiniSom):
         legend_elements = []
         for i in range(len(self.labels)):
             legend_elements.append(Line2D([], [], marker=self.markers[i], color=self.colours[i], label=self.labels[i],
-                            markerfacecolor=self.colours[i], markersize=8, markeredgewidth=2,
-                            linestyle='None', linewidth=0))
-        ax1.legend(handles=legend_elements, loc='upper left', bbox_to_anchor=(0.0, 1.12),
+                                          markerfacecolor=self.colours[i], markersize=8, markeredgewidth=2,
+                                          linestyle='None', linewidth=0))
+        ax1.legend(handles=legend_elements, loc='lower left', bbox_to_anchor=(0.0, 1.04),
                    borderaxespad=0, ncol=len(legend_elements), fontsize=10)
 
         figumatrix.show()
@@ -146,19 +167,20 @@ class MySom(MiniSom):
                                                  f'_learning-rate_{self.learning_rate}'
                                                  f'_random-seed_{self.random_seed}.png', format='png')
 
-
     def plot_som_scatter(self, figpath, datestr, onlyshow=False):
         """plot distance map (u-matrix) of SOM and scatter chart of markers representing co-ordinates of
         winning neurons across map with jitter to avoid overlap within cells"""
         # initialise figure canvas and single axes
         figscatter, ax1 = plt.subplots(1, 1)
-        figscatter.subplots_adjust(left=0.125, right=0.9, top=0.9, bottom=0.2, wspace=0.2, hspace=0.2)  # set whitespace around figure edges and space between subplots
+        # set whitespace around figure edges and space between subplots
+        figscatter.subplots_adjust(left=0.125, right=0.9, top=0.8, bottom=0.1, wspace=0.2, hspace=0.2)
         figscatter.suptitle("Self Organising Map U-Matrix with Overlaid Scatter Input Data", fontsize=14)
+        ax1.locator_params(axis='both', integer=True)
         ax1.set_aspect('equal')
 
         # fill in axes with SOM and overlaid scatter data
-        ax1.pcolor(self.som.distance_map().T, cmap='Blues_r', alpha=1.0)  # plot transposed SOM distances in one matrix and set colormap with reduced opacity
-        ax1.grid()  # print grid in bold over background
+        ax1.pcolor(self.som.distance_map().T, cmap='Blues_r',
+                   alpha=1.0)  # plot transposed SOM distances in one matrix and set colormap with reduced opacity
         w_x, w_y = zip(*[self.som.winner(d) for d in self.nydata])  # get x an y variables
         w_x = np.array(w_x)  # convert x variables into np array
         w_y = np.array(w_y)  # convert y variables into np array
@@ -166,7 +188,7 @@ class MySom(MiniSom):
             idx_t = self.t == c
             ax1.scatter(w_x[idx_t] + .5 + (np.random.rand(np.sum(idx_t)) - .5) * .5,
                         w_y[idx_t] + .5 + (np.random.rand(np.sum(idx_t)) - .5) * .5,
-                        s=22, c=self.colours[c], marker=self.markers[c])
+                        s=(30/self.x)**2, c=self.colours[c], marker=self.markers[c])
 
         # add colorbar to figure
         divider1 = make_axes_locatable(ax1)
@@ -183,7 +205,7 @@ class MySom(MiniSom):
             legend_elements.append(Line2D([], [], marker=self.markers[i], color=self.colours[i], label=self.labels[i],
                                           markerfacecolor=self.colours[i], markersize=8, markeredgewidth=2,
                                           linestyle='None', linewidth=0))
-        ax1.legend(handles=legend_elements, loc='upper left', bbox_to_anchor=(0.0, 1.12),
+        ax1.legend(handles=legend_elements, loc='lower left', bbox_to_anchor=(0.0, 1.04),
                    borderaxespad=0, ncol=len(legend_elements), fontsize=10)
 
         figscatter.show()
@@ -197,22 +219,25 @@ class MySom(MiniSom):
                                                  f'_learning-rate_{self.learning_rate}'
                                                  f'_random-seed_{self.random_seed}.png', format='png')
 
-
     def plot_neuron_activation_frequency(self, figpath, datestr, onlyshow=False):
         """plot distance map (u-matrix) of SOM shaded to represnet frequency of neuron activation"""
         figneuract, ax1 = plt.subplots(1, 1)
-        figneuract.subplots_adjust(left=0.125, right=0.9, top=0.9, bottom=0.2, wspace=0.2, hspace=0.2)  # set whitespace around figure edges and space between subplots
+        # set whitespace around figure edges and space between subplots
+        figneuract.subplots_adjust(left=0.125, right=0.9, top=0.8, bottom=0.1, wspace=0.2, hspace=0.2)
         figneuract.suptitle("Self Organising Map Neuron Activation Frequency", fontsize=14)
+        ax1.locator_params(axis='both', integer=True)
         ax1.set_aspect('equal')
 
         # fill in axes with frequency of SOM neuron activation
         frequencies = self.som.activation_response(self.nydata)  # generate frequency of neuron activation
-        ax1.pcolor(frequencies.T, cmap='Blues', alpha=1.0)  # plot tramsposed SOM frequencies in one matrix and set colourmap
+        ax1.pcolor(frequencies.T, cmap='Blues',
+                   alpha=1.0)  # plot tramsposed SOM frequencies in one matrix and set colourmap
 
         # add colorbar to figure
         divider1 = make_axes_locatable(ax1)
         ax1_cb = divider1.new_horizontal(size=0.3, pad=0.1)
-        norm1 = mpl.colors.Normalize(vmin=np.min(frequencies), vmax=np.max(frequencies))  # define range for colorbar based on frequencies
+        norm1 = mpl.colors.Normalize(vmin=np.min(frequencies),
+                                     vmax=np.max(frequencies))  # define range for colorbar based on frequencies
         cb1 = colorbar.ColorbarBase(ax=ax1_cb, cmap=cm.Blues, norm=norm1, alpha=1.0, orientation='vertical')
         cb1.ax.get_yaxis().labelpad = 16
         cb1.ax.set_ylabel('Frequency of Neuron Activation', rotation=270, fontsize=10.5)
@@ -224,7 +249,7 @@ class MySom(MiniSom):
             legend_elements.append(Line2D([], [], marker=None, color=None, label=None,
                                           markerfacecolor=None, markersize=None, markeredgewidth=None,
                                           linestyle='None', linewidth=None))
-        ax1.legend(handles=legend_elements, loc='upper left', bbox_to_anchor=(0.0, 1.12),
+        ax1.legend(handles=legend_elements, loc='lower left', bbox_to_anchor=(0.0, 1.04),
                    borderaxespad=0, ncol=len(legend_elements), fontsize=None, frameon=False)
 
         figneuract.show()
@@ -238,12 +263,13 @@ class MySom(MiniSom):
                                                  f'_learning-rate_{self.learning_rate}'
                                                  f'_random-seed_{self.random_seed}.png', format='png')
 
-
     def plot_density_function(self, figpath, datestr, onlyshow=False):
         """plot density of neuron activation across SOM"""
         figdensity, ax1 = plt.subplots(1, 1)
-        figdensity.subplots_adjust(left=0.125, right=0.9, top=0.9, bottom=0.2, wspace=0.2, hspace=0.2)  # set whitespace around figure edges and space between subplots
+        # set whitespace around figure edges and space between subplots
+        figdensity.subplots_adjust(left=0.125, right=0.9, top=0.8, bottom=0.1, wspace=0.2, hspace=0.2)
         figdensity.suptitle("Self Organising Map Density Plot", fontsize=14)
+        ax1.locator_params(axis='both', integer=True)
         ax1.set_aspect('equal')
 
         # fill in axes with SOM and generate overlaid scatter data
@@ -252,10 +278,10 @@ class MySom(MiniSom):
         w_y = (np.array(w_y) + 0.5)  # convert y variables into np array with 0.5 added to each value
 
         # generate density plot data
-        nbins=200  # number of bins
+        nbins = 200  # number of bins
         k = kde.gaussian_kde([w_x, w_y])  # initiate gaussian kernel density estimate
         # generate regular grid of nbins x nbins over data, maximum value is inclusive
-        xi, yi = np.mgrid[0: self.x: nbins*1j, 0:  self.y: nbins*1j]
+        xi, yi = np.mgrid[0: self.x: nbins * 1j, 0:  self.y: nbins * 1j]
         zi = k(np.vstack([xi.flatten(), yi.flatten()]))
         ax1.pcolormesh(xi, yi, zi.reshape(xi.shape), shading='gouraud', cmap='Oranges')  # generate kde plot
         ax1.contour(xi, yi, zi.reshape(xi.shape), cmap='Blues')  # add contour lines
@@ -264,7 +290,8 @@ class MySom(MiniSom):
         frequencies = self.som.activation_response(self.nydata)  # generate frequency of neuron activation
         divider1 = make_axes_locatable(ax1)
         ax1_cb1 = divider1.new_horizontal(size=0.3, pad=0.1)
-        norm1 = mpl.colors.Normalize(vmin=np.min(frequencies), vmax=np.max(frequencies))  # define range for colorbar based on frequencies
+        norm1 = mpl.colors.Normalize(vmin=np.min(frequencies),
+                                     vmax=np.max(frequencies))  # define range for colorbar based on frequencies
         cb1 = colorbar.ColorbarBase(ax=ax1_cb1, cmap=cm.Oranges, norm=norm1, alpha=1.0, orientation='vertical')
         cb1.ax.get_yaxis().labelpad = 16
         cb1.ax.set_ylabel('Density of Neuron Activation', rotation=270, fontsize=10.5)
@@ -276,7 +303,7 @@ class MySom(MiniSom):
             legend_elements.append(Line2D([], [], marker=None, color=None, label=None,
                                           markerfacecolor=None, markersize=None, markeredgewidth=None,
                                           linestyle='None', linewidth=None))
-        ax1.legend(handles=legend_elements, loc='upper left', bbox_to_anchor=(0.0, 1.12),
+        ax1.legend(handles=legend_elements, loc='lower left', bbox_to_anchor=(0.0, 1.04),
                    borderaxespad=0, ncol=len(legend_elements), fontsize=None, frameon=False)
 
         figdensity.show()
@@ -289,7 +316,6 @@ class MySom(MiniSom):
             figdensity.savefig(figpath / 'png' / f'{datestr}_density-est_x_{self.x}_y_{self.y}_sigma_{self.sigma}'
                                                  f'_learning-rate_{self.learning_rate}'
                                                  f'_random-seed_{self.random_seed}.png', format='png')
-
 
     def plot_errors(self, max_iter, figpath, datestr, onlyshow=False):
         """plot quantisation and topographic error of SOM at each iteration step
@@ -316,7 +342,8 @@ class MySom(MiniSom):
 
         # initialise figure canvas and two axes
         figerrors, (ax1, ax2) = plt.subplots(2, 1)
-        figerrors.subplots_adjust(left=0.125, right=0.9, top=0.9, bottom=0.2, wspace=0.2, hspace=0.2)  # set whitespace around figure edges and space between subplots
+        # set whitespace around figure edges and space between subplots
+        figerrors.subplots_adjust(left=0.125, right=0.9, top=0.8, bottom=0.1, wspace=0.2, hspace=0.3)
         figerrors.suptitle("Quantisation and Topographic Error of Self Organising Map", fontsize=14)
 
         # fill in axes 1 with quantisation error and axes 2 with topographic error
@@ -326,12 +353,10 @@ class MySom(MiniSom):
         ax2.set(xlabel='Iteration', ylabel='Error')
 
         # add legend using proxy artists
-        legend_elements_1 = [Line2D([], [], linestyle='-', linewidth=1, color='#00BFFF', label='Quantisation Error')]
-        legend_elements_2 = [Line2D([], [], linestyle='-', linewidth=1, color='#FFA500', label='Topographic Error')]
-        ax1.legend(handles=legend_elements_1, loc='upper right', bbox_to_anchor=(0.99, 0.97),
-                   borderaxespad=0, ncol=len(legend_elements_1), fontsize=10)
-        ax2.legend(handles=legend_elements_2, loc='upper right', bbox_to_anchor=(0.99, 0.97),
-                   borderaxespad=0, ncol=len(legend_elements_2), fontsize=10)
+        legend_elements = [Line2D([], [], linestyle='-', linewidth=1, color='#00BFFF', label='Quantisation Error'),
+                          Line2D([], [], linestyle='-', linewidth=1, color='#FFA500', label='Topographic Error')]
+        ax1.legend(handles=legend_elements, loc='lower left', bbox_to_anchor=(0.0, 1.04),
+                         borderaxespad=0, ncol=len(legend_elements), fontsize=10)
 
         figerrors.show()
         if onlyshow:
@@ -344,7 +369,6 @@ class MySom(MiniSom):
                                                 f'_learning-rate_{self.learning_rate}'
                                                 f'_random-seed_{self.random_seed}.png', format='png')
 
-
     def plot_som_umatrix_hex(self, figpath, datestr):
         """plot SOM u-matrix for hexagonal topology SOM"""
         from matplotlib.patches import RegularPolygon
@@ -353,8 +377,9 @@ class MySom(MiniSom):
         from matplotlib.lines import Line2D
 
         # initialise figure canvas and single axes
-        figumatrixhex, ax1 = plt.subplots(1,1)
-        figumatrixhex.subplots_adjust(left=0.125, right=0.9, top=0.9, bottom=0.2, wspace=0.2, hspace=0.2)  # set whitespace around figure edges and space between subplots
+        figumatrixhex, ax1 = plt.subplots(1, 1)
+        # set whitespace around figure edges and space between subplots
+        figumatrixhex.subplots_adjust(left=0.125, right=0.9, top=0.8, bottom=0.1, wspace=0.2, hspace=0.2)
         figumatrixhex.suptitle("Self Organising Map U-Matrix", fontsize=14)
         ax1.set_aspect('equal')
 
@@ -366,8 +391,9 @@ class MySom(MiniSom):
         # form hex grid
         for i in range(weights.shape[0]):
             for j in range(weights.shape[1]):
-                wy = yy[(i, j)]*2/np.sqrt(3)*3/4
-                hex = RegularPolygon((xx[(i, j)], wy), numVertices=6, radius=.95/np.sqrt(3), facecolor=cm.Blues_r(umatrix[i, j]), alpha=1.0, edgecolor='gray')
+                wy = yy[(i, j)] * 2 / np.sqrt(3) * 3 / 4
+                hex = RegularPolygon((xx[(i, j)], wy), numVertices=6, radius=.95 / np.sqrt(3),
+                                     facecolor=cm.Blues_r(umatrix[i, j]), alpha=1.0, edgecolor='gray')
                 ax1.add_patch(hex)
 
         # calculate and plot BMU for sample
@@ -376,8 +402,8 @@ class MySom(MiniSom):
             wx, wy = self.som.convert_map_to_euclidean(bmu)
             wy = wy * 2 / np.sqrt(3) * 3 / 4
             ax1.plot(wx, wy, self.markers[self.t[cnt]], markerfacecolor=self.colours[self.t[cnt]],
-                     markeredgecolor=self.colours[self.t[cnt]], markersize=6, markeredgewidth=2)  # place marker on winning position for sample xx
-
+                     markeredgecolor=self.colours[self.t[cnt]], markersize=6,
+                     markeredgewidth=2)  # place marker on winning position for sample xx
 
         # set x and y range of plot
         xrange = np.arange(weights.shape[0])
@@ -400,7 +426,7 @@ class MySom(MiniSom):
             legend_elements.append(Line2D([], [], marker=self.markers[i], color=self.colours[i], label=self.labels[i],
                                           markerfacecolor=self.colours[i], markersize=8, markeredgewidth=2,
                                           linestyle='None', linewidth=0))
-        ax1.legend(handles=legend_elements, loc='upper left', bbox_to_anchor=(0.0, 1.12),
+        ax1.legend(handles=legend_elements, loc='lower left', bbox_to_anchor=(0.0, 1.04),
                    borderaxespad=0, ncol=len(legend_elements), fontsize=10)
 
         plt.show()

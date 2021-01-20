@@ -17,7 +17,7 @@ colour_list = ['c', 'g', 'k', 'm', 'orange']
 # 5 * sqrt(2640) = 256.90 so x = 16 y = 16 input_len = ydata.shape[1]
 
 som = MySom(x=16, y=16, input_len=y_data.shape[1], sigma=1.0, learning_rate=0.4, topology='hexagonal', random_seed=10)
-som.scikit_norm(y_data)
+som.scikit_normalisation(y_data)
 som.make_som(10000)
 som.make_labels(y_path, label_list, marker_list, colour_list)
 som.plot_som_umatrix_hex(figpath, datestr)
