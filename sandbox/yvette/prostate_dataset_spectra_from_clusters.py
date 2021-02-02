@@ -65,8 +65,8 @@ def plot_spectra_from_poi(cluster_PNT2_input_arr, cluster_LNCaP_input_arr, title
     if onlyshow:
         pass
     else:
-        fig.savefig(figpath / 'eps' / f'{title_string}'.eps, format='eps')
-        fig.savefig(figpath / 'png' / f'{title_string}'.png, format='png')
+        fig.savefig(figpath / 'eps' / f'{title_string}.eps', format='eps')
+        fig.savefig(figpath / 'png' / f'{title_string}.png', format='png')
 
 
 x_path = Path('../../../data/yvette_20_09_02/xwavehw.csv')
@@ -127,11 +127,11 @@ c_LNCaP_arr = make_poi_array(c_LNCaP_list)
 c_LNCaP_mean = make_array_column_mean(c_LNCaP_arr)
 
 # plots
-all_spectra = plot_spectra_from_poi(all_PNT2_arr, all_LNCaP_arr, "All Data")
-all_spectra_mean = plot_spectra_from_poi(all_PNT2_mean, all_LNCaP_mean, "All Data Mean")
-cluster_a = plot_spectra_from_poi(a_PNT2_arr, a_LNCaP_arr, "Cluster A")
-cluster_a_mean = plot_spectra_from_poi(a_PNT2_mean, a_LNCaP_mean, "Cluster A Mean")
-cluster_b = plot_spectra_from_poi(b_PNT2_arr, b_LNCaP_arr, "Cluster B")
-cluster_b_mean = plot_spectra_from_poi(b_PNT2_mean, b_LNCaP_mean, "Cluster B Mean")
-cluster_c = plot_spectra_from_poi(c_PNT2_arr, c_LNCaP_arr, "Cluster C")
-cluster_c_mean = plot_spectra_from_poi(c_PNT2_mean, c_LNCaP_mean, "Cluster C Mean")
+all_spectra = plot_spectra_from_poi(all_PNT2_arr, all_LNCaP_arr, "All Data", onlyshow=True)
+all_spectra_mean = plot_spectra_from_poi(all_PNT2_mean, all_LNCaP_mean, "All Data Mean", onlyshow=True)
+cluster_a = plot_spectra_from_poi(a_PNT2_arr, a_LNCaP_arr, "Cluster A", onlyshow=True)
+cluster_a_mean = plot_spectra_from_poi(a_PNT2_mean, a_LNCaP_mean, "Cluster A Mean", onlyshow=True)
+cluster_b = plot_spectra_from_poi(b_PNT2_arr, b_LNCaP_arr, "Cluster B", onlyshow=True)
+cluster_b_mean = plot_spectra_from_poi(b_PNT2_mean, b_LNCaP_mean, "Cluster B Mean", onlyshow=True)
+cluster_c = plot_spectra_from_poi(c_PNT2_arr, c_LNCaP_arr, "Cluster C", onlyshow=True)
+cluster_c_mean = plot_spectra_from_poi(c_PNT2_mean, c_LNCaP_mean, "Cluster C Mean", onlyshow=True)

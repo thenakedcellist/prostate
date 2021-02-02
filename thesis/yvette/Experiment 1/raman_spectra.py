@@ -4,150 +4,159 @@ from matplotlib.lines import Line2D
 from mysom.mysom import MySom
 from pathlib import Path
 
+def all_data_points_by_group(som):
+    """generate lists of all data indices by group"""
+    PNT2_all = []
+    LNCaP_all = []
+    for i, v in enumerate(som.t):
+        if v == 0:
+            PNT2_all.append(i)
+        elif v == 1:
+            LNCaP_all.append(i)
+    return PNT2_all, LNCaP_all
+
+def points_of_interest_by_group(som, poi):
+    """generate lists of data indices of points of interest by group"""
+    # flatten list of points of interest
+    flat_poi = [item for sublist in poi for item in sublist]
+    # generate list of corresponding label values for points of interest
+    labs_poi = [som.t[i] for i in flat_poi]
+    # generate lists of point of interest indices by group
+    PNT2_poi = []
+    LNCaP_poi = []
+    for i, v in enumerate(labs_poi):
+        if v == 0:
+            PNT2_poi.append(flat_poi[i])
+        elif v == 1:
+            LNCaP_poi.append(flat_poi[i])
+    return PNT2_poi, LNCaP_poi
+
+def remove_poi_from_list(list_a, list_b):
+    """takes two lists A and B, and removes the values of list B from list A"""
+    concat_list = [v for v in list_a if v not in list_b]
+    return concat_list
+
+def make_poi_array(input_list):
+    """generate arrays of input data with indices from input list"""
+    output_arr = y_data[np.ix_(input_list)]
+    return output_arr
+
+def make_array_column_mean(input_arr):
+    """calculate column mean of input array"""
+    output_arr = input_arr.mean(axis=0)[None, :]
+    return output_arr
+
+def plot_spectra_from_poi(cluster_PNT2_input_arr, cluster_LNCaP_input_arr, title_string, onlyshow=False):
+    """plot average spectra for cluster by group"""
+    fig, ax = plt.subplots(1, 1)
+    # set whitespace around figure edges and space between subplots
+    fig.subplots_adjust(left=0.125, right=0.9, top=0.8, bottom=0.1, wspace=0.2, hspace=0.2)
+    fig.suptitle(title_string, fontsize=14)
+    for i in range(len(cluster_PNT2_input_arr)):
+        ax.plot(x_data[0, :] , cluster_PNT2_input_arr[i], color='#FFA500', label='PNT2')
+    for i in range(len(cluster_LNCaP_input_arr)):
+        ax.plot(x_data[0, :] , cluster_LNCaP_input_arr[i], color='g', label='LNCaP')
+    ax.set(xlabel='wavenumber', ylabel='intensity')
+    legend_elements = [(Line2D([], [], linestyle='-', linewidth=1, color='#FFA500', label='PNT2')),
+                       (Line2D([], [], linestyle='-', linewidth=1, color='g', label='LNCaP'))]
+    ax.legend(handles=legend_elements, loc='lower left', bbox_to_anchor=(0.0, 1.04), borderaxespad=0, ncol=2,
+              fontsize=10)
+    fig.show()
+    if onlyshow:
+        pass
+    else:
+        fig.savefig(figpath / 'eps' / f'{title_string}.eps', format='eps')
+        fig.savefig(figpath / 'png' / f'{title_string}.png', format='png')
+
+
 x_path = Path('../../../../data/yvette_20_09_02/xwavehw.csv')
 y_path = Path('../../../../data/yvette_20_11_18/shuffled_data_named.csv')
 figpath = Path('img_raman_spectra/')
-datestr = '2020_12_08'
-
-x_data = np.genfromtxt(x_path, delimiter=',')
+datestr = '2021_02_02'
+x_data = np.genfromtxt(x_path, delimiter=',')[None, :]
 y_data = np.genfromtxt(y_path, delimiter=',', usecols=np.arange(1, 1057))
 
 label_list = ['PNT2', 'LNCaP']
 marker_list = ['o', 'x']
 colour_list = ['#FFA500', 'g']
 
-somI = MySom(x=9, y=9, input_len=y_data.shape[1], sigma=3.0, learning_rate=1.0, topology='rectangular', random_seed=1)
-somI.frobenius_norm_normalisation(y_data)
-somI.make_som(10000)
-somI.make_labels(y_path, label_list, marker_list, colour_list)
-somI.plot_som_scatter(figpath, datestr, onlyshow=True)
-somI.plot_density_function(figpath, datestr, onlyshow=True)
-winmap = somI.som.win_map(somI.nydata, return_indices=True)
-labmap = somI.som.labels_map(somI.nydata, somI.t)
+# putative noisy signal is index 46
+removal_list = [46]
 
-# looking at density plot, there is a large concentration of points in (8, 8),
-# and the central peak spans (7, 7) to (8, 8)
+# full som
+som = MySom(x=9, y=9, input_len=y_data.shape[1], sigma=3.0, learning_rate=1.0, topology='rectangular', random_seed=1)
+som.som_setup(x_data, y_data, y_path, label_list, marker_list, colour_list)
+som.frobenius_norm_normalisation()
+som.train_som(10000)
+som.plot_som_scatter(figpath, datestr, onlyshow=True)
+som.plot_density_function(figpath, datestr, onlyshow=True)
+winmap = som.som.win_map(som.nydata, return_indices=True)
+labmap = som.som.labels_map(som.nydata, som.t)
 
-# generate list of lists of point of interest from cells within dense region
-poi = [winmap[(7, 7)], winmap[(7, 8)], winmap[(8, 7)], winmap[(8, 8)]]
-# flatten list of lists into list
-flat_poi = [item for sublist in poi for item in sublist]
-# generate list of corresponding label values for points of interest
-labs_poi = [somI.t[i] for i in flat_poi]
-# generate lists of poi indices by grouping
-PNT2_poi = []
-LNCaP_poi = []
-for i, v in enumerate(labs_poi):
-    if v == 0:
-        PNT2_poi.append(flat_poi[i])
-    elif v == 1:
-        LNCaP_poi.append(flat_poi[i])
-# generate outlier points of interest indices list
-outlier_poi = winmap[(6, 0)]
-# generate lists of all data indices by group
-PNT2_all = []
-LNCaP_all = []
-for i, v in enumerate(somI.t):
-    if v == 0:
-        PNT2_all.append(i)
-    elif v == 1:
-        LNCaP_all.append(i)
-# generate list of group indices excluding outlier points of interest
-PNT2_no_outlier = [v for v in PNT2_all for o in outlier_poi if v != o]
+# som with outlier removed
+som_outlier_removed = MySom(x=9, y=9, input_len=y_data.shape[1], sigma=3.0, learning_rate=1.0, topology='rectangular', random_seed=1)
+som_outlier_removed.som_setup(x_data, y_data, y_path, label_list, marker_list, colour_list)
+som_outlier_removed.remove_observations_from_input_data(removal_list)
+som_outlier_removed.frobenius_norm_normalisation()
+som_outlier_removed.train_som(10000)
+som_outlier_removed.plot_som_scatter(figpath, datestr, onlyshow=True)
+som_outlier_removed.plot_density_function(figpath, datestr, onlyshow=True)
+winmap = som_outlier_removed.som.win_map(som_outlier_removed.nydata, return_indices=True)
+labmap = som_outlier_removed.som.labels_map(som_outlier_removed.nydata, som_outlier_removed.t)
 
-nxdata = x_data[None, :]
+# clusters
+poi_a = [winmap[(0, 6)], winmap[(1, 6)], winmap[(0, 7)], winmap[(1, 7)], winmap[(0, 8)], winmap[(1, 8)]]
+poi_b = [winmap[(7, 7)], winmap[(8, 7)], winmap[(7, 8)], winmap[(8, 8)]]
+poi_c = [winmap[(3, 1)], winmap[(4, 1)], winmap[(3, 2)], winmap[(4, 2)]]
+poi_outlier = [winmap[(6, 0)]]
 
-# generate arrays containing data from points of interest and all data by group
-PNT2_all_data = y_data[np.ix_(PNT2_all)]
-LNCaP_all_data = y_data[np.ix_(LNCaP_all)]
-PNT2_poi_data = y_data[np.ix_(PNT2_poi)]
-LNCaP_poi_data = y_data[np.ix_(LNCaP_poi)]
-outlier_poi_data = y_data[np.ix_(outlier_poi)]
-PNT2_no_outlier_data = y_data[np.ix_(PNT2_no_outlier)]
+# runcode
 
-# generate column means for data groups
-PNT2_all_column_mean = PNT2_all_data.mean(axis=0)
-LNCaP_all_column_mean = LNCaP_all_data.mean(axis=0)
-PNT2_poi_column_mean = PNT2_poi_data.mean(axis=0)
-LNCaP_poi_column_mean = LNCaP_poi_data.mean(axis=0)
-PNT2_no_outlier_column_mean = PNT2_no_outlier_data.mean(axis=0)
+# all data points
+all_PNT2_list, all_LNCaP_list = all_data_points_by_group(som)
+all_PNT2_arr = make_poi_array(all_PNT2_list)
+all_PNT2_mean = make_array_column_mean(all_PNT2_arr)
+all_LNCaP_arr = make_poi_array(all_LNCaP_list)
+all_LNCaP_mean = make_array_column_mean(all_LNCaP_arr)
 
-# plot average spectra from dense region
-fig1, ax1 = plt.subplots(1, 1)
-fig1.subplots_adjust(left=0.125, right=0.9, top=0.9, bottom=0.2, wspace=0.2, hspace=0.2)  # set whitespace around figure edges and space between subplots
-fig1.suptitle("Average Raman Spectra from Dense Region by Cell Line", fontsize=14)
-ax1.plot(x_data, PNT2_poi_column_mean, color='#FFA500', label='PNT2')
-ax1.plot(x_data, LNCaP_poi_column_mean, color='g', label='LNCaP')
-ax1.set(xlabel='Wavenumber', ylabel='Intensity')
-legend_elements1 = [(Line2D([], [], linestyle='-', linewidth=1, color='#FFA500', label='PNT2')),
-                   (Line2D([], [], linestyle='-', linewidth=1, color='g', label='LNCaP'))]
-ax1.legend(handles=legend_elements1, loc='upper right', bbox_to_anchor=(0.99, 0.97), borderaxespad=0, ncol=1, fontsize=10)
-fig1.show()
-fig1.savefig(figpath / 'eps' / 'som8_Average_Raman_Spectra_from_Dense_Region_by_Cell_Line.eps', format='eps')
-fig1.savefig(figpath / 'png' / 'som8_Average_Raman_Spectra_from_Dense_Region_by_Cell_Line.png', format='png')
+# cluster A - top left
+a_PNT2_list, a_LNCaP_list = points_of_interest_by_group(som, poi_a)
+a_PNT2_arr = make_poi_array(a_PNT2_list)
+a_PNT2_mean = make_array_column_mean(a_PNT2_arr)
+a_LNCaP_arr = make_poi_array(a_LNCaP_list)
+a_LNCaP_mean = make_array_column_mean(a_LNCaP_arr)
 
-# plot all spectra from dense region
-fig2, ax2 = plt.subplots(1, 1)
-fig2.subplots_adjust(left=0.125, right=0.9, top=0.9, bottom=0.2, wspace=0.2, hspace=0.2)  # set whitespace around figure edges and space between subplots
-fig2.suptitle("All Raman Spectra from Dense Region by Cell Line", fontsize=14)
-for i in range(len(PNT2_poi_data)):
-    ax2.plot(x_data, PNT2_poi_data[i], color='#FFA500', label='PNT2')
-for i in range(len(LNCaP_poi_data)):
-    ax2.plot(x_data, LNCaP_poi_data[i], color='g', label='LNCaP')
-ax2.set(xlabel='Wavenumber', ylabel='Intensity')
-legend_elements2 = [(Line2D([], [], linestyle='-', linewidth=1, color='#FFA500', label='PNT2')),
-                   (Line2D([], [], linestyle='-', linewidth=1, color='g', label='LNCaP'))]
-ax2.legend(handles=legend_elements2, loc='upper right', bbox_to_anchor=(0.99, 0.97), borderaxespad=0, ncol=1, fontsize=10)
-fig2.show()
-fig2.savefig(figpath / 'eps' / 'som8_All_Raman_Spectra_from_Dense_Region_by_Cell_Line.eps', format='eps')
-fig2.savefig(figpath / 'png' / 'som8_All_Raman_Spectra_from_Dense_Region_by_Cell_Line.png', format='png')
+# cluster B - top right
+b_PNT2_list, b_LNCaP_list = points_of_interest_by_group(som, poi_b)
+b_PNT2_arr = make_poi_array(b_PNT2_list)
+b_PNT2_mean = make_array_column_mean(b_PNT2_arr)
+b_LNCaP_arr = make_poi_array(b_LNCaP_list)
+b_LNCaP_mean = make_array_column_mean(b_LNCaP_arr)
 
-# plot outlier spectrum against all spectra from its group
-fig3, ax3 = plt.subplots(1, 1)
-fig3.subplots_adjust(left=0.125, right=0.9, top=0.9, bottom=0.2, wspace=0.2, hspace=0.2)  # set whitespace around figure edges and space between subplots
-fig3.suptitle("All Raman Spectra from PNT2 and Outlier Spectrum", fontsize=14)
-for i in range(len(PNT2_all_data)):
-    ax3.plot(x_data,  PNT2_all_data[i], color='#FFA500', label='PNT2')
-for i in range(len(outlier_poi_data)):
-    ax3.plot(x_data, outlier_poi_data[i], color='#00BFFF', label='Outlier')
-ax3.set(xlabel='Wavenumber', ylabel='Intensity')
-legend_elements3 = [(Line2D([], [], linestyle='-', linewidth=1, color='#FFA500', label='PNT2')),
-                   (Line2D([], [], linestyle='-', linewidth=1, color='#00BFFF', label='Outlier'))]
-ax3.legend(handles=legend_elements3, loc='upper right', bbox_to_anchor=(0.99, 0.97), borderaxespad=0, ncol=1, fontsize=10)
-fig3.show()
-fig3.savefig(figpath / 'eps' / 'som8_All_Raman_Spectra_from_PNT2_and_Outlier_Spectrum.eps', format='eps')
-fig3.savefig(figpath / 'png' / 'som8_All_Raman_Spectra_from_PNT2_and_Outlier_Spectrum.png', format='png')
+# cluster C - bottom centre
+c_PNT2_list, c_LNCaP_list = points_of_interest_by_group(som, poi_c)
+c_PNT2_arr = make_poi_array(c_PNT2_list)
+c_PNT2_mean = make_array_column_mean(c_PNT2_arr)
+c_LNCaP_arr = make_poi_array(c_LNCaP_list)
+c_LNCaP_mean = make_array_column_mean(c_LNCaP_arr)
 
-# plot outlier spectrum against average of all other spectra from its group
-fig4, ax4 = plt.subplots(1, 1)
-fig4.subplots_adjust(left=0.125, right=0.9, top=0.9, bottom=0.2, wspace=0.2, hspace=0.2)  # set whitespace around figure edges and space between subplots
-fig4.suptitle("Average PNT2 Spectrum and Outlier Spectrum", fontsize=14)
-ax4.plot(x_data, PNT2_no_outlier_column_mean, color='#FFA500', label='PNT2')
-for i in range(len(outlier_poi_data)):
-    ax4.plot(x_data, outlier_poi_data[i], color='#00BFFF', label='Outlier')
-ax4.set(xlabel='Wavenumber', ylabel='Intensity')
-legend_elements4 = [(Line2D([], [], linestyle='-', linewidth=1, color='#FFA500', label='PNT2')),
-                   (Line2D([], [], linestyle='-', linewidth=1, color='#00BFFF', label='Outlier'))]
-ax4.legend(handles=legend_elements4, loc='upper right', bbox_to_anchor=(0.99, 0.97), borderaxespad=0, ncol=1, fontsize=10)
-fig4.show()
-fig4.savefig(figpath / 'eps' / 'som8_Average_PNT2_Spectrum_and_Outlier_Spectrum.eps', format='eps')
-fig4.savefig(figpath / 'png' / 'som8_Average_PNT2_Spectrum_and_Outlier_Spectrum.png', format='png')
+# all data points without outlier
+all_PNT2_no_outlier_list, all_LNCaP_no_outlier_list = all_data_points_by_group(som_outlier_removed)
+all_PNT2_no_outlier_arr = make_poi_array(all_PNT2_no_outlier_list)
+all_PNT2_no_outlier_mean = make_array_column_mean(all_PNT2_no_outlier_arr)
+all_LNCaP_no_outlier_arr = make_poi_array(all_LNCaP_no_outlier_list)
+all_LNCaP_no_outlier_mean = make_array_column_mean(all_LNCaP_no_outlier_arr)
 
-# plot all spectra by group with outlier spectrum separately
-fig5, ax5 = plt.subplots(1, 1)
-fig5.subplots_adjust(left=0.125, right=0.9, top=0.9, bottom=0.2, wspace=0.2, hspace=0.2)  # set whitespace around figure edges and space between subplots
-fig5.suptitle("All Raman Spectra by Cell Line and Outlying Spectrum", fontsize=14)
-for i in range(len(PNT2_all_data)):
-    ax5.plot(x_data, PNT2_all_data[i], color='#FFA500', label='PNT2')
-for i in range(len(LNCaP_all_data)):
-    ax5.plot(x_data, LNCaP_all_data[i], color='g', label='LNCaP')
-for i in range(len(outlier_poi_data)):
-    ax5.plot(x_data, outlier_poi_data[i], color='#00BFFF', label='Outlier')
-ax5.set(xlabel='Wavenumber', ylabel='Intensity')
-legend_elements5 = [(Line2D([], [], linestyle='-', linewidth=1, color='#FFA500', label='PNT2')),
-                    (Line2D([], [], linestyle='-', linewidth=1, color='g', label='LNCaP')),
-                    (Line2D([], [], linestyle='-', linewidth=1, color='#00BFFF', label='Outlier'))]
-ax5.legend(handles=legend_elements5, loc='upper right', bbox_to_anchor=(0.99, 0.97), borderaxespad=0, ncol=1, fontsize=10)
-fig5.show()
-fig5.savefig(figpath / 'eps' / 'som8_All_Raman_Spectra_by_Cell_Line_and_Outlying_Spectrum.eps', format='eps')
-fig5.savefig(figpath / 'png' / 'som8_All_Raman_Spectra_by_Cell_Line_and_Outlying_Spectrum.png', format='png')
+# plots
+all_spectra = plot_spectra_from_poi(all_PNT2_arr, all_LNCaP_arr, "All Spectra by Group")
+all_spectra_mean = plot_spectra_from_poi(all_PNT2_mean, all_LNCaP_mean, "Mean Spectrum by Group")
+cluster_a = plot_spectra_from_poi(a_PNT2_arr, a_LNCaP_arr, "Cluster A Spectra by Group")
+cluster_a_mean = plot_spectra_from_poi(a_PNT2_mean, a_LNCaP_mean, "Cluster A Mean Spectrum by Group")
+cluster_b = plot_spectra_from_poi(b_PNT2_arr, b_LNCaP_arr, "Cluster B Spectra by Group")
+cluster_b_mean = plot_spectra_from_poi(b_PNT2_mean, b_LNCaP_mean, "Cluster B Mean Spectrum by Group")
+cluster_c = plot_spectra_from_poi(c_PNT2_arr, c_LNCaP_arr, "Cluster C Spectra by Group")
+cluster_c_mean = plot_spectra_from_poi(c_PNT2_mean, c_LNCaP_mean, "Cluster C Mean Spectrum by Group")
+
+
+all_spectra_no_outlier = plot_spectra_from_poi(all_PNT2_no_outlier_arr, all_LNCaP_no_outlier_arr, "", onlyshow=True)
+all_spectra_no_outlier_mean = plot_spectra_from_poi(all_PNT2_no_outlier_mean, all_LNCaP_no_outlier_mean, "", onlyshow=True)

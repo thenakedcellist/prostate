@@ -49,7 +49,3 @@ for cnt, xx in enumerate(ndata):
     plt.plot(bmu[0]+.5, bmu[1]+.5, marker = 'o', markerfacecolor= colour[cnt], markeredgecolor= 'k', markersize=4, markeredgewidth=1)  # place marker on winning position for sample xx
 plt.axis([0, som._weights.shape[0], 0, som._weights.shape[1]])  # generate plot
 plt.show()  # display plot
-
-
-
-# TODO add hex code to output plot points - unsure how to acheive this

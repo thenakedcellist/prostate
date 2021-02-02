@@ -15,8 +15,9 @@ def fix_matrix():
 @pytest.fixture
 def fix_som(fix_matrix):
     som = MySom(x=6, y=5, input_len=4, sigma=1, learning_rate=1, random_seed=1)
+    som.som_setup((1, 2, 3, 4), fix_matrix, 'test_source.txt', ('Huey', 'Dewey', 'Louie'), ('o', '+', 'd'), ('r', 'g', 'b'))
     som.nydata = fix_matrix
-    som.make_som(10)
+    som.train_som(10)
     som._weights = np.zeros((5, 3, 4))  # all zero weights
     som._weights[1, 1] = 2.0
     som._weights[4, 2] = 5.0
@@ -24,16 +25,16 @@ def fix_som(fix_matrix):
 
 class TestNormalisation:
 
-    def test_frobenius_norm_normalisation(self, fix_matrix):
+    def test_frobenius_norm_normalisation(self, fix_som):
         """normalise by dividing values by frobenius mean across columns"""
-        d = MySom.frobenius_norm_normalisation(self, fix_matrix)
+        d = MySom.frobenius_norm_normalisation(fix_som)
         np.testing.assert_array_almost_equal(d, [[0.182574, 0.365148, 0.547723, 0.730297],
                                                  [0.379049, 0.454859, 0.530669, 0.606478],
                                                  [0.426162, 0.473514, 0.520865, 0.568216]])
 
-    def test_scikit_normalisation(self, fix_matrix):
+    def test_scikit_normalisation(self, fix_som):
         """transform data to have zero mean and unit variance across columns"""
-        d = MySom.scikit_normalisation(self, fix_matrix)
+        d = MySom.scikit_normalisation(fix_som)
         np.testing.assert_array_almost_equal(d.mean(axis=1), [0.0, 0.0, 0.0])  # each row has zero mean
         np.testing.assert_array_almost_equal(d.std(axis=1), [1.0, 1.0, 1.0])  # each row has unit variance
 
@@ -44,43 +45,38 @@ class TestSomBuilding:
         print(fix_som._weights)
 
     def test_correct_labels(self, fix_som):
-        y = Path('test_source.txt')
         labels = ['Huey', 'Dewey', 'Louie']
         markers = ['o', '+', 'd']
         colours = ['r', 'g', 'b']
-        fix_som.make_labels(y, labels, markers, colours)
+        fix_som.som_setup((1, 2, 3, 4), fix_matrix, 'test_source.txt', labels, markers, colours)
         print(fix_som.t)
 
     def test_some_incorrect_labels(self, fix_som):
-        y = Path('test_source.txt')
         labels = ['Hewey', 'Dewey', 'Lewey']
         markers = ['o', '+', 'd']
         colours = ['r', 'g', 'b']
-        fix_som.make_labels(y, labels, markers, colours)
+        fix_som.som_setup((1, 2, 3, 4), fix_matrix, 'test_source.txt', labels, markers, colours)
         print(fix_som.t)
 
     def test_all_incorrect_labels(self, fix_som):
-        y = Path('test_source.txt')
         labels = ['Hewey', 'Dewie', 'Lewey']
         markers = ['o', '+', 'd']
         colours = ['r', 'g', 'b']
-        fix_som.make_labels(y, labels, markers, colours)
+        fix_som.som_setup((1, 2, 3, 4), fix_matrix, 'test_source.txt', labels, markers, colours)
         print(fix_som.t)
 
     def test_no_labels(self, fix_som):
-        y = Path('test_source.txt')
         labels = []
         markers = ['o', '+', 'd']
         colours = ['r', 'g', 'b']
-        fix_som.make_labels(y, labels, markers, colours)
+        fix_som.som_setup((1, 2, 3, 4), fix_matrix, 'test_source.txt', labels, markers, colours)
         print(fix_som.t)
 
     def test_blinded_data(self, fix_som):
-        y = Path('test_source.txt')
         labels = ['Blinded Data']
         markers = ['o', '+', 'd']
         colours = ['r', 'g', 'b']
-        fix_som.make_labels(y, labels, markers, colours)
+        fix_som.som_setup((1, 2, 3, 4), fix_matrix, 'test_source.txt', labels, markers, colours)
         print(fix_som.t)
 
     def test_som_weights(self, fix_som):

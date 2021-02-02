@@ -5,7 +5,7 @@ from pathlib import Path
 x_path = Path('../../../../data/yvette_20_09_02/xwavehw.csv')
 y_path = Path('../../../../data/yvette_20_11_18/shuffled_data_named.csv')
 figpath = Path('img_unblinded_cell_line_data_outlier_marked/')
-datestr = '2020_12_17'
+datestr = '2021_02_01'
 
 x_data = np.genfromtxt(x_path, delimiter=',')
 y_data = np.genfromtxt(y_path, delimiter=',', usecols=np.arange(1, 1057))
@@ -155,12 +155,12 @@ somJ10 = MySom(x=9, y=9, input_len=y_data.shape[1], sigma=3.0, learning_rate=2.0
 somJ = [somJ1, somJ2, somJ3, somJ4, somJ5, somJ6, somJ7, somJ8, somJ9, somJ10]
 
 # test parameter optimisation
-som_list = [somA] #, somB, somC, somD, somE, somF, somG, somH, somI, somJ]
-for soms in som_list:
+som_list = [somA, somB, somC, somD, somE, somF, somG, somH, somI, somJ]
+for som in som_list:
     for som in soms:
+        som.som_setup(x_data, y_data)
         som.frobenius_norm_normalisation(y_data)
-        som.make_som(10000)
-        som.make_labels(y_path, label_list, marker_list, colour_list)
+        som.train_som(10000)
         som.plot_som_umatrix(figpath, datestr)
         som.plot_som_scatter(figpath, datestr)
         som.plot_density_function(figpath, datestr)
