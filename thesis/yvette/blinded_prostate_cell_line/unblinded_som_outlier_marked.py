@@ -4,7 +4,7 @@ from pathlib import Path
 
 x_path = Path('../../../../data/yvette_20_09_02/xwavehw.csv')
 y_path = Path('../../../../data/yvette_20_11_18/shuffled_data_named.csv')
-figpath = Path('img_unblinded_cell_line_data_outlier_marked/')
+figpath = Path('img_unblinded_som_outlier_marked/')
 datestr = '2021_02_01'
 
 x_data = np.genfromtxt(x_path, delimiter=',')
@@ -164,5 +164,5 @@ for som in som_list:
         som.plot_som_umatrix(figpath, datestr)
         som.plot_som_scatter(figpath, datestr)
         som.plot_density_function(figpath, datestr)
-        som.plot_neuron_activation_frequency(figpath, datestr)
+        som.plot_node_activation_frequency(figpath, datestr)
         som.plot_errors(1000, figpath, datestr)

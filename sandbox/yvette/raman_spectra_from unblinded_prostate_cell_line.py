@@ -69,9 +69,9 @@ def plot_spectra_from_poi(cluster_PNT2_input_arr, cluster_LNCaP_input_arr, title
         fig.savefig(figpath / 'png' / f'{title_string}.png', format='png')
 
 
-x_path = Path('../../../../data/yvette_20_09_02/xwavehw.csv')
-y_path = Path('../../../../data/yvette_20_11_18/shuffled_data_named.csv')
-figpath = Path('img_raman_spectra/')
+x_path = Path('../../../data/yvette_20_09_02/xwavehw.csv')
+y_path = Path('../../../data/yvette_20_11_18/shuffled_data_named.csv')
+figpath = Path('../../thesis/yvette/blinded_prostate_cell_line/img_raman_spectra/')
 datestr = '2021_02_02'
 x_data = np.genfromtxt(x_path, delimiter=',')[None, :]
 y_data = np.genfromtxt(y_path, delimiter=',', usecols=np.arange(1, 1057))
@@ -148,14 +148,14 @@ all_LNCaP_no_outlier_arr = make_poi_array(all_LNCaP_no_outlier_list)
 all_LNCaP_no_outlier_mean = make_array_column_mean(all_LNCaP_no_outlier_arr)
 
 # plots
-all_spectra = plot_spectra_from_poi(all_PNT2_arr, all_LNCaP_arr, "All Spectra by Group")
-all_spectra_mean = plot_spectra_from_poi(all_PNT2_mean, all_LNCaP_mean, "Mean Spectrum by Group")
-cluster_a = plot_spectra_from_poi(a_PNT2_arr, a_LNCaP_arr, "Cluster A Spectra by Group")
-cluster_a_mean = plot_spectra_from_poi(a_PNT2_mean, a_LNCaP_mean, "Cluster A Mean Spectrum by Group")
-cluster_b = plot_spectra_from_poi(b_PNT2_arr, b_LNCaP_arr, "Cluster B Spectra by Group")
-cluster_b_mean = plot_spectra_from_poi(b_PNT2_mean, b_LNCaP_mean, "Cluster B Mean Spectrum by Group")
-cluster_c = plot_spectra_from_poi(c_PNT2_arr, c_LNCaP_arr, "Cluster C Spectra by Group")
-cluster_c_mean = plot_spectra_from_poi(c_PNT2_mean, c_LNCaP_mean, "Cluster C Mean Spectrum by Group")
+all_spectra = plot_spectra_from_poi(all_PNT2_arr, all_LNCaP_arr, "All Spectra by Group", onlyshow=True)
+all_spectra_mean = plot_spectra_from_poi(all_PNT2_mean, all_LNCaP_mean, "Mean Spectrum by Group", onlyshow=True)
+cluster_a = plot_spectra_from_poi(a_PNT2_arr, a_LNCaP_arr, "Cluster A Spectra by Group", onlyshow=True)
+cluster_a_mean = plot_spectra_from_poi(a_PNT2_mean, a_LNCaP_mean, "Cluster A Mean Spectrum by Group", onlyshow=True)
+cluster_b = plot_spectra_from_poi(b_PNT2_arr, b_LNCaP_arr, "Cluster B Spectra by Group", onlyshow=True)
+cluster_b_mean = plot_spectra_from_poi(b_PNT2_mean, b_LNCaP_mean, "Cluster B Mean Spectrum by Group", onlyshow=True)
+cluster_c = plot_spectra_from_poi(c_PNT2_arr, c_LNCaP_arr, "Cluster C Spectra by Group", onlyshow=True)
+cluster_c_mean = plot_spectra_from_poi(c_PNT2_mean, c_LNCaP_mean, "Cluster C Mean Spectrum by Group", onlyshow=True)
 
 
 all_spectra_no_outlier = plot_spectra_from_poi(all_PNT2_no_outlier_arr, all_LNCaP_no_outlier_arr, "", onlyshow=True)

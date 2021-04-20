@@ -6,7 +6,7 @@ from pathlib import Path
 
 x_path = Path('../../../data/yvette_20_09_02/xwavehw.csv')
 y_path = Path('../../../data/yvette_20_11_18/shuffled_data_named.csv')
-figpath = Path('../../thesis/yvette/Experiment 1/img_raman_spectra/')
+figpath = Path('../../thesis/yvette/blinded_prostate_cell_line/img_raman_spectra/')
 datestr = '2020_12_08'
 
 x_data = np.genfromtxt(x_path, delimiter=',')

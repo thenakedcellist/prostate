@@ -39,8 +39,10 @@ class MySom(MiniSom):
         self.labels = []
         self.unlabelled_values = []
 
-        # error calculation dummy SOM
+        # error calculation
         self.err_som = None
+        self.quantisation_err = None
+        self.topographic_err = None
 
     def som_setup(self, xdata, ydata, y_path, label_list, marker_list, colour_list):
         """setup input data and parameters for SOM, and generate labels, colours, and markers"""
@@ -53,7 +55,7 @@ class MySom(MiniSom):
 
         # creates ndarray t of zeros for blinded data
         if label_list == ['Blinded Data']:
-            self.t = np.zeros(self.nydata.shape[0], dtype=int)  # all values set to 0
+            self.t = np.zeros(self.ydata.shape[0], dtype=int)  # all values set to 0
             # print warning message to indicate data are blinded
             warnings.warn("Data are blinded")
 
@@ -112,9 +114,11 @@ class MySom(MiniSom):
         print('Training SOM...')
         self.som.train_random(self.nydata, train_iter)
         print('Training complete!')
-        return self.som
+        self.quantisation_err = self.som.quantization_error(self.nydata)
+        self.topographic_err = self.som.topographic_error(self.nydata)
+        return self.som, self.quantisation_err, self.topographic_err
 
-    def plot_som_umatrix(self, figpath, datestr, showinput=False, showinactivenodes=False, onlyshow=False):
+    def plot_som_umatrix(self, figpath, datestr, showinput=False, showinactivenodes=False, onlyshow=False, eps=False):
         """plot distance map (u-matrix) of SOM and overlay markers from mapped sample vectors"""
         # initialise figure canvas and single axes
         figumatrix, ax1 = plt.subplots(1, 1)
@@ -150,7 +154,7 @@ class MySom(MiniSom):
         ax1_cb = divider1.new_horizontal(size=0.3, pad=0.1)
         cb1 = colorbar.ColorbarBase(ax1_cb, cmap=cm.Blues_r, orientation='vertical', alpha=1.0)
         cb1.ax.get_yaxis().labelpad = 16
-        cb1.ax.set_ylabel('Distance from Neurons in the Neighbourhood', rotation=270, fontsize=10.5)
+        cb1.ax.set_ylabel('Distance from Nodes in the Neighbourhood', rotation=270, fontsize=10.5)
         figumatrix.add_axes(ax1_cb)
 
         # add k legend elements using proxy artists where k is number of labels in label_list
@@ -161,20 +165,21 @@ class MySom(MiniSom):
                                           markerfacecolor=None, markersize=None, markeredgewidth=None,
                                           linestyle='None', linewidth=None))
         ax1.legend(handles=legend_elements, loc='lower left', bbox_to_anchor=(0.0, 1.04),
-                   borderaxespad=0, ncol=len(legend_elements), fontsize=None, frameon=False)
+                   borderaxespad=0, ncol=3, fontsize=None, frameon=False)
 
         figumatrix.show()
         if onlyshow:
             pass
-        else:
+        elif eps:
             figumatrix.savefig(figpath / 'eps' / f'{datestr}_som-umatrix_x_{self.x}_y_{self.y}_sigma_{self.sigma}'
                                                  f'_learning-rate_{self.learning_rate}'
                                                  f'_random-seed_{self.random_seed}.eps', format='eps')
+        else:
             figumatrix.savefig(figpath / 'png' / f'{datestr}_som-umatrix_x_{self.x}_y_{self.y}_sigma_{self.sigma}'
                                                  f'_learning-rate_{self.learning_rate}'
                                                  f'_random-seed_{self.random_seed}.png', format='png')
 
-    def plot_som_scatter(self, figpath, datestr, onlyshow=False):
+    def plot_som_scatter(self, figpath, datestr, onlyshow=False, eps=False):
         """plot distance map (u-matrix) of SOM and scatter chart of markers representing co-ordinates of
         winning neurons across map with jitter to avoid overlap within cells"""
         # initialise figure canvas and single axes
@@ -202,7 +207,7 @@ class MySom(MiniSom):
         ax1_cb = divider1.new_horizontal(size=0.3, pad=0.1)
         cb1 = colorbar.ColorbarBase(ax1_cb, cmap=cm.Blues_r, orientation='vertical', alpha=1.0)
         cb1.ax.get_yaxis().labelpad = 16
-        cb1.ax.set_ylabel('Distance from Neurons in the Neighbourhood', rotation=270, fontsize=10.5)
+        cb1.ax.set_ylabel('Distance from Nodes in the Neighbourhood', rotation=270, fontsize=10.5)
         figscatter.add_axes(ax1_cb)
 
         # add k legend elements using proxy artists where k is number of labels in label_list
@@ -213,25 +218,26 @@ class MySom(MiniSom):
                                           markerfacecolor=self.colours[i], markersize=8, markeredgewidth=2,
                                           linestyle='None', linewidth=0))
         ax1.legend(handles=legend_elements, loc='lower left', bbox_to_anchor=(0.0, 1.04),
-                   borderaxespad=0, ncol=len(legend_elements), fontsize=10)
+                   borderaxespad=0, ncol=3, fontsize=10)
 
         figscatter.show()
         if onlyshow:
             pass
-        else:
+        elif eps:
             figscatter.savefig(figpath / 'eps' / f'{datestr}_scatter-plot_x_{self.x}_y_{self.y}_sigma_{self.sigma}'
                                                  f'_learning-rate_{self.learning_rate}'
                                                  f'_random-seed_{self.random_seed}.eps', format='eps')
+        else:
             figscatter.savefig(figpath / 'png' / f'{datestr}_scatter-plot_x_{self.x}_y_{self.y}_sigma_{self.sigma}'
                                                  f'_learning-rate_{self.learning_rate}'
                                                  f'_random-seed_{self.random_seed}.png', format='png')
 
-    def plot_neuron_activation_frequency(self, figpath, datestr, onlyshow=False):
+    def plot_node_activation_frequency(self, figpath, datestr, onlyshow=False, eps=False):
         """plot distance map (u-matrix) of SOM shaded to represnet frequency of neuron activation"""
-        figneuract, ax1 = plt.subplots(1, 1)
+        fignodeact, ax1 = plt.subplots(1, 1)
         # set whitespace around figure edges and space between subplots
-        figneuract.subplots_adjust(left=0.125, right=0.9, top=0.8, bottom=0.1, wspace=0.2, hspace=0.2)
-        figneuract.suptitle("Self Organising Map Neuron Activation Frequency", fontsize=14)
+        fignodeact.subplots_adjust(left=0.125, right=0.9, top=0.8, bottom=0.1, wspace=0.2, hspace=0.2)
+        fignodeact.suptitle("Self Organising Map Node Activation Frequency", fontsize=14)
         ax1.locator_params(axis='both', integer=True)
         ax1.set_aspect('equal')
 
@@ -247,8 +253,8 @@ class MySom(MiniSom):
                                      vmax=np.max(frequencies))  # define range for colorbar based on frequencies
         cb1 = colorbar.ColorbarBase(ax=ax1_cb, cmap=cm.Blues, norm=norm1, alpha=1.0, orientation='vertical')
         cb1.ax.get_yaxis().labelpad = 16
-        cb1.ax.set_ylabel('Frequency of Neuron Activation', rotation=270, fontsize=10.5)
-        figneuract.add_axes(ax1_cb)
+        cb1.ax.set_ylabel('Frequency of Node Activation', rotation=270, fontsize=10.5)
+        fignodeact.add_axes(ax1_cb)
 
         # empty legend box to keep constraints uniform across plots
         legend_elements = []
@@ -257,20 +263,21 @@ class MySom(MiniSom):
                                           markerfacecolor=None, markersize=None, markeredgewidth=None,
                                           linestyle='None', linewidth=None))
         ax1.legend(handles=legend_elements, loc='lower left', bbox_to_anchor=(0.0, 1.04),
-                   borderaxespad=0, ncol=len(legend_elements), fontsize=None, frameon=False)
+                   borderaxespad=0, ncol=3, fontsize=None, frameon=False)
 
-        figneuract.show()
+        fignodeact.show()
         if onlyshow:
             pass
-        else:
-            figneuract.savefig(figpath / 'eps' / f'{datestr}_neuron-freq_{self.x}_y_{self.y}_sigma_{self.sigma}'
+        elif eps:
+            fignodeact.savefig(figpath / 'eps' / f'{datestr}_node-freq_{self.x}_y_{self.y}_sigma_{self.sigma}'
                                                  f'_learning-rate_{self.learning_rate}'
                                                  f'_random-seed_{self.random_seed}.eps', format='eps')
-            figneuract.savefig(figpath / 'png' / f'{datestr}_neuron-freq_{self.x}_y_{self.y}_sigma_{self.sigma}'
+        else:
+            fignodeact.savefig(figpath / 'png' / f'{datestr}_node-freq_{self.x}_y_{self.y}_sigma_{self.sigma}'
                                                  f'_learning-rate_{self.learning_rate}'
                                                  f'_random-seed_{self.random_seed}.png', format='png')
 
-    def plot_density_function(self, figpath, datestr, onlyshow=False):
+    def plot_density_function(self, figpath, datestr, onlyshow=False, eps=False):
         """plot density of neuron activation across SOM"""
         figdensity, ax1 = plt.subplots(1, 1)
         # set whitespace around figure edges and space between subplots
@@ -301,7 +308,7 @@ class MySom(MiniSom):
                                      vmax=np.max(frequencies))  # define range for colorbar based on frequencies
         cb1 = colorbar.ColorbarBase(ax=ax1_cb1, cmap=cm.Oranges, norm=norm1, alpha=1.0, orientation='vertical')
         cb1.ax.get_yaxis().labelpad = 16
-        cb1.ax.set_ylabel('Density of Neuron Activation', rotation=270, fontsize=10.5)
+        cb1.ax.set_ylabel('Density of Node Activation', rotation=270, fontsize=10.5)
         figdensity.add_axes(ax1_cb1)
 
         # empty legend box to keep constraints uniform across plots
@@ -311,20 +318,21 @@ class MySom(MiniSom):
                                           markerfacecolor=None, markersize=None, markeredgewidth=None,
                                           linestyle='None', linewidth=None))
         ax1.legend(handles=legend_elements, loc='lower left', bbox_to_anchor=(0.0, 1.04),
-                   borderaxespad=0, ncol=len(legend_elements), fontsize=None, frameon=False)
+                   borderaxespad=0, ncol=3, fontsize=None, frameon=False)
 
         figdensity.show()
         if onlyshow:
             pass
-        else:
+        elif eps:
             figdensity.savefig(figpath / 'eps' / f'{datestr}_density-est_x_{self.x}_y_{self.y}_sigma_{self.sigma}'
                                                  f'_learning-rate_{self.learning_rate}'
                                                  f'_random-seed_{self.random_seed}.eps', format='eps')
+        else:
             figdensity.savefig(figpath / 'png' / f'{datestr}_density-est_x_{self.x}_y_{self.y}_sigma_{self.sigma}'
                                                  f'_learning-rate_{self.learning_rate}'
                                                  f'_random-seed_{self.random_seed}.png', format='png')
 
-    def plot_errors(self, max_iter, figpath, datestr, onlyshow=False):
+    def plot_errors(self, max_iter, figpath, datestr, onlyshow=False, eps=False):
         """plot quantisation and topographic error of SOM at each iteration step
         this analysis can help to understand training and to estimate optimum number of iterations
         only available for rectangular topology"""
@@ -363,15 +371,16 @@ class MySom(MiniSom):
         legend_elements = [Line2D([], [], linestyle='-', linewidth=1, color='#00BFFF', label='Quantisation Error'),
                           Line2D([], [], linestyle='-', linewidth=1, color='#FFA500', label='Topographic Error')]
         ax1.legend(handles=legend_elements, loc='lower left', bbox_to_anchor=(0.0, 1.04),
-                         borderaxespad=0, ncol=len(legend_elements), fontsize=10)
+                         borderaxespad=0, ncol=2, fontsize=10)
 
         figerrors.show()
         if onlyshow:
             pass
-        else:
+        elif eps:
             figerrors.savefig(figpath / 'eps' / f'{datestr}_q-t-errors_x_{self.x}_y_{self.y}_sigma_{self.sigma}'
                                                 f'_learning-rate_{self.learning_rate}'
                                                 f'_random-seed_{self.random_seed}.eps', format='eps')
+        else:
             figerrors.savefig(figpath / 'png' / f'{datestr}_q-t-errors_x_{self.x}_y_{self.y}_sigma_{self.sigma}'
                                                 f'_learning-rate_{self.learning_rate}'
                                                 f'_random-seed_{self.random_seed}.png', format='png')
@@ -423,7 +432,7 @@ class MySom(MiniSom):
         ax1_cb = divider1.new_horizontal(size=0.3, pad=0.1)
         cb1 = colorbar.ColorbarBase(ax1_cb, cmap=cm.Blues_r, orientation='vertical', alpha=1.0)
         cb1.ax.get_yaxis().labelpad = 16
-        cb1.ax.set_ylabel('Distance from Neurons in the Neighbourhood', rotation=270, fontsize=10.5)
+        cb1.ax.set_ylabel('Distance from Nodes in the Neighbourhood', rotation=270, fontsize=10.5)
         figumatrixhex.add_axes(ax1_cb)
 
         # add k legend elements using proxy artists where k is number of labels in label_list
@@ -434,7 +443,7 @@ class MySom(MiniSom):
                                           markerfacecolor=self.colours[i], markersize=8, markeredgewidth=2,
                                           linestyle='None', linewidth=0))
         ax1.legend(handles=legend_elements, loc='lower left', bbox_to_anchor=(0.0, 1.04),
-                   borderaxespad=0, ncol=len(legend_elements), fontsize=10)
+                   borderaxespad=0, ncol=3, fontsize=10)
 
         plt.show()
 

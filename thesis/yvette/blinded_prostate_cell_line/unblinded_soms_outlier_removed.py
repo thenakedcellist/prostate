@@ -3,16 +3,19 @@ from mysom.mysom import MySom
 from pathlib import Path
 
 x_path = Path('../../../../data/yvette_20_09_02/xwavehw.csv')
-y_path = Path('../../../../data/yvette_20_11_18/shuffled_data_unnamed.csv')
-figpath = Path('img_blinded_cell_line_data/')
-datestr = '2021_02_01'
+y_path = Path('../../../../data/yvette_20_11_18/shuffled_data_named.csv')
+figpath = Path('img_unblinded_soms_outlier_removed/')
+datestr = '2021_02_02'
 
 x_data = np.genfromtxt(x_path, delimiter=',')
-y_data = np.genfromtxt(y_path, delimiter=',')
+y_data = np.genfromtxt(y_path, delimiter=',', usecols=np.arange(1, 1057))
 
-label_list = ['Blinded Data']
-marker_list = ['o']
-colour_list = ['#FFA500']
+label_list = ['PNT2', 'LNCaP']
+marker_list = ['o', 'x']
+colour_list = ['#FFA500', 'g']
+
+# putative noisy signal is index 46
+removal_list = [46]
 
 # 5 * sqrt(285) = 84.41 so x = 9 y = 9 input_len = y_data.shape[1]
 # or x=11 y=8
@@ -156,13 +159,14 @@ somJ = [somJ1, somJ2, somJ3, somJ4, somJ5, somJ6, somJ7, somJ8, somJ9, somJ10]
 
 # test parameter optimisation
 som_list = [somA, somB, somC, somD, somE, somF, somG, somH, somI, somJ]
-for som in som_list:
+for soms in som_list:
     for som in soms:
-        som.som_setup(x_data, y_data)
-        som.frobenius_norm_normalisation(y_data)
+        som.som_setup(x_data, y_data, y_path, label_list, marker_list, colour_list)
+        som.remove_observations_from_input_data(removal_list)
+        som.frobenius_norm_normalisation()
         som.train_som(10000)
         som.plot_som_umatrix(figpath, datestr)
         som.plot_som_scatter(figpath, datestr)
         som.plot_density_function(figpath, datestr)
-        som.plot_neuron_activation_frequency(figpath, datestr)
+        som.plot_node_activation_frequency(figpath, datestr)
         som.plot_errors(1000, figpath, datestr)

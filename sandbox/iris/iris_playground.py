@@ -36,7 +36,7 @@ for som in som_list:
     som.plot_som_umatrix(figpath, datestr, onlyshow=True)
     som.plot_som_scatter(figpath, datestr, onlyshow=True)
     som.plot_density_function(figpath, datestr, onlyshow=True)
-    som.plot_neuron_activation_frequency(figpath, datestr, onlyshow=True)
+    som.plot_node_activation_frequency(figpath, datestr, onlyshow=True)
     som.plot_errors(1000, figpath, datestr, onlyshow=True)
 
 dweights = som.som._distance_from_weights(som.nydata)

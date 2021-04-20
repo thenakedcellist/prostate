@@ -14,7 +14,7 @@ def fix_matrix():
 
 @pytest.fixture
 def fix_som(fix_matrix):
-    som = MySom(x=6, y=5, input_len=4, sigma=1, learning_rate=1, random_seed=1)
+    som = MySom(x=6, y=5, input_len=4, sigma=1.0, learning_rate=1, random_seed=1)
     som.som_setup((1, 2, 3, 4), fix_matrix, 'test_source.txt', ('Huey', 'Dewey', 'Louie'), ('o', '+', 'd'), ('r', 'g', 'b'))
     som.nydata = fix_matrix
     som.train_som(10)
@@ -48,35 +48,50 @@ class TestSomBuilding:
         labels = ['Huey', 'Dewey', 'Louie']
         markers = ['o', '+', 'd']
         colours = ['r', 'g', 'b']
-        fix_som.som_setup((1, 2, 3, 4), fix_matrix, 'test_source.txt', labels, markers, colours)
+        matrix = np.array([[1, 2, 3, 4],  # row total 30
+                           [5, 6, 7, 8],  # row total 174
+                           [9, 10, 11, 12]])  # row total 446
+        fix_som.som_setup((1, 2, 3, 4), matrix, 'test_source.txt', labels, markers, colours)
         print(fix_som.t)
 
     def test_some_incorrect_labels(self, fix_som):
         labels = ['Hewey', 'Dewey', 'Lewey']
         markers = ['o', '+', 'd']
         colours = ['r', 'g', 'b']
-        fix_som.som_setup((1, 2, 3, 4), fix_matrix, 'test_source.txt', labels, markers, colours)
+        matrix = np.array([[1, 2, 3, 4],  # row total 30
+                           [5, 6, 7, 8],  # row total 174
+                           [9, 10, 11, 12]])  # row total 446
+        fix_som.som_setup((1, 2, 3, 4), matrix, 'test_source.txt', labels, markers, colours)
         print(fix_som.t)
 
     def test_all_incorrect_labels(self, fix_som):
         labels = ['Hewey', 'Dewie', 'Lewey']
         markers = ['o', '+', 'd']
         colours = ['r', 'g', 'b']
-        fix_som.som_setup((1, 2, 3, 4), fix_matrix, 'test_source.txt', labels, markers, colours)
+        matrix = np.array([[1, 2, 3, 4],  # row total 30
+                           [5, 6, 7, 8],  # row total 174
+                           [9, 10, 11, 12]])  # row total 446
+        fix_som.som_setup((1, 2, 3, 4), matrix, 'test_source.txt', labels, markers, colours)
         print(fix_som.t)
 
     def test_no_labels(self, fix_som):
         labels = []
         markers = ['o', '+', 'd']
         colours = ['r', 'g', 'b']
-        fix_som.som_setup((1, 2, 3, 4), fix_matrix, 'test_source.txt', labels, markers, colours)
+        matrix = np.array([[1, 2, 3, 4],  # row total 30
+                           [5, 6, 7, 8],  # row total 174
+                           [9, 10, 11, 12]])  # row total 446
+        fix_som.som_setup((1, 2, 3, 4), matrix, 'test_source.txt', labels, markers, colours)
         print(fix_som.t)
 
     def test_blinded_data(self, fix_som):
         labels = ['Blinded Data']
         markers = ['o', '+', 'd']
         colours = ['r', 'g', 'b']
-        fix_som.som_setup((1, 2, 3, 4), fix_matrix, 'test_source.txt', labels, markers, colours)
+        matrix = np.array([[1, 2, 3, 4],
+                           [5, 6, 7, 8],
+                           [9, 10, 11, 12]])
+        fix_som.som_setup((1, 2, 3, 4), matrix, 'test_source.txt', labels, markers, colours)
         print(fix_som.t)
 
     def test_som_weights(self, fix_som):
@@ -121,7 +136,7 @@ class TestOutputGraphs:
         fix_som.plot_som_scatter(tmp_path, "ducks", onlyshow=True)
 
     def test_neuron_freq(self, fix_som, tmp_path):
-        fix_som.plot_neuron_activation_frequency(tmp_path, "ducks", onlyshow=True)
+        fix_som.plot_node_activation_frequency(tmp_path, "ducks", onlyshow=True)
 
     def test_density_func(self, fix_som, tmp_path):
         fix_som.plot_density_function(tmp_path, "ducks", onlyshow=True)

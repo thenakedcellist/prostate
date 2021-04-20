@@ -28,24 +28,50 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0695007-41bb-43dc-86fe-46bb0472db71" name="Default Changelist" comment="Start of module for spectral plotting and selection of cells of interest form SOM">
-      <change afterPath="$PROJECT_DIR$/sandbox/iris/iris_component_planes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/yvette/raman_spectra_select_points_of_interest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/thesis/yvette/Experiment 1/unblinded_cell_line_data_outlier_removed.py" afterDir="false" />
+    <list default="true" id="c0695007-41bb-43dc-86fe-46bb0472db71" name="Default Changelist" comment="Changes to plotting module and SOM setup.">
+      <change afterPath="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line/batch_blinded_soms_01.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line/batch_blinded_soms_02.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line/batch_blinded_soms_03.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line/batch_blinded_soms_04.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line/batch_blinded_soms_05.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line/batch_blinded_soms_combine.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line/blinded_som.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line/blinded_soms_outlier_removed.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line/blinded_soms_outlier_removed_stats.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line/eigenvalue_calcualation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line/feature_selection.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line/playground.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line/raman_Spectra_blinded.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line/raman_spectra_unblinded.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line/re-assess.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line/re-assess_stats.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line/som_trial_cleaned_dataset.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line/som_trial_full_dataset.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line/spectral_identities_from_clusters.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thesis/yvette/known_prostate_cell_line/eigenvalues_calculation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thesis/yvette/known_prostate_cell_line/known_soms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thesis/yvette/known_prostate_cell_line/known_soms_stats.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thesis/yvette/known_prostate_cell_line/playground.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysom/mysom.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysom/mysom.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysom/test_mysom.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysom/test_mysom.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/colours/colours_hex.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/colours/colours_hex.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/yvette/prostate_dataset_spectra_from_clusters.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/yvette/prostate_dataset_spectra_from_clusters.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/iris/iris_playground.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/iris/iris_playground.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/yvette/experiment_1_playground.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/yvette/experiment_1_playground.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/yvette/mysom_playground_yvette.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/yvette/mysom_playground_yvette.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/yvette/raman_spectra_select_points_of_interest.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/yvette/raman_spectra_select_points_of_interest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thesis/banbury/all_animals.py" beforeDir="false" afterPath="$PROJECT_DIR$/thesis/banbury/all_animals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thesis/banbury/animals_1-6.py" beforeDir="false" afterPath="$PROJECT_DIR$/thesis/banbury/animals_1-6.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thesis/banbury/animals_7-11.py" beforeDir="false" afterPath="$PROJECT_DIR$/thesis/banbury/animals_7-11.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/thesis/colours/colours.py" beforeDir="false" afterPath="$PROJECT_DIR$/thesis/colours/colours.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/thesis/iris/iris.py" beforeDir="false" afterPath="$PROJECT_DIR$/thesis/iris/iris.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/thesis/mysom_data_input.py" beforeDir="false" afterPath="$PROJECT_DIR$/thesis/mysom_data_input.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thesis/yvette/Experiment 0/raman_spectra.py" beforeDir="false" afterPath="$PROJECT_DIR$/thesis/yvette/Experiment 0/raman_spectra.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thesis/yvette/Experiment 0/unblinded_cell_line_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/thesis/yvette/Experiment 0/known_cell_line_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thesis/yvette/Experiment 1/blinded_cell_line_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/thesis/yvette/Experiment 1/blinded_cell_line_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thesis/yvette/Experiment 1/raman_spectra.py" beforeDir="false" afterPath="$PROJECT_DIR$/thesis/yvette/Experiment 1/raman_spectra.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thesis/yvette/Experiment 1/unblinded_cell_line_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/thesis/yvette/Experiment 1/unblinded_cell_line_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thesis/yvette/Experiment 1/unblinded_cell_line_data_outlier_marked.py" beforeDir="false" afterPath="$PROJECT_DIR$/thesis/yvette/Experiment 1/unblinded_cell_line_data_outlier_marked.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thesis/yvette/Experiment 0/known_cell_line_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/thesis/yvette/Experiment 0/raman_spectra.py" beforeDir="false" afterPath="$PROJECT_DIR$/thesis/yvette/known_prostate_cell_line/raman_spectra.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thesis/yvette/Experiment 1/blinded_cell_line_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/thesis/yvette/Experiment 1/raman_spectra.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/yvette/raman_spectra_from unblinded_prostate_cell_line.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thesis/yvette/Experiment 1/unblinded_cell_line_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/thesis/yvette/Experiment 1/unblinded_cell_line_data_outlier_marked.py" beforeDir="false" afterPath="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line/unblinded_som_outlier_marked.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thesis/yvette/Experiment 1/unblinded_cell_line_data_outlier_removed.py" beforeDir="false" afterPath="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line/unblinded_soms_outlier_removed.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +143,7 @@
       <recent name="$PROJECT_DIR$/thesis/yvette/Experiment 1/img" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.raman_spectra">
+  <component name="RunManager" selected="Python.spectral_identities_from_clusters">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="prostate" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -140,7 +166,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="raman_spectra (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="blinded_som" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="prostate" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -148,12 +174,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/thesis/yvette/Experiment 0" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/thesis/yvette/Experiment 0/raman_spectra.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line/blinded_som.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -162,7 +188,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="raman_spectra" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="blinded_soms_outlier_removed_stats" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="prostate" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -170,12 +196,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/thesis/yvette/Experiment 1" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/thesis/yvette/Experiment 1/raman_spectra.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line/blinded_soms_outlier_removed_stats.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -184,7 +210,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="unblinded_cell_line_data_outlier_removed" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="playground" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="prostate" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -192,12 +218,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/thesis/yvette/Experiment 1" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/thesis/yvette/Experiment 1/unblinded_cell_line_data_outlier_removed.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line/playground.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -206,21 +232,48 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for test_mysom.TestOutputGraphs" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="raman_spectra_unblinded" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="prostate" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mysom" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_mysom.TestOutputGraphs&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line/raman_spectra_unblinded.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="spectral_identities_from_clusters" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="prostate" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line/spectral_identities_from_clusters.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
     <configuration name="pytest in /" type="tests" factoryName="py.test" nameIsGenerated="true">
@@ -240,38 +293,21 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest in test_mysom.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="prostate" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mysom" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/mysom/test_mysom.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="Python.unblinded_cell_line_data_outlier_removed" />
-      <item itemvalue="Python.raman_spectra" />
-      <item itemvalue="Python.raman_spectra (1)" />
+      <item itemvalue="Python.blinded_soms_outlier_removed_stats" />
+      <item itemvalue="Python.playground" />
+      <item itemvalue="Python.blinded_som" />
+      <item itemvalue="Python.raman_spectra_unblinded" />
+      <item itemvalue="Python.spectral_identities_from_clusters" />
       <item itemvalue="Python tests.pytest in /" />
-      <item itemvalue="Python tests.pytest in test_mysom.py" />
-      <item itemvalue="Python tests.pytest for test_mysom.TestOutputGraphs" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.raman_spectra" />
-        <item itemvalue="Python.raman_spectra (1)" />
-        <item itemvalue="Python.unblinded_cell_line_data_outlier_removed" />
-        <item itemvalue="Python tests.pytest in test_mysom.py" />
-        <item itemvalue="Python tests.pytest for test_mysom.TestOutputGraphs" />
+        <item itemvalue="Python.spectral_identities_from_clusters" />
+        <item itemvalue="Python.raman_spectra_unblinded" />
+        <item itemvalue="Python.playground" />
+        <item itemvalue="Python.blinded_som" />
+        <item itemvalue="Python.blinded_soms_outlier_removed_stats" />
       </list>
     </recent_temporary>
   </component>
@@ -396,7 +432,88 @@
       <workItem from="1612165119898" duration="227000" />
       <workItem from="1612178244393" duration="16275000" />
       <workItem from="1612277541634" duration="32000" />
-      <workItem from="1612277579004" duration="26000" />
+      <workItem from="1612277579004" duration="56000" />
+      <workItem from="1612961386690" duration="399000" />
+      <workItem from="1613045209539" duration="228000" />
+      <workItem from="1613052528773" duration="2074000" />
+      <workItem from="1613123709200" duration="1372000" />
+      <workItem from="1613214263230" duration="3351000" />
+      <workItem from="1613239864948" duration="158000" />
+      <workItem from="1614104926430" duration="5093000" />
+      <workItem from="1614179441633" duration="1348000" />
+      <workItem from="1614267630930" duration="298000" />
+      <workItem from="1614334016216" duration="1546000" />
+      <workItem from="1614339151189" duration="327000" />
+      <workItem from="1614450216538" duration="145000" />
+      <workItem from="1614617293429" duration="84000" />
+      <workItem from="1614620116536" duration="974000" />
+      <workItem from="1614776494459" duration="9117000" />
+      <workItem from="1614798163125" duration="4790000" />
+      <workItem from="1614804369450" duration="1472000" />
+      <workItem from="1614865525611" duration="1244000" />
+      <workItem from="1614867052535" duration="366000" />
+      <workItem from="1614875730246" duration="116000" />
+      <workItem from="1614930408323" duration="9266000" />
+      <workItem from="1614964255369" duration="197000" />
+      <workItem from="1615624217189" duration="3855000" />
+      <workItem from="1615656818316" duration="6109000" />
+      <workItem from="1615811253537" duration="15700000" />
+      <workItem from="1615900669395" duration="1122000" />
+      <workItem from="1615978770286" duration="69000" />
+      <workItem from="1615981116565" duration="7839000" />
+      <workItem from="1616064288626" duration="5590000" />
+      <workItem from="1616074568867" duration="93000" />
+      <workItem from="1616080835498" duration="2315000" />
+      <workItem from="1616094029485" duration="4000" />
+      <workItem from="1616094085722" duration="959000" />
+      <workItem from="1616141761300" duration="2392000" />
+      <workItem from="1616153467081" duration="3263000" />
+      <workItem from="1616168637688" duration="1180000" />
+      <workItem from="1616182853016" duration="307000" />
+      <workItem from="1616226437925" duration="603000" />
+      <workItem from="1616673507267" duration="120000" />
+      <workItem from="1616673885750" duration="8010000" />
+      <workItem from="1616750076580" duration="7006000" />
+      <workItem from="1616762370408" duration="1000" />
+      <workItem from="1616768223328" duration="1105000" />
+      <workItem from="1616784081116" duration="1670000" />
+      <workItem from="1616786979677" duration="6000" />
+      <workItem from="1616831673346" duration="409000" />
+      <workItem from="1616867629141" duration="455000" />
+      <workItem from="1616868314101" duration="327000" />
+      <workItem from="1616944821441" duration="376000" />
+      <workItem from="1617008495660" duration="350000" />
+      <workItem from="1617009919496" duration="640000" />
+      <workItem from="1617037992124" duration="3884000" />
+      <workItem from="1617052833989" duration="791000" />
+      <workItem from="1617179173850" duration="2110000" />
+      <workItem from="1617258892918" duration="4692000" />
+      <workItem from="1617277755052" duration="1549000" />
+      <workItem from="1617279851227" duration="668000" />
+      <workItem from="1617354955110" duration="4656000" />
+      <workItem from="1617375755112" duration="19000" />
+      <workItem from="1617375792356" duration="5000" />
+      <workItem from="1617432000963" duration="652000" />
+      <workItem from="1617470087944" duration="48000" />
+      <workItem from="1617470234563" duration="1949000" />
+      <workItem from="1617525332070" duration="2390000" />
+      <workItem from="1617646460995" duration="1555000" />
+      <workItem from="1617648065887" duration="160000" />
+      <workItem from="1617656153336" duration="137000" />
+      <workItem from="1617701791410" duration="543000" />
+      <workItem from="1617902323224" duration="2747000" />
+      <workItem from="1617906438452" duration="605000" />
+      <workItem from="1617997830231" duration="96000" />
+      <workItem from="1618052086556" duration="2370000" />
+      <workItem from="1618134062726" duration="47000" />
+      <workItem from="1618161375002" duration="2272000" />
+      <workItem from="1618206335584" duration="8953000" />
+      <workItem from="1618225794465" duration="197000" />
+      <workItem from="1618231036770" duration="4060000" />
+      <workItem from="1618247178274" duration="1861000" />
+      <workItem from="1618337914338" duration="39000" />
+      <workItem from="1618338178879" duration="345000" />
+      <workItem from="1618505993544" duration="4057000" />
     </task>
     <task id="LOCAL-00001" summary="Markers now find label from input data for colour without manual input. Added plot to show quantisation errors and frequency of neuron activation">
       <created>1600343898422</created>
@@ -545,7 +662,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611131030268</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Changes to plotting module and SOM setup.">
+      <created>1612277624086</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1612277624086</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -611,7 +735,8 @@
     <MESSAGE value="Unblinding of data for experiment 1" />
     <MESSAGE value="Investigating dense regions and outlying data." />
     <MESSAGE value="Start of module for spectral plotting and selection of cells of interest form SOM" />
-    <option name="LAST_COMMIT_MESSAGE" value="Start of module for spectral plotting and selection of cells of interest form SOM" />
+    <MESSAGE value="Changes to plotting module and SOM setup." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes to plotting module and SOM setup." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/prostate$pytest_for_test_mysom_TestNormalisation.coverage" NAME="pytest for test_mysom.TestNormalisation Coverage Results" MODIFIED="1612267066213" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysom" />
@@ -624,7 +749,7 @@
     <SUITE FILE_PATH="coverage/prostate$pytest_in__.coverage" NAME="pytest in / Coverage Results" MODIFIED="1602675451305" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/prostate$pytest_for_test_mysom_TestOutputGraphs_test_plot_errors.coverage" NAME="pytest for test_mysom.TestOutputGraphs.test_plot_errors Coverage Results" MODIFIED="1611084128187" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysom" />
     <SUITE FILE_PATH="coverage/prostate$pytest_for_test_wallet_test_default_initial_amount.coverage" NAME="pytest for test_wallet.test_default_initial_amount Coverage Results" MODIFIED="1601551585390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sandbox" />
-    <SUITE FILE_PATH="coverage/prostate$pytest_in_test_mysom_py.coverage" NAME="pytest in test_mysom.py Coverage Results" MODIFIED="1612267199354" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysom" />
+    <SUITE FILE_PATH="coverage/prostate$pytest_in_test_mysom_py.coverage" NAME="pytest in test_mysom.py Coverage Results" MODIFIED="1616154095518" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysom" />
     <SUITE FILE_PATH="coverage/prostate$pytest_for_test_mysom_TestOutputGraphs_test_som_weights.coverage" NAME="pytest for test_mysom.TestOutputGraphs.test_som_weights Coverage Results" MODIFIED="1610719708843" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysom" />
     <SUITE FILE_PATH="coverage/prostate$pytest_for_test_mysom_TestOutputGraphs_test_temp_dir.coverage" NAME="pytest for test_mysom.TestOutputGraphs.test_temp_dir Coverage Results" MODIFIED="1610476495641" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysom" />
     <SUITE FILE_PATH="coverage/prostate$pytest_for_test_mysom_TestSomBuilding_test_unknown_data.coverage" NAME="pytest for test_mysom.TestSomBuilding.test_unknown_data Coverage Results" MODIFIED="1610562822735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysom" />
@@ -638,6 +763,7 @@
     <SUITE FILE_PATH="coverage/prostate$pytest_in_test_banbury_py.coverage" NAME="pytest in test_banbury.py Coverage Results" MODIFIED="1603206349812" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/prostate$pytest_for_test_mysom_TestOutputGraphs_test_som_umatrix_show_inactive_nodes.coverage" NAME="pytest for test_mysom.TestOutputGraphs.test_som_umatrix_show_inactive_nodes Coverage Results" MODIFIED="1610991137767" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysom" />
     <SUITE FILE_PATH="coverage/prostate$pytest_for_test_mysom_TestOutputGraphs.coverage" NAME="pytest for test_mysom.TestOutputGraphs Coverage Results" MODIFIED="1612267187924" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysom" />
+    <SUITE FILE_PATH="coverage/prostate$blinded_soms_outlier_removed_stats.coverage" NAME="blinded_soms_outlier_removed_stats Coverage Results" MODIFIED="1616868329151" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line" />
     <SUITE FILE_PATH="coverage/prostate$pytest_for_test_mysom_test_frobenius_norm_normalisation.coverage" NAME="pytest for test_mysom.test_frobenius_norm_normalisation Coverage Results" MODIFIED="1610460070965" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysom" />
     <SUITE FILE_PATH="coverage/prostate$pytest_for_test_banbury_test_change_cwd.coverage" NAME="pytest for test_banbury.test_change_cwd Coverage Results" MODIFIED="1602602977937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sandbox" />
     <SUITE FILE_PATH="coverage/prostate$pytest_for_test_mysom_TestOutputGraphs_test_som_umatrix_show_input.coverage" NAME="pytest for test_mysom.TestOutputGraphs.test_som_umatrix_show_input Coverage Results" MODIFIED="1610997404239" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysom" />
@@ -655,5 +781,6 @@
     <SUITE FILE_PATH="coverage/prostate$pytest_for_test_mysom_test_frobenius_norm.coverage" NAME="pytest for test_mysom.test_frobenius_norm Coverage Results" MODIFIED="1610454603386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysom" />
     <SUITE FILE_PATH="coverage/prostate$pytest_for_test_mysom_TestSomBuilding_test_incorrect_labels.coverage" NAME="pytest for test_mysom.TestSomBuilding.test_incorrect_labels Coverage Results" MODIFIED="1610564244062" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysom" />
     <SUITE FILE_PATH="coverage/prostate$pytest_for_test_mysom_TestNormalisation_test_frobenius_norm_normalisation.coverage" NAME="pytest for test_mysom.TestNormalisation.test_frobenius_norm_normalisation Coverage Results" MODIFIED="1612265655695" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysom" />
+    <SUITE FILE_PATH="coverage/prostate$playground.coverage" NAME="playground Coverage Results" MODIFIED="1617272749362" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/thesis/yvette/blinded_prostate_cell_line" />
   </component>
 </project>
